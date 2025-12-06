@@ -1,0 +1,129 @@
+/* Pastikan variabel ini di awal file */
+:root {
+    --primary-color: #697CDC; 
+    --secondary-color: #DDEAFC; /* Latar kontainer besar */
+    --bg-page: #F8FAFC; 
+    --text-dark: #3f426e;
+    --text-light: #555555;
+    --white: #ffffff; 
+    --border-radius-lg: 40px;
+    --border-radius-md: 25px;
+    --radius-input: 10px; /* Diperbesar agar sesuai desain */
+}
+
+/* --- TATA LETAK UTAMA LOGIN (FLEXBOX) --- */
+
+.login-page-container {
+    background-color: var(--secondary-color);
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: var(--border-radius-lg); /* 40px */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    min-height: 600px; 
+    display: flex; /* Penting untuk memusatkan Flexbox */
+    justify-content: center;
+}
+
+/* Flex Container untuk tata letak 2 kolom */
+.login-content-wrapper {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    width: 90%;
+    gap: 50px; 
+}
+
+/* Kiri: Visual */
+.login-visual-area {
+    flex: 1; 
+    text-align: center;
+    max-width: 50%;
+}
+
+.login-visual-area .servify-logo-big {
+    width: 250px; 
+    margin-bottom: 15px;
+}
+
+.login-hero-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+}
+
+/* Kanan: Kartu Login */
+.login-card-section {
+    width: 100%;
+    max-width: 400px;
+    background: var(--white); /* Latar Putih */
+    padding: 35px;
+    border-radius: var(--border-radius-md); /* 25px */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card-title-auth {
+    font-size: 26px;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Gaya Input Auth */
+.form-group-auth input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Radius input */
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.forgot-password-link {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Tombol Login */
+.btn-login-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+}
+
+/* Link Buat Akun Baru */
+.btn-register-link {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+/* --- Registrasi Page (Kartu Terpusat) --- */
+.register-page {
+    display: block; 
+}
+
+.card-form-register {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    background-color: var(--white); 
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 40px auto; 
+    text-align: center;
+}
