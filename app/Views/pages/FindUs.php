@@ -76,7 +76,7 @@
 // Data Lokasi
 const serviceLocations = [
     {
-        name: "Servify Jakarta Pusat",
+        name: "Servis Jaya Abadi",
         address: "Jl. Sudirman No. 123, Jakarta Pusat",
         phone: "021-1234567",
         lat: -6.2088,
@@ -84,7 +84,7 @@ const serviceLocations = [
         hours: "09:00 - 18:00"
     },
     {
-        name: "Servify Jakarta Selatan",
+        name: "Servis Anggara 20",
         address: "Jl. TB Simatupang No. 45, Jakarta Selatan",
         phone: "021-7654321",
         lat: -6.2897,
@@ -92,7 +92,7 @@ const serviceLocations = [
         hours: "09:00 - 20:00"
     },
     {
-        name: "Servify Bandung",
+        name: "TeknisiABC",
         address: "Jl. Asia Afrika No. 78, Bandung",
         phone: "022-8765432",
         lat: -6.9175,
@@ -100,7 +100,7 @@ const serviceLocations = [
         hours: "08:00 - 17:00"
     },
     {
-        name: "Servify Surabaya",
+        name: "Komputer Jaya Abadi",
         address: "Jl. Raya Darmo No. 100, Surabaya",
         phone: "031-5556789",
         lat: -7.2575,
@@ -108,7 +108,7 @@ const serviceLocations = [
         hours: "09:00 - 18:00"
     },
     {
-        name: "Servify Medan",
+        name: "Medan Ahli Komputer",
         address: "Jl. Gatot Subroto No. 88, Medan",
         phone: "061-4445678",
         lat: 3.5952,
@@ -121,17 +121,16 @@ let map;
 let markers = [];
 
 function initMap() {
-    // Inisialisasi Peta (Default Jakarta)
+    // Inisialisasi Peta 
     map = L.map('map', {
-        zoomControl: false // Kita pindahkan atau sembunyikan kontrol zoom default jika mengganggu
+        zoomControl: false 
     }).setView([-6.2088, 106.8456], 11);
 
-    // Tambahkan kontrol zoom di posisi yang aman
     L.control.zoom({
         position: 'bottomright'
     }).addTo(map);
 
-    // Tile Layer (OpenStreetMap)
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors',
         maxZoom: 19
@@ -142,7 +141,6 @@ function initMap() {
 }
 
 function addServiceMarkers() {
-    // Custom Icon (Warna Ungu Servify)
     const customIcon = L.divIcon({
         className: 'custom-div-icon',
         html: `<div style="background-color: #687bdb; width: 30px; height: 30px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white;"><i class="fas fa-tools" style="font-size: 14px;"></i></div>`,
@@ -215,29 +213,6 @@ function focusLocation(index) {
         duration: 1.5
     });
     markers[index].openPopup();
-}
-
-function getUserLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            const userLat = position.coords.latitude;
-            const userLng = position.coords.longitude;
-            
-            // Tambah marker user
-            L.marker([userLat, userLng]).addTo(map)
-                .bindPopup("Lokasi Anda").openPopup();
-                
-            map.flyTo([userLat, userLng], 13);
-            
-            // Hitung jarak terdekat (logika sederhana)
-            // ... (bisa ditambahkan logika seperti kode lama Anda)
-            
-        }, () => {
-            alert("Gagal mendeteksi lokasi. Pastikan GPS aktif.");
-        });
-    } else {
-        alert("Browser Anda tidak mendukung Geolocation.");
-    }
 }
 
 document.addEventListener('DOMContentLoaded', initMap);

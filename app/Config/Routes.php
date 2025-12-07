@@ -14,27 +14,25 @@ $routes->get('findus', 'Home::findus');
 $routes->get('chatbot', 'Chatbot::index');
 $routes->post('chatbot/sendMessage', 'Chatbot::sendMessage');
 
-// Marketplace (Sisi Pembeli)
+// Marketplace & Reservasi (Sisi Pembeli)
 $routes->get('marketplace', 'Marketplace::index');
 $routes->get('marketplace/detail/(:num)', 'Marketplace::detail/$1');
-
-// Reservasi (Sisi Pembeli)
 $routes->get('reservation', 'Reservation::index');
 $routes->post('reservation/create', 'Reservation::create');
 
-// Authentication (Login/Register/Logout)
+// Auth
 $routes->get('register', 'Auth::register');
 $routes->post('register/create', 'Auth::processRegister');
 $routes->get('login', 'Auth::login');
 $routes->post('login/process', 'Auth::processLogin');
 $routes->get('logout', 'Auth::logout');
 
-// Pendaftaran Merchant (Publik)
+// Pendaftaran Merchant (Publik - Bisa diakses user biasa untuk daftar)
 $routes->get('merchant', 'Merchant::index');
 $routes->get('merchant/register', 'Merchant::register');
 $routes->post('merchant/create', 'Merchant::create');
 
-// GROUP ADMIN (Dilindungi Filter Admin)
+// GROUP ADMIN
 $routes->group('admin', function ($routes) {
     $routes->get('/', 'Admin::index');
     $routes->get('dashboard', 'Admin::index');
@@ -43,8 +41,8 @@ $routes->group('admin', function ($routes) {
     $routes->get('logout', 'Admin::logout');
 });
 
-// GROUP MERCHANT (Dilindungi - Hanya untuk merchant yang approved)
-$routes->group('merchant', function($routes) {
+// GROUP MERCHANT (SECURED)
+$routes->group('merchant', ['filter' => 'merchant_auth'], function($routes) {
     $routes->get('dashboard', 'MerchantDashboard::index');
     $routes->get('waiting', 'MerchantDashboard::waiting');
     

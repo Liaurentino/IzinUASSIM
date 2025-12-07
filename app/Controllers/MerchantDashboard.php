@@ -12,7 +12,7 @@ class MerchantDashboard extends BaseController
     protected $productModel;
     protected $reservationModel;
 
-    public function __construct()
+   public function __construct()
     {
         $this->merchantModel = new MerchantModel();
         $this->productModel = new ProductModel();
@@ -21,50 +21,47 @@ class MerchantDashboard extends BaseController
 
     public function index()
     {
-        $session = session();
+        // Session user_id pasti ada karena sudah lolos Filter
+        $userId = session()->get('id'); 
         
-        // Cek apakah user sudah login dan role-nya merchant
-        if (!$session->get('isLoggedIn') || $session->get('role') !== 'merchant') {
-            return redirect()->to(base_url('login'))->with('error', 'Silakan login sebagai merchant');
-        }
-
-        $userId = $session->get('user_id');
+        // Ambil data merchant terbaru untuk konsistensi view
         $merchant = $this->merchantModel->where('user_id', $userId)->first();
 
-        // Cek apakah merchant sudah disetujui
+        // Safety check terakhir
         if (!$merchant || $merchant['status'] !== 'approved') {
             return redirect()->to(base_url('merchant/waiting'));
         }
 
-        // Ambil data untuk dashboard
         $data = [
             'title' => 'Dashboard Merchant',
             'merchant' => $merchant,
             'total_products' => $this->productModel->where('merchant_id', $merchant['id'])->countAllResults(),
-            'total_reservations' => $this->reservationModel->where('merchant_id', $merchant['id'])->countAllResults(),
+            'pending_reservations' => $this->reservationModel->where('merchant_id', $merchant['id'])->where('status', 'Pending')->countAllResults(),
+            'recent_products' => $this->productModel->where('merchant_id', $merchant['id'])->orderBy('created_at', 'DESC')->findAll(5)
         ];
 
-        return view('merchant/dashboard', $data);
+        return $this->renderView('merchant/dashboard', $data);
     }
 
-    // Halaman waiting untuk merchant yang belum disetujui
     public function waiting()
     {
-        $session = session();
-        $userId = $session->get('user_id');
+        $data = ['title' => 'Menunggu Verifikasi'];
+        // Tampilkan view waiting (pastikan file view-nya ada)
+        return $this->renderView('merchant/waiting', $data);
+    }
+
+    public function products()
+    {
+        $userId = session()->get('id');
         $merchant = $this->merchantModel->where('user_id', $userId)->first();
 
-        if (!$merchant) {
-            return redirect()->to(base_url('/'));
-        }
-
         $data = [
-            'title' => 'Menunggu Persetujuan',
-            'merchant' => $merchant
+            'title' => 'Kelola Produk',
+            'products' => $this->productModel->where('merchant_id', $merchant['id'])->findAll()
         ];
-
-        return view('merchant/waiting', $data);
+        return $this->renderView('merchant/products', $data);
     }
+    
 
     // Tambah Produk
     public function addProduct()

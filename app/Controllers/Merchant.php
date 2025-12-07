@@ -11,16 +11,14 @@ class Merchant extends BaseController
             'title' => 'Servify - Gabung Merchant',
         ];
 
-        // KUNCI PERBAIKAN: Panggil Header (CSS), lalu Halaman Info, lalu Footer
-        echo view('layout/header', $data); 
-        echo view('pages/merchant_info', $data);
-        echo view('layout/footer');
+        // PERBAIKAN: Gunakan renderView() agar variabel $session otomatis dikirim ke header
+        return $this->renderView('pages/merchant_info', $data);
     }
 
     // Halaman Form Register (Public User View)
     public function register()
     {
-        // Cek Login
+        // Cek Login menggunakan session() helper langsung atau property session
         if (! session()->get('isLoggedIn')) {
             session()->setFlashdata('error', 'Anda harus login untuk mendaftar sebagai Mitra.');
             return redirect()->to(base_url('login'));
@@ -31,10 +29,8 @@ class Merchant extends BaseController
             'validation' => \Config\Services::validation()
         ];
         
-        // KUNCI PERBAIKAN: Gunakan struktur sandwich yang sama
-        echo view('layout/header', $data);
-        echo view('pages/merchant_register', $data);
-        echo view('layout/footer');
+        // PERBAIKAN: Gunakan renderView() di sini juga
+        return $this->renderView('pages/merchant_register', $data);
     }
 
     // Proses Submit Data
@@ -42,6 +38,17 @@ class Merchant extends BaseController
     {
         if (! session()->get('isLoggedIn')) {
             return redirect()->to(base_url('login'));
+        }
+
+        $merchantModel = new MerchantModel();
+        
+        // Ambil ID user dari session
+        $userId = session()->get('id') ?? session()->get('user_id');
+
+        // Cek apakah user ini SUDAH pernah daftar (untuk mencegah duplikasi)
+        $existingMerchant = $merchantModel->where('user_id', $userId)->first();
+        if ($existingMerchant) {
+            return redirect()->back()->with('error', 'Anda sudah terdaftar atau sedang dalam proses verifikasi.');
         }
 
         // Validasi Input
@@ -56,12 +63,6 @@ class Merchant extends BaseController
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
-        // Simpan ke Database
-        $merchantModel = new MerchantModel();
-        
-        // Ambil ID user dari session
-        $userId = session()->get('id') ?? session()->get('user_id');
-
         $data = [
             'user_id'        => $userId,
             'business_name'  => $this->request->getPost('business_name'),
@@ -72,12 +73,13 @@ class Merchant extends BaseController
             'email'          => $this->request->getPost('email'),
             'business_type'  => $this->request->getPost('business_type'),
             'license_number' => $this->request->getPost('license_number'),
-            'status'         => 'pending', 
+            'status'         => 'pending', // Status awal selalu pending
         ];
 
         if($merchantModel->save($data)) {
             session()->setFlashdata('success', 'Pendaftaran Mitra berhasil! Mohon tunggu verifikasi Admin.');
-            return redirect()->to(base_url('merchant')); 
+            // Arahkan ke halaman waiting agar user tahu statusnya
+            return redirect()->to(base_url('merchant/waiting')); 
         } else {
             session()->setFlashdata('error', 'Gagal menyimpan data. Silakan coba lagi.');
             return redirect()->back()->withInput();

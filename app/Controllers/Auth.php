@@ -40,7 +40,7 @@ class Auth extends BaseController
             'email'     => $this->request->getPost('email'),
             'phone'     => $this->request->getPost('phone'),
             'password'  => $this->request->getPost('password'),
-            'role'      => 'user' 
+            'role'      => 'user' // Default role
         ]);
 
         $this->session->setFlashdata('success', 'Registrasi berhasil! Silakan Login.');
@@ -73,36 +73,45 @@ class Auth extends BaseController
 
         if ($user && password_verify($password, $user['password'])) {
             
-            $sesData = [
-                'user_id'    => $user['id'],
+            // 1. Siapkan Data Session Dasar
+            $sessData = [
+                'id'         => $user['id'],       // ID User (Primary Key users)
+                'user_id'    => $user['id'],       // Alias untuk kompatibilitas
                 'user_name'  => $user['name'],
                 'user_email' => $user['email'],
-                'role'       => $user['role'],
+                'role'       => $user['role'],     // Role dari database (admin/user/merchant)
                 'isLoggedIn' => TRUE
             ];
-            
-            $redirectUrl = base_url('/');
 
-            // Redirect berdasarkan role
+            // 2. Ambil Data Merchant (Cek status merchant, meskipun role user masih 'user')
+            $merchant = $merchantModel->where('user_id', $user['id'])->first();
+
+            if ($merchant) {
+                // Masukkan data merchant ke session agar bisa diakses di dashboard/header
+                $sessData['merchant_id']     = $merchant['id'];
+                $sessData['merchant_status'] = $merchant['status']; // Verified/pending/rejected
+                $sessData['merchant_name']   = $merchant['merchant_name'] ?? $merchant['business_name'];
+            }
+
+            // 3. Tentukan Redirect URL
+            $redirectUrl = base_url('/'); // Default ke Home
+
             if ($user['role'] === 'admin') {
-                $redirectUrl = base_url('admin');
-                
-            } elseif ($user['role'] === 'merchant') {
-                // Cek data merchant
-                $merchant = $merchantModel->where('user_id', $user['id'])->first();
-
-                if ($merchant) {
-                    $sesData['merchant_id'] = $merchant['id'];
-                    $sesData['merchant_status'] = $merchant['status'];
-                    $sesData['merchant_name'] = $merchant['merchant_name'] ?? $merchant['business_name'];
-                }
-
-                // Redirect ke dashboard merchant
-                // Nanti akan dicek statusnya di controller
+                $redirectUrl = base_url('admin/dashboard');
+            } 
+            // Jika role sudah merchant ATAU status merchant sudah Verified (agar dashboard bisa diakses)
+            elseif ($user['role'] === 'merchant' || ($merchant && $merchant['status'] === 'Verified')) {
+                // Update role di session jika di database masih user tapi status verified
+                $sessData['role'] = 'merchant'; 
                 $redirectUrl = base_url('merchant/dashboard');
             }
+            // Jika user biasa tapi sudah daftar merchant (status pending)
+            elseif ($merchant && $merchant['status'] === 'pending') {
+                $redirectUrl = base_url('merchant/waiting');
+            }
             
-            $this->session->set($sesData);
+            // Set Session
+            $this->session->set($sessData);
             $this->session->setFlashdata('success', 'Login Berhasil! Selamat datang ' . $user['name'] . '.');
             
             return redirect()->to($redirectUrl);

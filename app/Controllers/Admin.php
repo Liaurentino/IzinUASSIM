@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Controllers;
+<?php namespace App\Controllers;
 
 use App\Models\MerchantModel;
 use App\Models\UserModel;
@@ -18,59 +16,52 @@ class Admin extends BaseController
 
     public function index()
     {
-        // Pastikan cek role session sesuai dengan cara Anda menyimpan session (misal: 'role' atau 'level')
         if (session()->get('role') !== 'admin') {
-            return redirect()->to(base_url('login'))->with('error', 'Akses Ditolak.');
+            return redirect()->to(base_url('login'));
         }
 
-        // Ambil data merchant dengan status 'pending' (huruf kecil)
-        $pendingMerchants = $this->merchantModel->where('status', 'pending')->findAll();
-
+        // Ambil data merchant yang statusnya 'pending'
         $data = [
             'title' => 'Dashboard Admin',
-            'pending_merchants' => $pendingMerchants,
+            'pending_merchants' => $this->merchantModel->where('status', 'pending')->findAll(),
         ];
         
-        return view('admin/dashboard', $data);
+        return $this->renderView('admin/dashboard', $data);
     }
 
-    public function approveMerchant($merchantId)
+    public function approveMerchant($id)
     {
         if (session()->get('role') !== 'admin') {
             return redirect()->to(base_url('login'));
         }
 
-        $merchant = $this->merchantModel->find($merchantId);
+        $merchant = $this->merchantModel->find($id);
 
         if ($merchant) {
-            // 1. Update status merchant menjadi 'approved'
-            $this->merchantModel->update($merchantId, ['status' => 'approved']);
+            // 1. Update Status di Tabel Merchants
+            $this->merchantModel->update($id, ['status' => 'approved']);
 
-            // 2. Update role user menjadi 'merchant'
-            // Pastikan kolom di database merchant adalah 'user_id'
-            $userId = $merchant['user_id'];
-            
-            // Cek apakah user ada sebelum update
-            if($this->userModel->find($userId)) {
-                $this->userModel->update($userId, ['role' => 'merchant']);
-            }
+            // 2. Update Role di Tabel Users (PENTING AGAR DIA PUNYA HAK AKSES)
+            $this->userModel->update($merchant['user_id'], ['role' => 'merchant']);
 
-            return redirect()->to(base_url('admin'))->with('success', 'Merchant berhasil disetujui.');
+            session()->setFlashdata('success', 'Merchant disetujui. Status User telah diperbarui.');
         }
 
-        return redirect()->to(base_url('admin'))->with('error', 'Merchant tidak ditemukan.');
+        return redirect()->to(base_url('admin/dashboard'));
     }
 
-    public function rejectMerchant($merchantId)
+    public function rejectMerchant($id)
     {
         if (session()->get('role') !== 'admin') {
             return redirect()->to(base_url('login'));
         }
 
-        $this->merchantModel->update($merchantId, ['status' => 'rejected']);
-        return redirect()->to(base_url('admin'))->with('success', 'Permintaan Merchant ditolak.');
+        $this->merchantModel->update($id, ['status' => 'rejected']);
+        
+        session()->setFlashdata('success', 'Permintaan Merchant ditolak.');
+        return redirect()->to(base_url('admin/dashboard'));
     }
-
+    
     public function logout()
     {
         session()->destroy();
