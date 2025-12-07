@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= esc($title) ?></title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind Config for custom colors/fonts -->
     <script>
         tailwind.config = {
             theme: {
@@ -24,21 +22,19 @@
             }
         }
     </script>
-    <!-- Custom Styles -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
-            background-color: #F8F8F8; /* Background abu-abu muda */
+            background-color: #F8F8F8;
             font-family: 'Inter', sans-serif;
         }
         .nav-link:hover {
             color: #4c70ff;
         }
         .main-card {
-            background-color: #f0f4ff; /* soft-blue */
+            background-color: #f0f4ff;
             border: 2px solid #D1D5DB;
         }
-        /* Style untuk hover form pendaftaran merchant */
         #merchant-cta-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(76, 112, 255, 0.3);
@@ -67,16 +63,31 @@
             <a href="<?= base_url('chatbot') ?>" class="nav-link">Chatbot</a>
             <a href="<?= base_url('findus') ?>" class="nav-link">Find Us</a>
             <a href="<?= base_url('merchant') ?>" class="nav-link">Merchant</a>
+            
             <?php if ($session->get('isLoggedIn')): ?>
-                <a href="<?= base_url('logout') ?>" class="text-red-500 font-semibold hover:text-red-700">Logout (<?= esc($session->get('user_name')) ?>)</a>
+                <!-- Show Dashboard Link if Verified Merchant -->
+                <?php if ($session->get('merchant_id') && $session->get('merchant_status') === 'Verified'): ?>
+                    <a href="<?= base_url('merchant/dashboard') ?>" class="nav-link text-secondary-purple font-bold flex items-center space-x-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                <?php endif; ?>
+                
+                <a href="<?= base_url('logout') ?>" class="text-red-500 font-semibold hover:text-red-700">
+                    Logout (<?= esc($session->get('user_name')) ?>)
+                </a>
             <?php else: ?>
                 <a href="<?= base_url('login') ?>" class="nav-link text-primary-blue font-semibold">Login</a>
             <?php endif; ?>
         </div>
         
-        <!-- Mobile Menu Button (Optional, not implemented fully but good practice) -->
+        <!-- Mobile Menu Button -->
         <button class="md:hidden text-text-dark focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
         </button>
     </div>
 </nav>

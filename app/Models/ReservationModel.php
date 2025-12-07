@@ -17,6 +17,8 @@ class ReservationModel extends Model
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
+    // HARUS TRUE agar CI4 mengelola kolom created_at dan updated_at
+    protected $updatedField  = 'updated_at';
     
     // Aturan validasi
     protected $validationRules = [

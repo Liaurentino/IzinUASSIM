@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\UserModel;
+use App\Models\MerchantModel;
 
 class Auth extends BaseController
 {
@@ -11,7 +12,6 @@ class Auth extends BaseController
             'validation' => \Config\Services::validation()
         ];
         
-        // Cek jika sudah login, redirect ke home
         if ($this->session->get('isLoggedIn')) {
             return redirect()->to(base_url('/'));
         }
@@ -21,7 +21,6 @@ class Auth extends BaseController
 
     public function processRegister()
     {
-        // 1. Validasi Input
         if (! $this->validate([
             'name' => 'required|min_length[3]',
             'email' => 'required|valid_email|is_unique[users.email]',
@@ -32,16 +31,14 @@ class Auth extends BaseController
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
-        // 2. Simpan ke Database
         $userModel = new UserModel();
         $userModel->save([
             'name'     => $this->request->getPost('name'),
             'email'    => $this->request->getPost('email'),
             'phone'    => $this->request->getPost('phone'),
-            'password' => $this->request->getPost('password'), // Password akan di-hash oleh UserModel
+            'password' => $this->request->getPost('password'),
         ]);
 
-        // 3. Set Session & Redirect
         $this->session->setFlashdata('success', 'Registrasi berhasil! Silakan Login.');
         return redirect()->to(base_url('login'));
     }
@@ -66,28 +63,38 @@ class Auth extends BaseController
         $password = $this->request->getPost('password');
 
         $userModel = new UserModel();
+        $merchantModel = new MerchantModel();
+        
         $user = $userModel->where('email', $email)->first();
 
-        if ($user) {
-            // Verifikasi password
-            if (password_verify($password, $user['password'])) {
-                // Login Sukses: Set Session
-                $sesData = [
-                    'user_id'    => $user['id'],
-                    'user_name'  => $user['name'],
-                    'user_email' => $user['email'],
-                    'isLoggedIn' => TRUE
-                ];
-                $this->session->set($sesData);
-                $this->session->setFlashdata('success', 'Login Berhasil!');
-                return redirect()->to(base_url('/'));
-            } else {
-                // Password salah
-                $this->session->setFlashdata('error', 'Email atau Password salah!');
-                return redirect()->back()->withInput();
+        if ($user && password_verify($password, $user['password'])) {
+            // Check if user has merchant account
+            $merchant = $merchantModel->where('user_id', $user['id'])->first();
+            
+            $sesData = [
+                'user_id'    => $user['id'],
+                'user_name'  => $user['name'],
+                'user_email' => $user['email'],
+                'isLoggedIn' => TRUE
+            ];
+            
+            // Add merchant data to session if exists
+            if ($merchant) {
+                $sesData['merchant_id'] = $merchant['id'];
+                $sesData['merchant_status'] = $merchant['status'];
+                $sesData['business_name'] = $merchant['business_name'];
             }
+            
+            $this->session->set($sesData);
+            $this->session->setFlashdata('success', 'Login Berhasil!');
+            
+            // Redirect to merchant dashboard if verified merchant
+            if ($merchant && $merchant['status'] === 'Verified') {
+                return redirect()->to(base_url('merchant/dashboard'));
+            }
+            
+            return redirect()->to(base_url('/'));
         } else {
-            // Email tidak ditemukan
             $this->session->setFlashdata('error', 'Email atau Password salah!');
             return redirect()->back()->withInput();
         }

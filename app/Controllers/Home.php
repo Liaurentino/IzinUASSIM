@@ -21,12 +21,14 @@ class Home extends BaseController
         return $this->renderView('pages/chatbot', $data);
     }
     
-    // Halaman Find Us (Map dummy)
-    public function findus()
+    // Halaman Find Us
+     public function findus()
     {
         $data = [
-            'title' => 'Servify - Cari Lokasi Kami',
+            'title' => 'Find Us - Servify Locations',
+            'session' => $this->session
         ];
+        
         return $this->renderView('pages/findus', $data);
     }
 }
