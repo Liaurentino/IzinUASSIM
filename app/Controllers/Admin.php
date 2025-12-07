@@ -18,11 +18,12 @@ class Admin extends BaseController
 
     public function index()
     {
+        // Pastikan cek role session sesuai dengan cara Anda menyimpan session (misal: 'role' atau 'level')
         if (session()->get('role') !== 'admin') {
             return redirect()->to(base_url('login'))->with('error', 'Akses Ditolak.');
         }
 
-        // Ambil data merchant dengan status 'pending'
+        // Ambil data merchant dengan status 'pending' (huruf kecil)
         $pendingMerchants = $this->merchantModel->where('status', 'pending')->findAll();
 
         $data = [
@@ -36,7 +37,7 @@ class Admin extends BaseController
     public function approveMerchant($merchantId)
     {
         if (session()->get('role') !== 'admin') {
-            return redirect()->to(base_url('login'))->with('error', 'Akses Ditolak.');
+            return redirect()->to(base_url('login'));
         }
 
         $merchant = $this->merchantModel->find($merchantId);
@@ -46,10 +47,15 @@ class Admin extends BaseController
             $this->merchantModel->update($merchantId, ['status' => 'approved']);
 
             // 2. Update role user menjadi 'merchant'
+            // Pastikan kolom di database merchant adalah 'user_id'
             $userId = $merchant['user_id'];
-            $this->userModel->update($userId, ['role' => 'merchant']);
+            
+            // Cek apakah user ada sebelum update
+            if($this->userModel->find($userId)) {
+                $this->userModel->update($userId, ['role' => 'merchant']);
+            }
 
-            return redirect()->to(base_url('admin'))->with('success', 'Merchant berhasil disetujui dan user diupdate menjadi merchant.');
+            return redirect()->to(base_url('admin'))->with('success', 'Merchant berhasil disetujui.');
         }
 
         return redirect()->to(base_url('admin'))->with('error', 'Merchant tidak ditemukan.');
@@ -58,19 +64,11 @@ class Admin extends BaseController
     public function rejectMerchant($merchantId)
     {
         if (session()->get('role') !== 'admin') {
-            return redirect()->to(base_url('login'))->with('error', 'Akses Ditolak.');
+            return redirect()->to(base_url('login'));
         }
 
-        $merchant = $this->merchantModel->find($merchantId);
-
-        if ($merchant) {
-            // Update status merchant menjadi 'rejected'
-            $this->merchantModel->update($merchantId, ['status' => 'rejected']);
-
-            return redirect()->to(base_url('admin'))->with('success', 'Permintaan Merchant berhasil ditolak.');
-        }
-
-        return redirect()->to(base_url('admin'))->with('error', 'Merchant tidak ditemukan.');
+        $this->merchantModel->update($merchantId, ['status' => 'rejected']);
+        return redirect()->to(base_url('admin'))->with('success', 'Permintaan Merchant ditolak.');
     }
 
     public function logout()

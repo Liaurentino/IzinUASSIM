@@ -49,6 +49,7 @@ $routes->group('merchant', function($routes) {
     $routes->get('waiting', 'MerchantDashboard::waiting');
     
     // Produk
+    $routes->get('products', 'MerchantDashboard::products');
     $routes->get('products/add', 'MerchantDashboard::addProduct');
     $routes->post('products/store', 'MerchantDashboard::storeProduct');
     
