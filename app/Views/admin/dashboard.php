@@ -1,7 +1,8 @@
 <?= $this->extend('admin/layout/admin_template') ?>
 
 <?= $this->section('content') ?>
-<div class="container dashboard-container">
+<!-- PERBAIKAN: Tambahkan class 'admin' di sini agar gaya spesifik Admin di CSS termuat -->
+<div class="container dashboard-container admin">
     <div class="sidebar">
         <h2>Admin Menu</h2>
         <ul>
@@ -44,7 +45,7 @@
                     <?php foreach ($pending_merchants as $merchant): ?>
                         <tr>
                             <td><?= esc($merchant['id']) ?></td>
-                            <td><?= esc($merchant['merchant_name']) ?></td>
+                            <td><?= esc($merchant['merchant_name'] ?? 'N/A') ?></td>
                             <td><?= esc($merchant['address']) ?></td>
                             <td><?= esc($merchant['phone']) ?></td>
                             <td><span style="color: #f39c12; font-weight: bold;"><?= esc(ucfirst($merchant['status'])) ?></span></td>

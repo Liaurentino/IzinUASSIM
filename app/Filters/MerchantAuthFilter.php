@@ -27,21 +27,33 @@ class MerchantAuthFilter implements FilterInterface
 
         // 2. Cek apakah role user adalah 'merchant'
         if ($session->get('role') !== 'merchant') {
-            // Jika bukan merchant, arahkan ke halaman utama atau halaman daftar merchant
             return redirect()->to(base_url('/'))->with('error', 'Akses Merchant Ditolak. Anda bukan Merchant terdaftar.');
         }
         
-        // 3. Cek status merchant (penting: hanya untuk yang statusnya 'approved' yang bisa akses penuh)
+        // 3. Cek status merchant
         $merchantModel = new MerchantModel();
         $merchant = $merchantModel->where('user_id', $session->get('user_id'))->first();
 
+        // Jika status BUKAN 'approved'
         if ($merchant && $merchant['status'] !== 'approved') {
-            // Jika status pending atau rejected, biarkan mereka mengakses halaman dashboard saja
-            if ($request->uri->getPath() !== 'merchantdashboard') {
-                 return redirect()->to(base_url('merchantdashboard'))->with('warning', 'Dashboard Anda masih dalam status ' . $merchant['status'] . '. Harap tunggu persetujuan Admin.');
+            
+            // Ambil URI saat ini dan konversi ke format yang seragam
+            $currentUri = service('uri')->getPath();
+            
+            // List URI Dashboard utama yang diperbolehkan meskipun statusnya pending/rejected
+            $allowedDashboardRoutes = [
+                'merchant/dashboard', 
+                'merchantdashboard'
+            ];
+
+            // Cek apakah URI saat ini BUKAN salah satu dari rute Dashboard yang diizinkan
+            if (! in_array($currentUri, $allowedDashboardRoutes)) {
+                // Jika user mencoba mengakses rute lain (seperti /merchant/products), 
+                // arahkan kembali ke dashboard utama yang akan menampilkan status pending/rejected
+                 return redirect()->to(base_url('merchant/dashboard'))->with('warning', 'Dashboard Anda masih dalam status ' . $merchant['status'] . '. Harap tunggu persetujuan Admin.');
             }
         }
-        // Jika status approved, lanjutkan ke controller yang diminta
+        // Jika status approved, atau jika statusnya belum approved TAPI HANYA mengakses /merchant/dashboard, lanjutkan.
     }
 
     /**

@@ -5,71 +5,86 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-// Halaman Utama
+
+// --------------------------------------------------------------------
+// Halaman Utama & Publik
+// --------------------------------------------------------------------
 $routes->get('/', 'Home::index');
-$routes->get('chatbot', 'Chatbot::index');
-$routes->post('chatbot/sendMessage', 'Chatbot::sendMessage');
 $routes->get('findus', 'Home::findus');
 
-// Authentication
-$routes->get('register', 'Auth::register');
-$routes->post('register/create', 'Auth::processRegister');
-$routes->get('login', 'Auth::login');
-$routes->post('login/process', 'Auth::processLogin');
-$routes->get('logout', 'Auth::logout');
+// Chatbot
+$routes->get('chatbot', 'Chatbot::index');
+$routes->post('chatbot/sendMessage', 'Chatbot::sendMessage');
 
-// Reservation
-$routes->get('reservation', 'Reservation::index');
-$routes->post('reservation/create', 'Reservation::create');
-
-// Marketplace
+// Marketplace (Sisi Pembeli)
 $routes->get('marketplace', 'Marketplace::index');
 $routes->get('marketplace/detail/(:num)', 'Marketplace::detail/$1');
 
-// Merchant Registration
-$routes->get('merchant', 'Merchant::index'); // Halaman info/ajakan
-$routes->get('merchant/register', 'Merchant::register'); // Form pendaftaran
+// Reservasi (Sisi Pembeli)
+$routes->get('reservation', 'Reservation::index');
+$routes->post('reservation/create', 'Reservation::create');
+
+// --------------------------------------------------------------------
+// Authentication (Login/Register/Logout)
+// --------------------------------------------------------------------
+$routes->get('register', 'Auth::register');
+$routes->post('register/create', 'Auth::processRegister');
+$routes->get('auth/login', 'Auth::login'); // Saya seragamkan pakai auth/login sesuai filter
+$routes->get('login', 'Auth::login');      // Alias
+$routes->post('login/process', 'Auth::processLogin');
+$routes->get('auth/logout', 'Auth::logout');
+$routes->get('logout', 'Auth::logout');    // Alias
+
+// --------------------------------------------------------------------
+// Pendaftaran Merchant (Publik)
+// --------------------------------------------------------------------
+$routes->get('merchant', 'Merchant::index');         // Halaman landing merchant
+$routes->get('merchant/register', 'Merchant::register'); 
 $routes->post('merchant/create', 'Merchant::create');
 
+// --------------------------------------------------------------------
+// GROUP ADMIN (Dilindungi Filter Admin)
+// --------------------------------------------------------------------
+$routes->group('admin', ['filter' => 'adminAuth'], function ($routes) {
+    $routes->get('/', 'Admin::index'); 
+    $routes->get('dashboard', 'Admin::index');
     
-    // Product Management
+    // Verifikasi Merchant
+    $routes->get('approve/(:num)', 'Admin::approveMerchant/$1'); 
+    $routes->get('reject/(:num)', 'Admin::rejectMerchant/$1');   
+    
+    $routes->get('logout', 'Admin::logout');
+});
+
+// --------------------------------------------------------------------
+// GROUP MERCHANT (Dilindungi Filter Merchant)
+// Semua URL di sini otomatis berawalan /merchant/...
+// --------------------------------------------------------------------
+$routes->group('merchant', ['filter' => 'merchantAuth'], function ($routes) {
+    
+    // Dashboard Utama
+    $routes->get('dashboard', 'MerchantDashboard::index'); 
+    
+    // Manajemen Produk (CRUD)
     $routes->get('products', 'MerchantDashboard::products');
     $routes->get('products/add', 'MerchantDashboard::addProduct');
     $routes->post('products/store', 'MerchantDashboard::storeProduct');
     $routes->get('products/edit/(:num)', 'MerchantDashboard::editProduct/$1');
     $routes->post('products/update/(:num)', 'MerchantDashboard::updateProduct/$1');
     $routes->post('products/delete/(:num)', 'MerchantDashboard::deleteProduct/$1');
-    
-    // Orders & Reservations
+
+    // Manajemen Pesanan & Reservasi
     $routes->get('orders', 'MerchantDashboard::orders');
-    $routes->get('reservations', 'MerchantDashboard::reservations');
+    $routes->get('reservation', 'MerchantDashboard::reservation'); // Alias 1
+    $routes->get('reservations', 'MerchantDashboard::reservations'); // Alias 2 (sesuaikan nama fungsi di controller)
     $routes->post('reservations/updateStatus/(:num)', 'MerchantDashboard::updateReservationStatus/$1');
-    
-    // Statistics
-    $routes->get('statistics', 'MerchantDashboard::statistics');
 
+    // Statistik
+    $routes->get('statistic', 'MerchantDashboard::statistic');   // Alias 1
+    $routes->get('statistics', 'MerchantDashboard::statistics'); // Alias 2
 
-
-// Routes Admin (Gunakan AdminAuthFilter untuk semua rute di dalamnya)
-$routes->get('admin/login', 'Admin::login');
-$routes->post('admin/loginProcess', 'Admin::loginProcess');
-
-$routes->group('admin', ['filter' => 'adminAuth'], function ($routes) {
-    $routes->get('/', 'Admin::index'); // Dashboard Admin
-    $routes->get('approve/(:num)', 'Admin::approveMerchant/$1'); // Setujui merchant
-    $routes->get('reject/(:num)', 'Admin::rejectMerchant/$1');   // Tolak merchant
-    $routes->get('logout', 'Admin::logout');
-    // Tambahkan rute admin lainnya di sini jika ada
-});
-
-// Routes Merchant (Gunakan MerchantAuthFilter untuk semua rute di dalamnya)
-$routes->group('merchant', ['filter' => 'merchantAuth'], function ($routes) {
-    $routes->get('dashboard', 'MerchantDashboard::index'); 
-    $routes->get('products', 'MerchantDashboard::products'); 
-    $routes->get('reservation', 'MerchantDashboard::reservation'); 
-    $routes->get('statistic', 'MerchantDashboard::statistic'); 
     $routes->get('logout', 'Auth::logout');
 });
 
+// Route alternatif untuk dashboard (jika user mengakses tanpa prefix /merchant)
 $routes->get('merchantdashboard', 'MerchantDashboard::index', ['filter' => 'merchantAuth']);
-
