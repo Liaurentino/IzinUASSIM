@@ -1,271 +1,223 @@
-<!-- ========================================== -->
-<!-- app/Views/merchant/products.php - Product List -->
-<!-- ========================================== -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Produk - Servify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<div class="bg-white rounded-2xl shadow-lg p-6">
-    <div class="flex items-center justify-between mb-6">
-        <h3 class="text-2xl font-bold text-text-dark">Kelola Produk</h3>
-        <a href="<?= base_url('merchant/dashboard/products/add') ?>" class="bg-gradient-to-r from-primary-blue to-secondary-purple text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition duration-300 transform hover:scale-105 flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
-            <span>Tambah Produk Baru</span>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #F8FAFC;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            color: #687bdb;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .form-title {
+            font-size: 28px;
+            color: #687bdb;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group label span {
+            color: #e74c3c;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #687bdb;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: #687bdb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568c3;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #666;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="<?= base_url('merchant/dashboard') ?>" class="back-link">
+            ← Kembali ke Dashboard
         </a>
-    </div>
 
-    <?php if (!empty($products)): ?>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <?php foreach ($products as $product): ?>
-                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="<?= esc($product['image_url']) ?>" alt="<?= esc($product['name']) ?>" class="w-full h-48 object-cover">
-                    <div class="p-4 space-y-3">
-                        <h4 class="font-bold text-lg text-text-dark truncate"><?= esc($product['name']) ?></h4>
-                        <p class="text-sm text-gray-600 line-clamp-2"><?= esc($product['description']) ?></p>
-                        
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-primary-blue">Rp <?= number_format($product['price'], 0, ',', '.') ?></span>
-                            <span class="text-sm text-gray-500">Stok: <?= esc($product['stock']) ?></span>
-                        </div>
-                        
-                        <div class="flex items-center space-x-2 text-sm text-gray-500">
-                            <span>★ <?= esc($product['rating']) ?></span>
-                            <span>•</span>
-                            <span><?= esc($product['sold_count']) ?> Terjual</span>
-                        </div>
-                        
-                        <div class="flex space-x-2 pt-2">
-                            <a href="<?= base_url('merchant/dashboard/products/edit/' . $product['id']) ?>" class="flex-1 bg-primary-blue text-white py-2 rounded-lg text-center hover:bg-opacity-90 transition duration-200">
-                                Edit
-                            </a>
-                            <form action="<?= base_url('merchant/dashboard/products/delete/' . $product['id']) ?>" method="POST" onsubmit="return confirm('Yakin ingin menghapus produk ini?')" class="flex-1">
-                                <button type="submit" class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition duration-200">
-                                    Hapus
-                                </button>
-                            </form>
-                        </div>
+        <div class="form-card">
+            <h1 class="form-title">Tambah Produk Baru</h1>
+
+            <form action="<?= base_url('merchant/products/store') ?>" method="POST">
+                <div class="form-group">
+                    <label for="name">Nama Produk <span>*</span></label>
+                    <input type="text" id="name" name="name" class="form-control" 
+                           value="<?= old('name') ?>" placeholder="Contoh: Laptop Asus ROG" required>
+                    <?php if ($validation->getError('name')): ?>
+                        <div class="error-message"><?= $validation->getError('name') ?></div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Deskripsi Produk <span>*</span></label>
+                    <textarea id="description" name="description" class="form-control" 
+                              placeholder="Deskripsikan produk Anda dengan detail..." required><?= old('description') ?></textarea>
+                    <?php if ($validation->getError('description')): ?>
+                        <div class="error-message"><?= $validation->getError('description') ?></div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price">Harga (Rp) <span>*</span></label>
+                        <input type="number" id="price" name="price" class="form-control" 
+                               value="<?= old('price') ?>" placeholder="15000000" required>
+                        <?php if ($validation->getError('price')): ?>
+                            <div class="error-message"><?= $validation->getError('price') ?></div>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock">Stok <span>*</span></label>
+                        <input type="number" id="stock" name="stock" class="form-control" 
+                               value="<?= old('stock') ?>" placeholder="10" required>
+                        <?php if ($validation->getError('stock')): ?>
+                            <div class="error-message"><?= $validation->getError('stock') ?></div>
+                        <?php endif; ?>
                     </div>
                 </div>
-            <?php endforeach; ?>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="variant">Varian</label>
+                        <input type="text" id="variant" name="variant" class="form-control" 
+                               value="<?= old('variant') ?>" placeholder="Warna, Ukuran, dll">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Lokasi <span>*</span></label>
+                        <input type="text" id="location" name="location" class="form-control" 
+                               value="<?= old('location') ?>" placeholder="Jakarta" required>
+                        <?php if ($validation->getError('location')): ?>
+                            <div class="error-message"><?= $validation->getError('location') ?></div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="image_url">URL Gambar</label>
+                    <input type="url" id="image_url" name="image_url" class="form-control" 
+                           value="<?= old('image_url') ?>" placeholder="https://example.com/image.jpg">
+                    <div class="form-hint">Kosongkan jika ingin menggunakan gambar default</div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary">Simpan Produk</button>
+                    <a href="<?= base_url('merchant/dashboard') ?>" class="btn btn-secondary">Batal</a>
+                </div>
+            </form>
         </div>
-    <?php else: ?>
-        <div class="text-center py-16">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mx-auto text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-            </svg>
-            <p class="mt-4 text-xl text-gray-500">Belum ada produk</p>
-            <p class="text-gray-400 mt-2">Mulai tambahkan produk untuk ditampilkan di marketplace</p>
-        </div>
-    <?php endif; ?>
-</div>
-
-
-<!-- ========================================== -->
-<!-- app/Views/merchant/add_product.php -->
-<!-- ========================================== -->
-
-<div class="max-w-4xl mx-auto">
-    <div class="bg-white rounded-2xl shadow-lg p-8">
-        <h3 class="text-2xl font-bold text-text-dark mb-6">Tambah Produk Baru</h3>
-
-        <?= form_open(base_url('merchant/dashboard/products/store'), ['class' => 'space-y-6']) ?>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Nama Produk -->
-                <div>
-                    <label for="name" class="block text-sm font-medium text-text-dark mb-2">Nama Produk *</label>
-                    <input type="text" id="name" name="name" value="<?= old('name') ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent"
-                           placeholder="Contoh: Laptop Asus ROG">
-                    <?php if ($validation->getError('name')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('name')) ?></p>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Harga -->
-                <div>
-                    <label for="price" class="block text-sm font-medium text-text-dark mb-2">Harga *</label>
-                    <input type="number" id="price" name="price" value="<?= old('price') ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent"
-                           placeholder="15000000">
-                    <?php if ($validation->getError('price')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('price')) ?></p>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <!-- Deskripsi -->
-            <div>
-                <label for="description" class="block text-sm font-medium text-text-dark mb-2">Deskripsi Produk *</label>
-                <textarea id="description" name="description" rows="4" 
-                          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent"
-                          placeholder="Deskripsikan produk Anda dengan detail..."><?= old('description') ?></textarea>
-                <?php if ($validation->getError('description')): ?>
-                    <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('description')) ?></p>
-                <?php endif; ?>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Stok -->
-                <div>
-                    <label for="stock" class="block text-sm font-medium text-text-dark mb-2">Stok *</label>
-                    <input type="number" id="stock" name="stock" value="<?= old('stock') ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent"
-                           placeholder="10">
-                    <?php if ($validation->getError('stock')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('stock')) ?></p>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Varian -->
-                <div>
-                    <label for="variant" class="block text-sm font-medium text-text-dark mb-2">Varian</label>
-                    <input type="text" id="variant" name="variant" value="<?= old('variant') ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent"
-                           placeholder="Warna, Ukuran, dll">
-                    <?php if ($validation->getError('variant')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('variant')) ?></p>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Lokasi -->
-                <div>
-                    <label for="location" class="block text-sm font-medium text-text-dark mb-2">Lokasi *</label>
-                    <input type="text" id="location" name="location" value="<?= old('location') ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent"
-                           placeholder="Jakarta">
-                    <?php if ($validation->getError('location')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('location')) ?></p>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <!-- Image URL -->
-            <div>
-                <label for="image_url" class="block text-sm font-medium text-text-dark mb-2">URL Gambar</label>
-                <input type="url" id="image_url" name="image_url" value="<?= old('image_url') ?>" 
-                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent"
-                       placeholder="https://example.com/image.jpg">
-                <p class="text-xs text-gray-500 mt-1">Kosongkan untuk menggunakan gambar default</p>
-                <?php if ($validation->getError('image_url')): ?>
-                    <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('image_url')) ?></p>
-                <?php endif; ?>
-            </div>
-
-            <!-- Buttons -->
-            <div class="flex space-x-4 pt-4">
-                <button type="submit" class="flex-1 bg-gradient-to-r from-primary-blue to-secondary-purple text-white py-3 rounded-xl font-semibold hover:shadow-lg transition duration-300">
-                    Simpan Produk
-                </button>
-                <a href="<?= base_url('merchant/dashboard/products') ?>" class="flex-1 bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold text-center hover:bg-gray-300 transition duration-200">
-                    Batal
-                </a>
-            </div>
-
-        <?= form_close() ?>
     </div>
-</div>
-
-
-<!-- ========================================== -->
-<!-- app/Views/merchant/edit_product.php -->
-<!-- ========================================== -->
-
-<div class="max-w-4xl mx-auto">
-    <div class="bg-white rounded-2xl shadow-lg p-8">
-        <h3 class="text-2xl font-bold text-text-dark mb-6">Edit Produk</h3>
-
-        <?= form_open(base_url('merchant/dashboard/products/update/' . $product['id']), ['class' => 'space-y-6']) ?>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Nama Produk -->
-                <div>
-                    <label for="name" class="block text-sm font-medium text-text-dark mb-2">Nama Produk *</label>
-                    <input type="text" id="name" name="name" value="<?= old('name', $product['name']) ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent">
-                    <?php if ($validation->getError('name')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('name')) ?></p>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Harga -->
-                <div>
-                    <label for="price" class="block text-sm font-medium text-text-dark mb-2">Harga *</label>
-                    <input type="number" id="price" name="price" value="<?= old('price', $product['price']) ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent">
-                    <?php if ($validation->getError('price')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('price')) ?></p>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <!-- Deskripsi -->
-            <div>
-                <label for="description" class="block text-sm font-medium text-text-dark mb-2">Deskripsi Produk *</label>
-                <textarea id="description" name="description" rows="4" 
-                          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent"><?= old('description', $product['description']) ?></textarea>
-                <?php if ($validation->getError('description')): ?>
-                    <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('description')) ?></p>
-                <?php endif; ?>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Stok -->
-                <div>
-                    <label for="stock" class="block text-sm font-medium text-text-dark mb-2">Stok *</label>
-                    <input type="number" id="stock" name="stock" value="<?= old('stock', $product['stock']) ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent">
-                    <?php if ($validation->getError('stock')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('stock')) ?></p>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Varian -->
-                <div>
-                    <label for="variant" class="block text-sm font-medium text-text-dark mb-2">Varian</label>
-                    <input type="text" id="variant" name="variant" value="<?= old('variant', $product['variant']) ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent">
-                    <?php if ($validation->getError('variant')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('variant')) ?></p>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Lokasi -->
-                <div>
-                    <label for="location" class="block text-sm font-medium text-text-dark mb-2">Lokasi *</label>
-                    <input type="text" id="location" name="location" value="<?= old('location', $product['location']) ?>" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent">
-                    <?php if ($validation->getError('location')): ?>
-                        <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('location')) ?></p>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <!-- Image URL -->
-            <div>
-                <label for="image_url" class="block text-sm font-medium text-text-dark mb-2">URL Gambar</label>
-                <input type="url" id="image_url" name="image_url" value="<?= old('image_url', $product['image_url']) ?>" 
-                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent">
-                <?php if ($validation->getError('image_url')): ?>
-                    <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('image_url')) ?></p>
-                <?php endif; ?>
-            </div>
-
-            <!-- Preview Current Image -->
-            <div class="bg-gray-50 rounded-xl p-4">
-                <p class="text-sm font-medium text-gray-700 mb-2">Preview Gambar Saat Ini:</p>
-                <img src="<?= esc($product['image_url']) ?>" alt="Product" class="w-48 h-32 object-cover rounded-lg">
-            </div>
-
-            <!-- Buttons -->
-            <div class="flex space-x-4 pt-4">
-                <button type="submit" class="flex-1 bg-gradient-to-r from-primary-blue to-secondary-purple text-white py-3 rounded-xl font-semibold hover:shadow-lg transition duration-300">
-                    Update Produk
-                </button>
-                <a href="<?= base_url('merchant/dashboard/products') ?>" class="flex-1 bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold text-center hover:bg-gray-300 transition duration-200">
-                    Batal
-                </a>
-            </div>
-
-        <?= form_close() ?>
-    </div>
-</div>
+</body>
+</html>

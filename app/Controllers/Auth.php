@@ -1,12 +1,12 @@
-<?php namespace App\Controllers;
+<?php 
+
+namespace App\Controllers;
 
 use App\Models\UserModel;
 use App\Models\MerchantModel;
-use CodeIgniter\Controller; // Pastikan ini diimpor jika Controller Anda tidak diperluas dari BaseController
 
 class Auth extends BaseController
 {
-    // ... (Fungsi register dan processRegister tidak diubah) ...
     public function register()
     {
         $data = [
@@ -34,17 +34,17 @@ class Auth extends BaseController
         }
 
         $userModel = new UserModel();
-        // Catatan: Pastikan kolom 'role' memiliki nilai default 'user' di database/model.
+        
         $userModel->save([
             'name'      => $this->request->getPost('name'),
             'email'     => $this->request->getPost('email'),
             'phone'     => $this->request->getPost('phone'),
             'password'  => $this->request->getPost('password'),
+            'role'      => 'user' 
         ]);
 
         $this->session->setFlashdata('success', 'Registrasi berhasil! Silakan Login.');
-        // Mengubah redirect ke 'auth/login' karena Anda menggunakan controller Auth
-        return redirect()->to(base_url('auth/login')); 
+        return redirect()->to(base_url('login'));
     }
 
     public function login()
@@ -69,42 +69,39 @@ class Auth extends BaseController
         $userModel = new UserModel();
         $merchantModel = new MerchantModel();
         
-        // 1. Ambil data user, termasuk kolom 'role'
         $user = $userModel->where('email', $email)->first();
 
         if ($user && password_verify($password, $user['password'])) {
             
-            // Siapkan data sesi universal. Role DIHARUSKAN ada di tabel users.
             $sesData = [
                 'user_id'    => $user['id'],
                 'user_name'  => $user['name'],
                 'user_email' => $user['email'],
-                'role'       => $user['role'], // PERBAIKAN PENTING: Ambil role dari tabel users
+                'role'       => $user['role'],
                 'isLoggedIn' => TRUE
             ];
             
-            // 2. Logika Pengalihan Berdasarkan Role
-            $redirectUrl = base_url('/'); // Default redirect
+            $redirectUrl = base_url('/');
 
+            // Redirect berdasarkan role
             if ($user['role'] === 'admin') {
                 $redirectUrl = base_url('admin');
+                
             } elseif ($user['role'] === 'merchant') {
-                // Jika role-nya merchant, kita perlu ambil data merchant untuk cek status
+                // Cek data merchant
                 $merchant = $merchantModel->where('user_id', $user['id'])->first();
 
                 if ($merchant) {
                     $sesData['merchant_id'] = $merchant['id'];
                     $sesData['merchant_status'] = $merchant['status'];
-                    // PERBAIKAN: Menggunakan operator Null Coalescing ('??') untuk mencegah undefined array key error.
-                    // Jika 'merchant_name' tidak ada di hasil query, akan menggunakan string default.
-                    $sesData['merchant_name'] = $merchant['merchant_name'] ?? 'Merchant Tidak Diketahui'; 
+                    $sesData['merchant_name'] = $merchant['merchant_name'] ?? $merchant['business_name'];
                 }
 
-                // Redirect ke dashboard merchant, filter akan menangani status pending/approved
+                // Redirect ke dashboard merchant
+                // Nanti akan dicek statusnya di controller
                 $redirectUrl = base_url('merchant/dashboard');
             }
             
-            // 3. Set Session dan Redirect
             $this->session->set($sesData);
             $this->session->setFlashdata('success', 'Login Berhasil! Selamat datang ' . $user['name'] . '.');
             

@@ -1,4 +1,6 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use CodeIgniter\Model;
 
@@ -12,15 +14,21 @@ class ReservationModel extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
-        'user_id', 'name', 'phone', 'laptop_model', 'complaint', 'reservation_date', 'status'
+        'user_id', 
+        'merchant_id',
+        'name', 
+        'phone', 
+        'laptop_model', 
+        'complaint', 
+        'reservation_date',
+        'service_location',
+        'status'
     ];
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
-    // HARUS TRUE agar CI4 mengelola kolom created_at dan updated_at
     protected $updatedField  = 'updated_at';
     
-    // Aturan validasi
     protected $validationRules = [
         'name'             => 'required|min_length[3]',
         'phone'            => 'required|min_length[10]|max_length[15]',
