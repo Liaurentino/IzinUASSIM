@@ -2,9 +2,11 @@
 
 use App\Models\UserModel;
 use App\Models\MerchantModel;
+use CodeIgniter\Controller; // Pastikan ini diimpor jika Controller Anda tidak diperluas dari BaseController
 
 class Auth extends BaseController
 {
+    // ... (Fungsi register dan processRegister tidak diubah) ...
     public function register()
     {
         $data = [
@@ -32,17 +34,19 @@ class Auth extends BaseController
         }
 
         $userModel = new UserModel();
+        // Catatan: Pastikan kolom 'role' memiliki nilai default 'user' di database/model.
         $userModel->save([
-            'name'     => $this->request->getPost('name'),
-            'email'    => $this->request->getPost('email'),
-            'phone'    => $this->request->getPost('phone'),
-            'password' => $this->request->getPost('password'),
+            'name'      => $this->request->getPost('name'),
+            'email'     => $this->request->getPost('email'),
+            'phone'     => $this->request->getPost('phone'),
+            'password'  => $this->request->getPost('password'),
         ]);
 
         $this->session->setFlashdata('success', 'Registrasi berhasil! Silakan Login.');
-        return redirect()->to(base_url('login'));
+        // Mengubah redirect ke 'auth/login' karena Anda menggunakan controller Auth
+        return redirect()->to(base_url('auth/login')); 
     }
-    
+
     public function login()
     {
         $data = [
@@ -65,35 +69,47 @@ class Auth extends BaseController
         $userModel = new UserModel();
         $merchantModel = new MerchantModel();
         
+        // 1. Ambil data user, termasuk kolom 'role'
         $user = $userModel->where('email', $email)->first();
 
         if ($user && password_verify($password, $user['password'])) {
-            // Check if user has merchant account
-            $merchant = $merchantModel->where('user_id', $user['id'])->first();
             
+            // Siapkan data sesi universal. Role DIHARUSKAN ada di tabel users.
             $sesData = [
                 'user_id'    => $user['id'],
                 'user_name'  => $user['name'],
                 'user_email' => $user['email'],
+                'role'       => $user['role'], // PERBAIKAN PENTING: Ambil role dari tabel users
                 'isLoggedIn' => TRUE
             ];
             
-            // Add merchant data to session if exists
-            if ($merchant) {
-                $sesData['merchant_id'] = $merchant['id'];
-                $sesData['merchant_status'] = $merchant['status'];
-                $sesData['business_name'] = $merchant['business_name'];
+            // 2. Logika Pengalihan Berdasarkan Role
+            $redirectUrl = base_url('/'); // Default redirect
+
+            if ($user['role'] === 'admin') {
+                $redirectUrl = base_url('admin');
+            } elseif ($user['role'] === 'merchant') {
+                // Jika role-nya merchant, kita perlu ambil data merchant untuk cek status
+                $merchant = $merchantModel->where('user_id', $user['id'])->first();
+
+                if ($merchant) {
+                    $sesData['merchant_id'] = $merchant['id'];
+                    $sesData['merchant_status'] = $merchant['status'];
+                    // PERBAIKAN: Menggunakan operator Null Coalescing ('??') untuk mencegah undefined array key error.
+                    // Jika 'merchant_name' tidak ada di hasil query, akan menggunakan string default.
+                    $sesData['merchant_name'] = $merchant['merchant_name'] ?? 'Merchant Tidak Diketahui'; 
+                }
+
+                // Redirect ke dashboard merchant, filter akan menangani status pending/approved
+                $redirectUrl = base_url('merchant/dashboard');
             }
             
+            // 3. Set Session dan Redirect
             $this->session->set($sesData);
-            $this->session->setFlashdata('success', 'Login Berhasil!');
+            $this->session->setFlashdata('success', 'Login Berhasil! Selamat datang ' . $user['name'] . '.');
             
-            // Redirect to merchant dashboard if verified merchant
-            if ($merchant && $merchant['status'] === 'Verified') {
-                return redirect()->to(base_url('merchant/dashboard'));
-            }
+            return redirect()->to($redirectUrl);
             
-            return redirect()->to(base_url('/'));
         } else {
             $this->session->setFlashdata('error', 'Email atau Password salah!');
             return redirect()->back()->withInput();

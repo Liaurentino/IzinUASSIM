@@ -1,40 +1,33 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use CodeIgniter\Model;
 
 class MerchantModel extends Model
 {
-    protected $table      = 'merchants';
-    protected $primaryKey = 'id';
-
+    protected $table            = 'merchants';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    protected $returnType       = 'array';
+    protected $useSoftDeletes   = false;
+    protected $protectFields    = true;
+    // Tambahkan 'status' ke allowedFields dan pastikan 'user_id' ada
+    protected $allowedFields    = ['user_id', 'merchant_name', 'address', 'phone_number', 'latitude', 'longitude', 'status']; 
 
-    protected $allowedFields = [
-        'user_id', 'business_name', 'address', 'phone', 'email', 'business_type', 'license_number', 'status'
-    ];
-
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
+    protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
-    // Aturan validasi
-    protected $validationRules = [
-        'business_name'  => 'required|min_length[3]|max_length[255]|is_unique[merchants.business_name]',
-        'address'        => 'required',
-        'phone'          => 'required|min_length[10]|max_length[15]',
-        'email'          => 'required|valid_email|is_unique[merchants.email]',
-        'business_type'  => 'required',
-        'license_number' => 'required|is_unique[merchants.license_number]',
-    ];
-
+    protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
-    
-    // Relasi ke tabel products
-    public function products()
+
+    // Fungsi untuk mendapatkan merchant yang masih pending
+    public function getPendingMerchants()
     {
-        return $this->hasMany(ProductModel::class, 'merchant_id');
+        return $this->where('status', 'pending')->findAll();
     }
 }

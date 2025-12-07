@@ -31,11 +31,6 @@ $routes->get('merchant', 'Merchant::index'); // Halaman info/ajakan
 $routes->get('merchant/register', 'Merchant::register'); // Form pendaftaran
 $routes->post('merchant/create', 'Merchant::create');
 
-// Merchant Dashboard (Protected Routes)
-$routes->group('merchant/dashboard', ['filter' => 'merchantAuth'], function($routes) {
-    $routes->get('/', 'MerchantDashboard::index');
-    $routes->get('profile', 'MerchantDashboard::profile');
-    $routes->post('profile/update', 'MerchantDashboard::updateProfile');
     
     // Product Management
     $routes->get('products', 'MerchantDashboard::products');
@@ -52,19 +47,29 @@ $routes->group('merchant/dashboard', ['filter' => 'merchantAuth'], function($rou
     
     // Statistics
     $routes->get('statistics', 'MerchantDashboard::statistics');
+
+
+
+// Routes Admin (Gunakan AdminAuthFilter untuk semua rute di dalamnya)
+$routes->get('admin/login', 'Admin::login');
+$routes->post('admin/loginProcess', 'Admin::loginProcess');
+
+$routes->group('admin', ['filter' => 'adminAuth'], function ($routes) {
+    $routes->get('/', 'Admin::index'); // Dashboard Admin
+    $routes->get('approve/(:num)', 'Admin::approveMerchant/$1'); // Setujui merchant
+    $routes->get('reject/(:num)', 'Admin::rejectMerchant/$1');   // Tolak merchant
+    $routes->get('logout', 'Admin::logout');
+    // Tambahkan rute admin lainnya di sini jika ada
 });
 
-// Admin Routes
-$routes->get('admin/login', 'Admin::login');
-$routes->post('admin/processLogin', 'Admin::processLogin');
-$routes->get('admin/logout', 'Admin::logout');
+// Routes Merchant (Gunakan MerchantAuthFilter untuk semua rute di dalamnya)
+$routes->group('merchant', ['filter' => 'merchantAuth'], function ($routes) {
+    $routes->get('dashboard', 'MerchantDashboard::index'); 
+    $routes->get('products', 'MerchantDashboard::products'); 
+    $routes->get('reservation', 'MerchantDashboard::reservation'); 
+    $routes->get('statistic', 'MerchantDashboard::statistic'); 
+    $routes->get('logout', 'Auth::logout');
+});
 
-// Admin Dashboard (Protected Routes)
-$routes->get('admin/dashboard', 'Admin::dashboard');
-$routes->get('admin/merchants', 'Admin::merchants');
-$routes->post('admin/updateMerchantStatus/(:num)', 'Admin::updateMerchantStatus/$1');
-$routes->get('admin/users', 'Admin::users');
-$routes->post('admin/deleteUser/(:num)', 'Admin::deleteUser/$1');
-$routes->get('admin/products', 'Admin::products');
-$routes->post('admin/deleteProduct/(:num)', 'Admin::deleteProduct/$1');
-$routes->get('admin/reservations', 'Admin::reservations');
+$routes->get('merchantdashboard', 'MerchantDashboard::index', ['filter' => 'merchantAuth']);
+
