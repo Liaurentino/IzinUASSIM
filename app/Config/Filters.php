@@ -8,10 +8,8 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
-// Impor filter buatan Anda
 use App\Filters\MerchantAuthFilter; 
-use App\Filters\AdminAuthFilter; // Asumsi Anda membuat filter AdminAuthFilter
-
+use App\Filters\AdminAuthFilter; 
 class Filters extends BaseConfig
 {
     /**

@@ -1,65 +1,96 @@
-<?= $this->extend('admin/layout/admin_template') ?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - UASSIM</title>
+    <link rel="stylesheet" href="<?= base_url('css/style.css'); ?>">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="admin-body">
 
-<?= $this->section('content') ?>
-<!-- PERBAIKAN: Tambahkan class 'admin' di sini agar gaya spesifik Admin di CSS termuat -->
-<div class="container dashboard-container admin">
-    <div class="sidebar">
-        <h2>Admin Menu</h2>
-        <ul>
-            <li><a href="<?= base_url('admin') ?>">Dashboard</a></li>
-            <li><a href="#">Manajemen Pengguna</a></li>
-            <li><a href="#">Laporan Penjualan</a></li>
-            <li><a href="<?= base_url('admin/logout') ?>">Logout</a></li>
+<div class="d-flex-admin">
+    <nav class="admin-sidebar">
+        <a href="#" class="sidebar-brand">
+            <i class="fas fa-store-alt" style="margin-right: 10px;"></i> UASSIM Admin
+        </a>
+        <ul class="nav">
+            <li>
+                <a href="<?= base_url('admin/dashboard') ?>" class="active">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-users"></i> Kelola User
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-box"></i> Kelola Merchant
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-chart-bar"></i> Laporan
+                </a>
+            </li>
         </ul>
-    </div>
+    </nav>
 
-    <div class="main-content">
-        <h1 class="text-2xl font-bold mb-4">Dashboard Admin</h1>
-        <p>Selamat datang, Admin! Anda dapat mengelola semua permintaan di sini.</p>
-
-        <?php if (session()->getFlashdata('success')): ?>
-            <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
-                <?= session()->getFlashdata('success') ?>
+    <div class="admin-content">
+        <header class="admin-header">
+            <h1>Dashboard Overview</h1>
+            <div class="user-profile">
+                <span>Halo, <?= session()->get('username') ?? 'Admin'; ?></span>
+                <a href="<?= base_url('logout'); ?>" class="btn-logout">Logout</a>
             </div>
-        <?php endif; ?>
+        </header>
 
-        <h2 class="text-xl font-semibold mt-6 mb-3">Permintaan Merchant Tertunda (Pending)</h2>
-        
-        <?php if (empty($pending_merchants)): ?>
-            <div style="background-color: #f0f8ff; color: #34495e; padding: 15px; border-radius: 5px; text-align: center;">
-                Tidak ada permintaan Merchant baru saat ini.
+        <div class="container-fluid-admin">
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-text">
+                        <h5>Total Merchant</h5>
+                        <div class="value">120</div> </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card success">
+                    <div class="stat-text success">
+                        <h5>Pendapatan</h5>
+                        <div class="value">Rp 5.000.000</div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card warning">
+                    <div class="stat-text warning">
+                        <h5>Pending Approval</h5>
+                        <div class="value">15</div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                </div>
             </div>
-        <?php else: ?>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>ID Merchant</th>
-                        <th>Nama Merchant</th>
-                        <th>Alamat</th>
-                        <th>No. Telp</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($pending_merchants as $merchant): ?>
-                        <tr>
-                            <td><?= esc($merchant['id']) ?></td>
-                            <td><?= esc($merchant['merchant_name'] ?? 'N/A') ?></td>
-                            <td><?= esc($merchant['address']) ?></td>
-                            <td><?= esc($merchant['phone']) ?></td>
-                            <td><span style="color: #f39c12; font-weight: bold;"><?= esc(ucfirst($merchant['status'])) ?></span></td>
-                            <td>
-                                <a href="<?= base_url('admin/approve/' . $merchant['id']) ?>" class="btn btn-success" 
-                                   onclick="return confirm('Apakah Anda yakin ingin MENYETUJUI merchant ini?')">Setujui</a>
-                                <a href="<?= base_url('admin/reject/' . $merchant['id']) ?>" class="btn btn-danger" 
-                                   onclick="return confirm('Apakah Anda yakin ingin MENOLAK merchant ini?')">Tolak</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php endif; ?>
+
+            <div class="content-card">
+                <h3>Aktivitas Terbaru</h3>
+                <p>Selamat datang di panel Admin. Di sini Anda bisa mengelola seluruh data merchant dan pengguna.</p>
+                <div style="padding: 20px; background: #f8f9fc; border-radius: 5px; border: 1px dashed #ccc; text-align: center; color: #888;">
+                    Area Grafik atau Tabel Data akan muncul di sini.
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
-<?= $this->endSection() ?>
+
+</body>
+</html>

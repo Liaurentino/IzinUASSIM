@@ -56,14 +56,9 @@ $routes->group('admin', ['filter' => 'adminAuth'], function ($routes) {
     $routes->get('logout', 'Admin::logout');
 });
 
-// --------------------------------------------------------------------
-// GROUP MERCHANT (Dilindungi Filter Merchant)
-// Semua URL di sini otomatis berawalan /merchant/...
-// --------------------------------------------------------------------
-$routes->group('merchant', ['filter' => 'merchantAuth'], function ($routes) {
-    
-    // Dashboard Utama
-    $routes->get('dashboard', 'MerchantDashboard::index'); 
+$routes->group('merchant', ['filter' => 'merchantAuth'], function($routes) {
+    $routes->get('dashboard', 'MerchantDashboard::index');
+    $routes->get('/', 'MerchantDashboard::index');
     
     // Manajemen Produk (CRUD)
     $routes->get('products', 'MerchantDashboard::products');

@@ -48,12 +48,10 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center">
         <!-- Logo -->
         <a href="<?= base_url('/') ?>" class="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-secondary-purple" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10 2a8 8 0 100 16A8 8 0 0010 2zm-1 12H7V8h2v6zm4-6h-2v6h2V8z" clip-rule="evenodd" />
-                <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM7 14h2V8H7v6zm4 0h2V8h-2v6z" fill="#845EFD"/>
-            </svg>
-            <span class="text-xl font-bold text-text-dark">Servify</span>
-        </a>
+    <img src="https://scontent.fcgk33-1.fna.fbcdn.net/v/t39.30808-6/583928529_122099849571120016_3728179850395384540_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=T_yKGn2uSFAQ7kNvwHTY6j5&_nc_oc=AdlCSwQfHRKqZ_0vaWoOY-nDlErSsvpQiJztbSRLdfgVy-Nd9Hz2f2ItPtmUqOwKqo1J5fQQ_Ddsz58Nlh6CknRG&_nc_zt=23&_nc_ht=scontent.fcgk33-1.fna&_nc_gid=t0O1wWRKMQ1geQ8QoyAXxQ&oh=00_AfkFCk1RjrokeSk5UtKdcyo1gcEM7_6OoJ2cxvdlwlB3Ew&oe=693B0C46" 
+         alt="Servify Logo" 
+         class="h-10 w-10 object-cover rounded-full shadow-sm"> <span class="text-xl font-bold text-text-dark">Servify</span>
+</a>
 
         <!-- Menu Navigasi -->
         <div class="space-x-8 hidden md:flex text-text-dark font-medium">
