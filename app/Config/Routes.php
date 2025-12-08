@@ -28,12 +28,10 @@ $routes->get('chatbot', 'Chatbot::index');
 $routes->post('chatbot/sendMessage', 'Chatbot::sendMessage');
 
 
-
-
 $routes->get('merchant', 'Merchant::index');           // Halaman Info / Landing Page Merchant
 $routes->get('merchant/register', 'Merchant::register'); // Form Pendaftaran Merchant
 $routes->post('merchant/create', 'Merchant::create');    // Proses Submit Data Merchant
-
+$routes->get('merchant/waiting', 'MerchantDashboard::waiting');
 
 
 
@@ -50,17 +48,10 @@ $routes->group('admin', ['filter' => 'adminAuth'], function ($routes) {
 
 
 $routes->group('merchant', ['filter' => 'merchantAuth'], function($routes) {
-    // Halaman Utama Dashboard
     $routes->get('dashboard', 'MerchantDashboard::index');
-    
-    $routes->get('waiting', 'MerchantDashboard::waiting');
-    
-    // Manajemen Produk
     $routes->get('products', 'MerchantDashboard::products');
     $routes->get('products/add', 'MerchantDashboard::addProduct');
     $routes->post('products/store', 'MerchantDashboard::storeProduct');
-    
-    // Manajemen Reservasi
     $routes->get('reservations', 'MerchantDashboard::reservations');
     $routes->post('reservations/updateStatus/(:num)', 'MerchantDashboard::updateReservationStatus/$1');
 });

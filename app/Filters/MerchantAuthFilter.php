@@ -1,4 +1,6 @@
-<?php namespace App\Filters;
+<?php 
+
+namespace App\Filters;
 
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
@@ -12,22 +14,30 @@ class MerchantAuthFilter implements FilterInterface
     {
         $session = session();
 
-        // 1. Cek Login Dasar
-        if (! $session->get('isLoggedIn')) {
+        // 1. CEK LOGIN DASAR
+        if (!$session->get('isLoggedIn')) {
             return redirect()->to(base_url('login'));
         }
 
-        if ($session->get('role') !== 'merchant') {
-            
-            $userId = $session->get('id');
-            $merchantModel = new MerchantModel();
-            
-            // Cek status terbaru di Database
-            $merchant = $merchantModel->where('user_id', $userId)->first();
+        $userId = $session->get('user_id');
+        $merchantModel = new MerchantModel();
+        
+        // 2. CEK DATA MERCHANT DI DATABASE
+        $merchant = $merchantModel->where('user_id', $userId)->first();
 
-            // Skenario A: Admin SUDAH Approve, tapi session user masih user biasa
-            if ($merchant && $merchant['status'] === 'approved') {
-                // Update Session secara paksa agar user bisa masuk
+        if (!$merchant) {
+            // User belum daftar merchant
+            return redirect()->to(base_url('/'));
+        }
+
+        // 3. HANDLE BERDASARKAN STATUS
+        $uri = $request->getUri()->getPath();
+        
+        if ($merchant['status'] === 'approved') {
+            // Merchant sudah approved
+            
+            // Update session jika belum
+            if ($session->get('role') !== 'merchant') {
                 $session->set([
                     'role' => 'merchant',
                     'merchant_id' => $merchant['id'],
@@ -35,37 +45,29 @@ class MerchantAuthFilter implements FilterInterface
                     'merchant_name' => $merchant['business_name']
                 ]);
                 
-                // Pastikan role di tabel user juga merchant (double check safety)
+                // Update role di database juga
                 $userModel = new UserModel();
                 $userModel->update($userId, ['role' => 'merchant']);
-
-                // Izinkan akses (jangan return redirect, biarkan lanjut ke controller tujuan)
-                return; 
             }
             
-            // Skenario B: Masih Pending
-            if ($merchant && $merchant['status'] === 'pending') {
-                // Izinkan akses HANYA ke halaman 'waiting'
-                $uri = $request->getUri()->getPath();
-                if (strpos($uri, 'merchant/waiting') !== false) {
-                    return;
-                }
-                return redirect()->to(base_url('merchant/waiting'));
-            }
-
-            // Skenario C: Tidak punya data merchant / User biasa iseng akses
-            return redirect()->to(base_url('/'));
+            // Izinkan akses dashboard
+            return;
         }
-
-        // 3. Jika session sudah 'merchant', cek status approvalnya
-        if ($session->get('merchant_status') !== 'approved') {
-             // Tangani jika status rejected atau pending tapi role session terlanjur merchant
-             return redirect()->to(base_url('merchant/waiting'));
+        elseif ($merchant['status'] === 'pending') {
+            // Hanya izinkan akses halaman waiting
+            if (strpos($uri, 'merchant/waiting') !== false) {
+                return;
+            }
+            return redirect()->to(base_url('merchant/waiting'));
+        }
+        else {
+            // Status rejected atau lainnya
+            return redirect()->to(base_url('/'));
         }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        // Do nothing here
+        // Do nothing
     }
 }

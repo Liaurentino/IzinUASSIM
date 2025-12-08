@@ -61,7 +61,7 @@ class Auth extends BaseController
         return $this->renderView('pages/login', $data);
     }
 
-  public function processLogin()
+    public function processLogin()
     {
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
@@ -73,59 +73,55 @@ class Auth extends BaseController
 
         if ($user && password_verify($password, $user['password'])) {
             
-            // --- 1. SET DATA DASAR SESSION ---
+            // === SET SESSION DASAR ===
             $sessData = [
                 'id'         => $user['id'],
                 'user_id'    => $user['id'],
                 'user_name'  => $user['name'], 
                 'user_email' => $user['email'],
-                'role'       => $user['role'], // Role asli dari database (user/admin)
+                'role'       => $user['role'],
                 'isLoggedIn' => TRUE
             ];
 
-            // --- 2. CEK DATA MERCHANT ---
-            $merchant = $merchantModel->where('user_id', $user['id'])->first();
-            
-            $redirectUrl = base_url('/'); // Default redirect
+            $redirectUrl = base_url('/');
 
-            // --- 3. LOGIC PENENTUAN ARAH (ROUTING) ---
-            
-            // A. Jika Admin
+            // === CEK ROLE ADMIN ===
             if ($user['role'] === 'admin') {
                 $redirectUrl = base_url('admin/dashboard');
             } 
-            // B. Jika User punya data Merchant
-            elseif ($merchant) {
-                // Simpan data merchant ke session untuk akses global
-                $sessData['merchant_id']     = $merchant['id'];
-                $sessData['merchant_status'] = $merchant['status'];
-                $sessData['merchant_name']   = $merchant['merchant_name'] ?? $merchant['business_name'];
+            // === CEK MERCHANT ===
+            else {
+                $merchant = $merchantModel->where('user_id', $user['id'])->first();
+                
+                if ($merchant) {
+                    // Simpan data merchant ke session
+                    $sessData['merchant_id']     = $merchant['id'];
+                    $sessData['merchant_status'] = $merchant['status'];
+                    $sessData['merchant_name']   = $merchant['business_name'] ?? $merchant['merchant_name'];
 
-                switch ($merchant['status']) {
-                    case 'Verified':
-                        $sessData['role'] = 'merchant'; 
+                    // PERBAIKAN: Gunakan 'approved' bukan 'Verified'
+                    if ($merchant['status'] === 'approved') {
+                        // Update role ke merchant di session
+                        $sessData['role'] = 'merchant';
+                        
+                        // Update role di database juga (untuk konsistensi)
+                        $userModel->update($user['id'], ['role' => 'merchant']);
+                        
                         $redirectUrl = base_url('merchant/dashboard');
-                        break;
-
-                    case 'pending':
+                    }
+                    elseif ($merchant['status'] === 'pending') {
                         $redirectUrl = base_url('merchant/waiting');
-                        break;
-
-                    case 'rejected':
+                    }
+                    elseif ($merchant['status'] === 'rejected') {
                         $this->session->setFlashdata('warning', 'Pengajuan Merchant ditolak. Hubungi admin.');
-                        $redirectUrl = base_url('/'); 
-                        break;
-                    
-                    default:
                         $redirectUrl = base_url('/');
-                        break;
+                    }
                 }
             }
 
             // Set Session Final
             $this->session->set($sessData);
             
-            // Gunakan username untuk pesan sukses
             $this->session->setFlashdata('success', 'Login Berhasil! Selamat datang ' . $user['name']);
             
             return redirect()->to($redirectUrl);

@@ -1,9 +1,7 @@
 <!-- Halaman Home -->
 
 <div class="space-y-8">
-    <!-- Section 1: Hero Banner (Mengambil dari mockup 140328) -->
     <section class="main-card p-8 rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between transition duration-300">
-        <!-- Kiri: Teks & CTA -->
         <div class="md:w-1/2 space-y-6 text-text-dark">
             <h1 class="text-5xl font-extrabold text-secondary-purple leading-tight">
                 Laptop Rusak? <br> <span class="text-primary-blue">Servify solusinya</span>

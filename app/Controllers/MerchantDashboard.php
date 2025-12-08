@@ -12,23 +12,28 @@ class MerchantDashboard extends BaseController
     protected $productModel;
     protected $reservationModel;
 
-   public function __construct()
+    public function __construct()
     {
         $this->merchantModel = new MerchantModel();
         $this->productModel = new ProductModel();
         $this->reservationModel = new ReservationModel();
     }
 
+    // Helper untuk render view merchant dengan layout khusus
+    protected function renderMerchantView($page, $data = [])
+    {
+        $data['session'] = $this->session;
+        echo view('merchant/layout/merchant_header', $data);
+        echo view($page, $data);
+        echo view('merchant/layout/merchant_footer', $data);
+    }
+
     public function index()
     {
-    
-        $userId = session()->get('id'); 
-        
-        // Ambil data merchant terbaru untuk konsistensi view
+        $userId = session()->get('user_id'); 
         $merchant = $this->merchantModel->where('user_id', $userId)->first();
 
-        // Safety check terakhir
-        if (!$merchant || $merchant['status'] !== 'approved') {
+        if (!$merchant || strtolower($merchant['status']) !== 'approved') {
             return redirect()->to(base_url('merchant/waiting'));
         }
 
@@ -40,39 +45,49 @@ class MerchantDashboard extends BaseController
             'recent_products' => $this->productModel->where('merchant_id', $merchant['id'])->orderBy('created_at', 'DESC')->findAll(5)
         ];
 
-        return $this->renderView('merchant/dashboard', $data);
+        // GUNAKAN LAYOUT MERCHANT
+        return $this->renderMerchantView('merchant/dashboard_content', $data);
     }
 
     public function waiting()
     {
         $data = ['title' => 'Menunggu Verifikasi'];
-        // Tampilkan view waiting (pastikan file view-nya ada)
+        // Halaman waiting tetap pakai layout biasa
         return $this->renderView('merchant/waiting', $data);
     }
 
     public function products()
     {
-        $userId = session()->get('id');
+        $userId = session()->get('user_id');
         $merchant = $this->merchantModel->where('user_id', $userId)->first();
 
         $data = [
             'title' => 'Kelola Produk',
+            'merchant' => $merchant,
             'products' => $this->productModel->where('merchant_id', $merchant['id'])->findAll()
         ];
-        return $this->renderView('merchant/products', $data);
+        
+        return $this->renderMerchantView('merchant/products_content', $data);
     }
-    
 
-    // Tambah Produk
-    public function addProduct()
+    public function reservations()
     {
-        $session = session();
-        $userId = $session->get('user_id');
+        $userId = session()->get('user_id');
         $merchant = $this->merchantModel->where('user_id', $userId)->first();
 
-        if (!$merchant || $merchant['status'] !== 'approved') {
-            return redirect()->to(base_url('merchant/dashboard'));
-        }
+        $data = [
+            'title' => 'Kelola Reservasi',
+            'merchant' => $merchant,
+            'reservations' => $this->reservationModel->where('merchant_id', $merchant['id'])->findAll()
+        ];
+        
+        return $this->renderMerchantView('merchant/reservations_content', $data);
+    }
+
+    public function addProduct()
+    {
+        $userId = session()->get('user_id');
+        $merchant = $this->merchantModel->where('user_id', $userId)->first();
 
         $data = [
             'title' => 'Tambah Produk',
@@ -80,14 +95,12 @@ class MerchantDashboard extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
-        return view('merchant/add_product', $data);
+        return $this->renderMerchantView('merchant/add_product', $data);
     }
 
-    // Store Produk
     public function storeProduct()
     {
-        $session = session();
-        $userId = $session->get('user_id');
+        $userId = session()->get('user_id');
         $merchant = $this->merchantModel->where('user_id', $userId)->first();
 
         if (!$this->validate([
@@ -118,33 +131,9 @@ class MerchantDashboard extends BaseController
         return redirect()->to(base_url('merchant/dashboard'))->with('success', 'Produk berhasil ditambahkan!');
     }
 
-    // Lihat Reservasi
-    public function reservations()
-    {
-        $session = session();
-        $userId = $session->get('user_id');
-        $merchant = $this->merchantModel->where('user_id', $userId)->first();
-
-        if (!$merchant || $merchant['status'] !== 'approved') {
-            return redirect()->to(base_url('merchant/dashboard'));
-        }
-
-        $reservations = $this->reservationModel->where('merchant_id', $merchant['id'])->findAll();
-
-        $data = [
-            'title' => 'Kelola Reservasi',
-            'merchant' => $merchant,
-            'reservations' => $reservations
-        ];
-
-        return view('merchant/reservations', $data);
-    }
-
-    // Update Status Reservasi
     public function updateReservationStatus($id)
     {
         $status = $this->request->getPost('status');
-        
         $this->reservationModel->update($id, ['status' => $status]);
         
         return redirect()->back()->with('success', 'Status reservasi berhasil diupdate!');

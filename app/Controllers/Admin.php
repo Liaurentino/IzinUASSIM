@@ -1,4 +1,6 @@
-<?php namespace App\Controllers;
+<?php 
+
+namespace App\Controllers;
 
 use App\Models\MerchantModel;
 use App\Models\UserModel;
@@ -20,7 +22,6 @@ class Admin extends BaseController
             return redirect()->to(base_url('login'));
         }
 
-        // Ambil data merchant yang statusnya 'pending'
         $data = [
             'title' => 'Dashboard Admin',
             'pending_merchants' => $this->merchantModel->where('status', 'pending')->findAll(),
@@ -38,13 +39,13 @@ class Admin extends BaseController
         $merchant = $this->merchantModel->find($id);
 
         if ($merchant) {
-            // 1. Update Status di Tabel Merchants
+            // 1. Update Status di Tabel Merchants (GUNAKAN 'approved' bukan 'Verified')
             $this->merchantModel->update($id, ['status' => 'approved']);
 
-            // 2. Update Role di Tabel Users (PENTING AGAR DIA PUNYA HAK AKSES)
+            // 2. Update Role di Tabel Users
             $this->userModel->update($merchant['user_id'], ['role' => 'merchant']);
 
-            session()->setFlashdata('success', 'Merchant disetujui. Status User telah diperbarui.');
+            session()->setFlashdata('success', 'Merchant disetujui. User telah menjadi Merchant.');
         }
 
         return redirect()->to(base_url('admin/dashboard'));

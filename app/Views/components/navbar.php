@@ -1,65 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="<?= base_url('/') ?>">Servify</a>
+<?php $session = session(); ?>
 
-        <?php if (session()->get('isLoggedIn') && session()->get('role') === 'merchant') : ?>
-            <a class="btn btn-sm btn-outline-primary ms-2 fw-bold" href="<?= base_url('merchant/dashboard') ?>">
-                <i class="fas fa-store"></i> Merchant Dashboard
-            </a>
-        <?php endif; ?>
+<nav class="navbar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="navbar-brand">
+            <a href="<?= base_url('/') ?>" style="font-size: 1.5rem; font-weight: bold; text-decoration: none;">UASSIM</a>
+        </div>
+        <div class="navbar-menu" style="display: flex; gap: 15px; align-items: center;">
+            <a href="<?= base_url('/') ?>">Home</a>
+            <a href="<?= base_url('marketplace') ?>">Marketplace</a>
+            <a href="<?= base_url('findus') ?>">Find Us</a>
+            <a href="<?= base_url('chatbot') ?>">Chatbot</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
+            <?php if ($session->get('isLoggedIn')): ?>
                 
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/') ?>">Home</a>
-                </li>
+                <?php $userRole = $session->get('role'); ?>
 
-                <li class="nav-item">
-                    <?php if (session()->get('role') === 'merchant') : ?>
-                        <a class="nav-link fw-bold text-primary" href="<?= base_url('merchant/dashboard') ?>">
-                            Kelola Toko
-                        </a>
-                    <?php elseif (session()->get('merchant_status') === 'pending') : ?>
-                        <a class="nav-link" href="<?= base_url('merchant/waiting') ?>">Status Pengajuan</a>
-                    <?php else : ?>
-                        <a class="nav-link" href="<?= base_url('merchant/register') ?>">Jadi Mitra</a>
-                    <?php endif; ?>
-                </li>
-
-                <?php if (session()->get('isLoggedIn')) : ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Hai, <?= esc(session()->get('user_name')) ?> 
-                            <?php if(session()->get('role') === 'merchant'): ?>
-                                <span class="badge bg-success">Merchant</span>
-                            <?php endif; ?>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <?php if (session()->get('role') === 'admin') : ?>
-                                <li><a class="dropdown-item" href="<?= base_url('admin/dashboard') ?>">Admin Panel</a></li>
-                            <?php endif; ?>
-                            
-                            <?php if (session()->get('role') === 'merchant') : ?>
-                                <li><a class="dropdown-item" href="<?= base_url('merchant/dashboard') ?>">Dashboard Toko</a></li>
-                            <?php endif; ?>
-
-                            <li><a class="dropdown-item" href="<?= base_url('profile') ?>">Profile Saya</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" href="<?= base_url('logout') ?>">Logout</a></li>
-                        </ul>
-                    </li>
-                <?php else : ?>
-                    <li class="nav-item">
-                        <a class="btn btn-primary ms-3" href="<?= base_url('login') ?>">Login</a>
-                    </li>
+                <?php if ($userRole === 'admin'): ?>
+                    <!-- Tautan untuk Admin: Langsung ke Dashboard Admin -->
+                    <a href="<?= base_url('admin') ?>" 
+                       style="background-color: #e67e22; padding: 8px 12px; font-weight: bold; text-decoration: none; border-radius: 4px;">
+                        Dashboard Admin
+                    </a>
+                <?php elseif ($userRole === 'merchant'): ?>
+                    <!-- Tautan untuk Merchant: Langsung ke Dashboard Merchant -->
+                    <a href="<?= base_url('merchant/dashboard') ?>" 
+                       style="background-color: #27ae60; padding: 8px 12px; font-weight: bold; text-decoration: none; border-radius: 4px;">
+                        Dashboard Merchant
+                    </a>
+                <?php else: ?>
+                    <!-- Pengguna biasa: Tampilkan tautan untuk mendaftar sebagai Merchant -->
+                    <a href="<?= base_url('merchant/register') ?>">Daftar Merchant</a>
                 <?php endif; ?>
 
-            </ul>
+                <!-- Tautan Logout selalu ada jika sudah login -->
+                <a href="<?= base_url('auth/logout') ?>" 
+                   style="background-color: #c0392b; padding: 8px 12px; font-weight: bold; text-decoration: none; border-radius: 4px;">
+                    Logout
+                </a>
+
+            <?php else: ?>
+                <!-- Tautan untuk pengguna yang belum login -->
+                <a href="<?= base_url('auth/login') ?>">Login</a>
+                <a href="<?= base_url('auth/register') ?>">Register</a>
+            <?php endif; ?>
         </div>
     </div>
 </nav>
