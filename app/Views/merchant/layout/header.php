@@ -4,31 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= esc($title) ?></title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-blue': '#4c70ff',
-                        'secondary-purple': '#845EFD',
-                        'soft-blue': '#f0f4ff',
-                        'text-dark': '#1e293b',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            background-color: #F8FAFC;
-            font-family: 'Inter', sans-serif;
-        }
+    <<link rel="stylesheet" href="css/style.css">
+<link href="/css/style.css" rel="stylesheet">
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
