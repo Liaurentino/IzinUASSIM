@@ -1,171 +1,65 @@
-<?php $session = session(); ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="<?= base_url('/') ?>">Servify</a>
 
-<style>
-    /* Variabel Warna */
-    :root {
-        --primary-purple: #687bdb;
-        --light-bg: #ddeafc;
-        --text-dark: #333;
-        --white: #ffffff;
-    }
+        <?php if (session()->get('isLoggedIn') && session()->get('role') === 'merchant') : ?>
+            <a class="btn btn-sm btn-outline-primary ms-2 fw-bold" href="<?= base_url('merchant/dashboard') ?>">
+                <i class="fas fa-store"></i> Merchant Dashboard
+            </a>
+        <?php endif; ?>
 
-    .servify-navbar {
-        background-color: var(--white);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        padding: 15px 0;
-        font-family: 'Poppins', sans-serif; /* Pastikan font ini ada */
-    }
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-    }
-
-    /* Logo Styling */
-    .nav-brand {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        gap: 10px;
-    }
-
-    .nav-logo-img {
-        height: 40px; 
-        width: 40px; 
-        object-fit: cover; 
-        border-radius: 50%;
-    }
-
-    .nav-brand-text {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--text-dark);
-    }
-
-    /* Menu Links */
-    .nav-menu {
-        display: flex;
-        gap: 25px;
-        align-items: center;
-    }
-
-    .nav-link {
-        text-decoration: none;
-        color: #777;
-        font-weight: 500;
-        transition: color 0.3s;
-    }
-
-    .nav-link:hover {
-        color: var(--primary-purple);
-    }
-
-    /* Buttons */
-    .btn {
-        padding: 8px 20px;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        font-size: 0.9rem;
-    }
-
-    /* Tombol Utama (Ungu) */
-    .btn-primary {
-        background-color: var(--primary-purple);
-        color: white;
-        border: 1px solid var(--primary-purple);
-    }
-
-    .btn-primary:hover {
-        background-color: #5666b3;
-    }
-
-    /* Tombol Outline (Login) */
-    .btn-outline {
-        background-color: transparent;
-        color: var(--primary-purple);
-        border: 1px solid var(--primary-purple);
-    }
-
-    .btn-outline:hover {
-        background-color: var(--primary-purple);
-        color: white;
-    }
-
-    /* Tombol Logout (Merah soft) */
-    .btn-logout {
-        color: #e74c3c;
-        margin-left: 10px;
-        font-weight: 500;
-        text-decoration: none;
-        font-size: 0.9rem;
-    }
-    .btn-logout:hover {
-        text-decoration: underline;
-    }
-    
-    /* Tombol Khusus Admin (Orange) */
-    .btn-admin {
-        background-color: #e67e22;
-        color: white;
-    }
-</style>
-
-<nav class="servify-navbar">
-    <div class="nav-container">
-        
-        <a href="<?= base_url('/') ?>" class="nav-brand">
-            <img src="https://scontent.fcgk33-1.fna.fbcdn.net/v/t39.30808-6/583928529_122099849571120016_3728179850395384540_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=T_yKGn2uSFAQ7kNvwHTY6j5&_nc_oc=AdlCSwQfHRKqZ_0vaWoOY-nDlErSsvpQiJztbSRLdfgVy-Nd9Hz2f2ItPtmUqOwKqo1J5fQQ_Ddsz58Nlh6CknRG&_nc_zt=23&_nc_ht=scontent.fcgk33-1.fna&_nc_gid=t0O1wWRKMQ1geQ8QoyAXxQ&oh=00_AfkFCk1RjrokeSk5UtKdcyo1gcEM7_6OoJ2cxvdlwlB3Ew&oe=693B0C46" 
-                 alt="Logo" 
-                 class="nav-logo-img">
-            <span class="nav-brand-text">Servify</span>
-        </a>
-
-        <div class="nav-menu">
-            <a href="<?= base_url('/') ?>" class="nav-link">Home</a>
-            <a href="<?= base_url('marketplace') ?>" class="nav-link">Marketplace</a>
-            <a href="<?= base_url('findus') ?>" class="nav-link">Find Us</a>
-            <a href="<?= base_url('chatbot') ?>" class="nav-link">Chatbot</a>
-        </div>
-
-        <div class="nav-auth" style="display: flex; align-items: center;">
-            
-            <?php if ($session->get('logged_in')): ?>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
                 
-                <?php $userRole = $session->get('role'); ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/') ?>">Home</a>
+                </li>
 
-                <?php if ($userRole === 'admin'): ?>
-                    <a href="<?= base_url('admin') ?>" class="btn btn-admin">
-                        <i class="fas fa-user-shield"></i> Panel Admin
-                    </a>
+                <li class="nav-item">
+                    <?php if (session()->get('role') === 'merchant') : ?>
+                        <a class="nav-link fw-bold text-primary" href="<?= base_url('merchant/dashboard') ?>">
+                            Kelola Toko
+                        </a>
+                    <?php elseif (session()->get('merchant_status') === 'pending') : ?>
+                        <a class="nav-link" href="<?= base_url('merchant/waiting') ?>">Status Pengajuan</a>
+                    <?php else : ?>
+                        <a class="nav-link" href="<?= base_url('merchant/register') ?>">Jadi Mitra</a>
+                    <?php endif; ?>
+                </li>
 
-                <?php elseif ($userRole === 'merchant'): ?>
-                    <a href="<?= base_url('merchant/dashboard') ?>" class="btn btn-primary">
-                        <i class="fas fa-store"></i> Dashboard Toko
-                    </a>
+                <?php if (session()->get('isLoggedIn')) : ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Hai, <?= esc(session()->get('user_name')) ?> 
+                            <?php if(session()->get('role') === 'merchant'): ?>
+                                <span class="badge bg-success">Merchant</span>
+                            <?php endif; ?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <?php if (session()->get('role') === 'admin') : ?>
+                                <li><a class="dropdown-item" href="<?= base_url('admin/dashboard') ?>">Admin Panel</a></li>
+                            <?php endif; ?>
+                            
+                            <?php if (session()->get('role') === 'merchant') : ?>
+                                <li><a class="dropdown-item" href="<?= base_url('merchant/dashboard') ?>">Dashboard Toko</a></li>
+                            <?php endif; ?>
 
-                <?php else: ?>
-                    <a href="<?= base_url('merchant/register') ?>" class="btn btn-outline">
-                        Gabung Mitra
-                    </a>
+                            <li><a class="dropdown-item" href="<?= base_url('profile') ?>">Profile Saya</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="<?= base_url('logout') ?>">Logout</a></li>
+                        </ul>
+                    </li>
+                <?php else : ?>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-3" href="<?= base_url('login') ?>">Login</a>
+                    </li>
                 <?php endif; ?>
 
-                <a href="<?= base_url('logout') ?>" class="btn-logout">
-                    Logout
-                </a>
-
-            <?php else: ?>
-                <div style="display: flex; gap: 10px;">
-                    <a href="<?= base_url('login') ?>" class="nav-link" style="padding: 8px 15px;">Login</a>
-                    <a href="<?= base_url('register') ?>" class="btn btn-primary">Register</a>
-                </div>
-            <?php endif; ?>
-
+            </ul>
         </div>
     </div>
 </nav>

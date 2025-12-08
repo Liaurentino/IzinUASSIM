@@ -17,8 +17,6 @@ class MerchantAuthFilter implements FilterInterface
             return redirect()->to(base_url('login'));
         }
 
-        // 2. LOGIKA PENYEMBUHAN SESSION (SELF-HEALING)
-        // Jika session role-nya masih 'user', kita cek ke DB apakah dia sebenarnya sudah jadi merchant?
         if ($session->get('role') !== 'merchant') {
             
             $userId = $session->get('id');

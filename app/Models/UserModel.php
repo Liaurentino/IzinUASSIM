@@ -12,8 +12,7 @@ class UserModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    // Tambahkan 'role' ke allowedFields
-    protected $allowedFields    = ['username', 'email', 'password', 'role']; 
+    protected $allowedFields    = ['name', 'email', 'password', 'role']; 
 
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
@@ -25,7 +24,6 @@ class UserModel extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
 
-    // Tambahkan hash password sebelum insert
     protected $beforeInsert = ['hashPassword'];
     protected $beforeUpdate = ['hashPassword'];
 

@@ -40,7 +40,7 @@ class Auth extends BaseController
             'email'     => $this->request->getPost('email'),
             'phone'     => $this->request->getPost('phone'),
             'password'  => $this->request->getPost('password'),
-            'role'      => 'user' // Default role
+            'role'      => 'user' 
         ]);
 
         $this->session->setFlashdata('success', 'Registrasi berhasil! Silakan Login.');
@@ -61,7 +61,7 @@ class Auth extends BaseController
         return $this->renderView('pages/login', $data);
     }
 
-    public function processLogin()
+  public function processLogin()
     {
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
@@ -73,46 +73,60 @@ class Auth extends BaseController
 
         if ($user && password_verify($password, $user['password'])) {
             
-            // 1. Siapkan Data Session Dasar
+            // --- 1. SET DATA DASAR SESSION ---
             $sessData = [
-                'id'         => $user['id'],       // ID User (Primary Key users)
-                'user_id'    => $user['id'],       // Alias untuk kompatibilitas
-                'user_name'  => $user['name'],
+                'id'         => $user['id'],
+                'user_id'    => $user['id'],
+                'user_name'  => $user['name'], 
                 'user_email' => $user['email'],
-                'role'       => $user['role'],     // Role dari database (admin/user/merchant)
+                'role'       => $user['role'], // Role asli dari database (user/admin)
                 'isLoggedIn' => TRUE
             ];
 
-            // 2. Ambil Data Merchant (Cek status merchant, meskipun role user masih 'user')
+            // --- 2. CEK DATA MERCHANT ---
             $merchant = $merchantModel->where('user_id', $user['id'])->first();
+            
+            $redirectUrl = base_url('/'); // Default redirect
 
-            if ($merchant) {
-                // Masukkan data merchant ke session agar bisa diakses di dashboard/header
-                $sessData['merchant_id']     = $merchant['id'];
-                $sessData['merchant_status'] = $merchant['status']; // Verified/pending/rejected
-                $sessData['merchant_name']   = $merchant['merchant_name'] ?? $merchant['business_name'];
-            }
-
-            // 3. Tentukan Redirect URL
-            $redirectUrl = base_url('/'); // Default ke Home
-
+            // --- 3. LOGIC PENENTUAN ARAH (ROUTING) ---
+            
+            // A. Jika Admin
             if ($user['role'] === 'admin') {
                 $redirectUrl = base_url('admin/dashboard');
             } 
-            // Jika role sudah merchant ATAU status merchant sudah Verified (agar dashboard bisa diakses)
-            elseif ($user['role'] === 'merchant' || ($merchant && $merchant['status'] === 'Verified')) {
-                // Update role di session jika di database masih user tapi status verified
-                $sessData['role'] = 'merchant'; 
-                $redirectUrl = base_url('merchant/dashboard');
+            // B. Jika User punya data Merchant
+            elseif ($merchant) {
+                // Simpan data merchant ke session untuk akses global
+                $sessData['merchant_id']     = $merchant['id'];
+                $sessData['merchant_status'] = $merchant['status'];
+                $sessData['merchant_name']   = $merchant['merchant_name'] ?? $merchant['business_name'];
+
+                switch ($merchant['status']) {
+                    case 'Verified':
+                        $sessData['role'] = 'merchant'; 
+                        $redirectUrl = base_url('merchant/dashboard');
+                        break;
+
+                    case 'pending':
+                        $redirectUrl = base_url('merchant/waiting');
+                        break;
+
+                    case 'rejected':
+                        $this->session->setFlashdata('warning', 'Pengajuan Merchant ditolak. Hubungi admin.');
+                        $redirectUrl = base_url('/'); 
+                        break;
+                    
+                    default:
+                        $redirectUrl = base_url('/');
+                        break;
+                }
             }
-            // Jika user biasa tapi sudah daftar merchant (status pending)
-            elseif ($merchant && $merchant['status'] === 'pending') {
-                $redirectUrl = base_url('merchant/waiting');
-            }
-            
-            // Set Session
+
+            // Set Session Final
             $this->session->set($sessData);
-            $this->session->setFlashdata('success', 'Login Berhasil! Selamat datang ' . $user['name'] . '.');
+            
+            // Gunakan username untuk pesan sukses
+            $this->session->setFlashdata('success', 'Login Berhasil! Selamat datang ' . $user['name']);
             
             return redirect()->to($redirectUrl);
             

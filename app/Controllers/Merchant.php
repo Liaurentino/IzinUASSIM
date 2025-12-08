@@ -18,7 +18,6 @@ class Merchant extends BaseController
     // Halaman Form Register (Public User View)
     public function register()
     {
-        // Cek Login menggunakan session() helper langsung atau property session
         if (! session()->get('isLoggedIn')) {
             session()->setFlashdata('error', 'Anda harus login untuk mendaftar sebagai Mitra.');
             return redirect()->to(base_url('login'));
@@ -29,7 +28,6 @@ class Merchant extends BaseController
             'validation' => \Config\Services::validation()
         ];
         
-        // PERBAIKAN: Gunakan renderView() di sini juga
         return $this->renderView('pages/merchant_register', $data);
     }
 

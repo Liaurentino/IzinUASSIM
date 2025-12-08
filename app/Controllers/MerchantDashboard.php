@@ -21,7 +21,7 @@ class MerchantDashboard extends BaseController
 
     public function index()
     {
-        // Session user_id pasti ada karena sudah lolos Filter
+    
         $userId = session()->get('id'); 
         
         // Ambil data merchant terbaru untuk konsistensi view
@@ -129,7 +129,6 @@ class MerchantDashboard extends BaseController
             return redirect()->to(base_url('merchant/dashboard'));
         }
 
-        // Ambil semua reservasi untuk merchant ini
         $reservations = $this->reservationModel->where('merchant_id', $merchant['id'])->findAll();
 
         $data = [
