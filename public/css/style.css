@@ -1,323 +1,336 @@
-/* Pastikan variabel ini di awal file */
+/* ============================================
+   GLOBAL STYLES & VARIABLES
+   ============================================ */
 :root {
-    --primary-color: #697CDC; 
-    --secondary-color: #DDEAFC; 
-    --bg-page: #F8FAFC; 
+    --primary-blue: #687bdb;
+    --secondary-purple: #8b5cf6;
+    --soft-blue: #eff4ff;
     --text-dark: #3f426e;
-    --text-light: #697CDC;
-    --white: #ffffff; 
-    --border-radius-lg: 40px;
-    --border-radius-md: 25px;
-    --radius-input: 10px; /* Diperbesar agar sesuai desain */
 }
 
-/* --- TATA LETAK UTAMA LOGIN (FLEXBOX) --- */
-
-.login-page-container {
-    background-color: var(--secondary-color);
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: var(--border-radius-lg); /* 40px */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    min-height: 600px; 
-    display: flex; /* Penting untuk memusatkan Flexbox */
-    justify-content: center;
-}
-
-/* Flex Container untuk tata letak 2 kolom */
-.login-content-wrapper {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    width: 90%;
-    gap: 50px; 
-}
-
-/* Kiri: Visual */
-.login-visual-area {
-    flex: 1; 
-    text-align: center;
-    max-width: 50%;
-}
-
-.login-visual-area .servify-logo-big {
-    width: 250px; 
-    margin-bottom: 15px;
-}
-
-.login-hero-title {
-    font-size: 38px;
-    font-weight: 700;
-    color: var(--text-dark);
-    line-height: 1.2;
-}
-
-/* Kanan: Kartu Login */
-.login-card-section {
-    width: 100%;
-    max-width: 400px;
-    background: var(--white); /* Latar Putih */
-    padding: 35px;
-    border-radius: var(--border-radius-md); /* 25px */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.card-title-auth {
-    font-size: 26px;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 25px;
-}
-
-/* Gaya Input Auth */
-.form-group-auth input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 10px; /* Radius input */
-    box-sizing: border-box;
-    font-size: 16px;
-    margin-bottom: 15px;
-    color: var(--text-light);
-}
-
-.forgot-password-link {
-    display: block;
-    text-align: left;
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
-/* Tombol Login */
-.btn-login-submit {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-radius: 10px;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-}
-
-/* Link Buat Akun Baru */
-.btn-register-link {
-    display: inline-block;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-top: 5px;
-    text-decoration: none;
-}
-
-/* --- Registrasi Page (Kartu Terpusat) --- */
-.register-page {
-    display: block; 
-}
-
-.card-form-register {
-    width: 100%;
-    max-width: 500px;
-    padding: 40px;
-    background-color: var(--white); 
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    margin: 40px auto; 
-    text-align: center;
-}
-
-/* --- Admin Dashboard Layout Variables --- */
-:root {
-    --admin-sidebar-width: 250px;
-    --admin-header-height: 60px;
-    --admin-bg: #f4f6f9;
-    --admin-sidebar-bg: #343a40;
-    --admin-text-white: #ffffff;
-    --primary-color: #4e73df;
-    --card-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-}
-
-/* Reset dasar untuk dashboard admin */
-.admin-body {
-    background-color: var(--admin-bg);
+* {
     margin: 0;
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    overflow-x: hidden;
-}
-
-/* Wrapper Utama */
-.d-flex-admin {
-    display: flex;
-    width: 100%;
-    min-height: 100vh;
-}
-
-/* Sidebar Styling */
-.admin-sidebar {
-    width: var(--admin-sidebar-width);
-    background-color: var(--admin-sidebar-bg);
-    color: var(--admin-text-white);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    height: 100vh;
-    transition: all 0.3s;
-}
-
-.admin-sidebar .sidebar-brand {
-    height: var(--admin-header-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    color: #fff;
-    text-decoration: none;
-}
-
-.admin-sidebar ul.nav {
-    list-style: none;
     padding: 0;
-    margin-top: 1rem;
+    box-sizing: border-box;
 }
 
-.admin-sidebar ul.nav li a {
-    color: rgba(255,255,255,0.8);
-    padding: 1rem 1.5rem;
-    display: block;
-    text-decoration: none;
-    font-size: 0.9rem;
-    border-left: 4px solid transparent;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
 }
 
-.admin-sidebar ul.nav li a:hover, 
-.admin-sidebar ul.nav li a.active {
-    color: #fff;
-    background-color: rgba(255,255,255,0.1);
-    border-left-color: var(--primary-color);
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.main-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.admin-sidebar ul.nav li a i {
-    margin-right: 10px;
-    width: 20px;
-    text-align: center;
+/* ============================================
+   NAVIGATION STYLES
+   ============================================ */
+nav a {
+    transition: all 0.2s ease;
 }
 
-/* Main Content Area */
-.admin-content {
-    margin-left: var(--admin-sidebar-width);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    width: calc(100% - var(--admin-sidebar-width));
+nav a:hover {
+    transform: translateY(-1px);
 }
 
-/* Top Header */
-.admin-header {
-    height: var(--admin-header-height);
-    background-color: #fff;
-    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+
+/* --- WRAPPER HEADER --- */
+.navbar-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.5rem;
-    z-index: 10;
+    padding: 0 5%;
 }
 
-.admin-header h1 {
-    font-size: 1.2rem;
-    color: #5a5c69;
-    margin: 0;
-}
-
-.user-profile {
+.navbar-brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.user-profile span {
-    font-weight: 600;
-    color: #555;
-    font-size: 0.9rem;
+.navbar-brand span {
+    color: #3498db;
 }
 
-.btn-logout {
-    font-size: 0.8rem;
-    padding: 5px 12px;
-    background-color: #e74a3b;
-    color: white;
-    border-radius: 4px;
-    text-decoration: none;
-}
-
-/* Main Container */
-.container-fluid-admin {
-    padding: 1.5rem;
-}
-
-/* Card Stats Grid */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.stat-card {
-    background: #fff;
-    border-radius: 0.35rem;
-    padding: 1.5rem;
-    box-shadow: var(--card-shadow);
-    border-left: 4px solid var(--primary-color);
+/* --- MENU LINKS --- */
+.nav-links {
     display: flex;
-    justify-content: space-between;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #3498db;
+}
+
+/* --- ACTION BUTTONS (Login/Register) --- */
+.nav-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-login {
+    text-decoration: none;
+    padding: 8px 20px;
+    border: 1px solid #3498db;
+    border-radius: 20px;
+    color: #3498db;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-register {
+    text-decoration: none;
+    padding: 8px 20px;
+    background-color: #3498db;
+    border: 1px solid #3498db;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #2980b9;
+}
+
+/* --- HAMBURGER MENU (MOBILE) --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* --- HOME PAGE STYLES (NEW) --- */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 5%;
+}
+
+.space-y-8 > * + * {
+    margin-top: 2rem;
+}
+
+.card-section {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1rem; /* rounded-2xl equivalent */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* shadow-xl equivalent */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.content-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.content-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.stat-card.success { border-left-color: #1cc88a; }
-.stat-card.warning { border-left-color: #f6c23e; }
-.stat-card.danger { border-left-color: #e74a3b; }
+.home-title {
+    font-size: 2.5rem; /* text-5xl equivalent */
+    font-weight: 800;
+    line-height: 1.2;
+    color: #2c3e50; /* Fallback for secondary-purple */
+}
 
-.stat-text h5 {
-    color: var(--primary-color);
-    font-size: 0.7rem;
+.text-primary-blue {
+    color: #3498db;
+}
+
+.text-secondary-purple {
+    color: #8e44ad; /* Purple accent */
+}
+
+.home-desc {
+    font-size: 1.125rem; /* text-lg */
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Tombol CTA di Home */
+.cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 12px; /* rounded-xl */
     font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.stat-text.success h5 { color: #1cc88a; }
-.stat-text.warning h5 { color: #f6c23e; }
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+    border: 2px solid #3498db;
+}
 
-.stat-text .value {
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    background-color: white;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.btn-outline:hover {
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    transform: scale(1.05);
+}
+
+.btn-purple {
+    background-color: #8e44ad;
+    color: white;
+    border: 2px solid #8e44ad;
+}
+
+.btn-purple:hover {
+    background-color: #732d91;
+    border-color: #732d91;
+    transform: scale(1.05);
+}
+
+/* Fitur List */
+.feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.check-icon {
+    color: #27ae60; /* green-500 */
+    font-weight: bold;
     font-size: 1.25rem;
-    font-weight: 700;
-    color: #5a5c69;
 }
 
-.stat-icon {
-    color: #dddfeb;
-    font-size: 2rem;
+.feature-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
 }
 
-/* General Card for Tables/Content */
-.content-card {
-    background: white;
-    border-radius: 0.35rem;
-    box-shadow: var(--card-shadow);
-    padding: 1.5rem;
+.feature-subtext {
+    color: #7f8c8d;
+    font-weight: 400;
+    display: block;
 }
 
-.content-card h3 {
-    margin-top: 0;
-    color: #4e73df;
-    font-size: 1.25rem;
-    border-bottom: 1px solid #e3e6f0;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+/* Gambar Home */
+.home-img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    object-fit: cover;
+}
+
+/* --- RESPONSIVE --- */
+@media (min-width: 768px) {
+    .card-section {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .content-right {
+        margin-top: 0;
+    }
+    
+    .nav-links {
+        display: flex; /* Kembalikan menu di desktop */
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-actions {
+        display: none;
+    }
+    
+    .home-title {
+        font-size: 2rem;
+    }
+    
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-action {
+        width: 100%;
+    }
 }
