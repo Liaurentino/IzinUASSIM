@@ -1,0 +1,119 @@
+DEBUG - 2025-12-10 10:00:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:00:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:00:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:00:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:00:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:01:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:01:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:01:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:01:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:03:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:03:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:03:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:03:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:03:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:03:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:03:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:03:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:04:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:04:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-10 10:04:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-10 10:04:41 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-10 10:04:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-10 10:04:55 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Home.php(12): App\Controllers\BaseController->renderView('pages/home', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-10 10:04:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-10 10:04:59 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Merchant.php(15): App\Controllers\BaseController->renderView('pages/merchant_info', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Merchant->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Merchant))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-10 10:05:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-10 10:05:01 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Merchant.php(31): App\Controllers\BaseController->renderView('pages/merchant_register', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Merchant->register()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Merchant))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-10 10:05:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-10 10:05:04 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Chatbot.php(19): App\Controllers\BaseController->renderView('pages/chatbot', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Chatbot->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chatbot))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-10 10:05:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-10 10:05:07 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Reservation.php(39): App\Controllers\BaseController->renderView('pages/reservation', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Reservation->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reservation))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-10 10:05:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-10 10:05:07 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Reservation.php(39): App\Controllers\BaseController->renderView('pages/reservation', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Reservation->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reservation))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

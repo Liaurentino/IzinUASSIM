@@ -1,5 +1,5 @@
 <div class="flex justify-center items-center h-full">
-    <div class="main-card p-8 rounded-2xl shadow-xl w-full max-w-3xl transition duration-300 space-y-6">
+    <div class="card-bg-gray p-8 rounded-2xl shadow-xl w-full max-w-3xl transition duration-300 space-y-6">
         <h2 class="text-3xl font-bold text-center text-primary-blue mb-6">Formulir Reservasi Service</h2>
 
         <?= form_open(base_url('reservation/create'), ['class' => 'space-y-6']) ?>

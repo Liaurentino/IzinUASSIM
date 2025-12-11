@@ -1,12 +1,14 @@
 <?php namespace App\Controllers;
 
+use CodeIgniter\Controller;
+
 class Chatbot extends BaseController
 {
     protected $apiKey;
     
     public function __construct()
     {
-        // Load API Key from environment
+        // Mengambil API Key dari .env
         $this->apiKey = getenv('GOOGLE_AI_API_KEY');
     }
     
@@ -16,104 +18,108 @@ class Chatbot extends BaseController
             'title' => 'Servify - Chatbot AI Assistant',
         ];
         
-        return $this->renderView('pages/chatbot', $data);
+         return $this->renderView('pages/chatbot', $data);
     }
     
     public function sendMessage()
     {
-        // Validasi request
+        // 1. Validasi Request
         if (!$this->request->isAJAX()) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Invalid request method'
-            ]);
+            return $this->response->setStatusCode(403)->setJSON(['success' => false, 'message' => 'Invalid Request']);
         }
         
         $message = $this->request->getPost('message');
         
         if (empty($message)) {
             return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Message cannot be empty'
+                'success' => false, 
+                'message' => 'Pesan kosong', 
+                'token' => csrf_hash()
             ]);
         }
         
         try {
-            // Call Google AI API
-            $response = $this->callGoogleAI($message);
+            // 2. Panggil API
+            $reply = $this->callGoogleAI($message);
             
             return $this->response->setJSON([
                 'success' => true,
-                'reply' => $response
+                'reply'   => $reply,
+                'token'   => csrf_hash()
             ]);
             
         } catch (\Exception $e) {
-            log_message('error', 'Chatbot Error: ' . $e->getMessage());
+            // Log error untuk developer
+            log_message('error', '[Chatbot] ' . $e->getMessage());
             
             return $this->response->setJSON([
                 'success' => false,
-                'message' => 'Sorry, I encountered an error. Please try again later.',
-                'error' => ENVIRONMENT === 'development' ? $e->getMessage() : null
+                // Tampilkan pesan error jika di development, pesan umum jika production
+                'message' => (getenv('CI_ENVIRONMENT') === 'development') 
+                             ? "Error: " . $e->getMessage() 
+                             : "Maaf, server sedang sibuk. Silakan coba lagi.",
+                'token'   => csrf_hash()
             ]);
         }
     }
-    
-    private function callGoogleAI($message)
+   
+private function callGoogleAI($message)
     {
-        if (empty($this->apiKey)) {
-            throw new \Exception('Google AI API Key not configured');
-        }
+        if (!$this->apiKey) throw new \Exception("API Key belum disetting di .env");
+
+        // --- SOLUSI ERROR 404 & 429 ---
+        // Gunakan 'gemini-1.5-flash' (Model paling ringan, cepat, dan kuota gratisnya paling banyak)
+        // Jangan pakai 'gemini-pro' (versi lama) atau 'gemini-3' (belum rilis/tidak ada akses)
+        $model = 'gemini-embedding-001'; 
         
-        // Prepare system context for laptop repair assistant
-        $systemPrompt = "You are a helpful assistant for Servify, a laptop repair service platform. Help users with laptop repair inquiries, booking services, and product recommendations. Be friendly and professional. Answer in Indonesian language.";
+        $url = "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$this->apiKey}";
         
-        $fullPrompt = $systemPrompt . "\n\nUser: " . $message . "\n\nAssistant:";
-        
-        // Google AI API endpoint (Gemini)
-        $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' . $this->apiKey;
-        
-        $data = [
+        $payload = [
             'contents' => [
                 [
-                    'parts' => [
-                        ['text' => $fullPrompt]
-                    ]
+                    'role' => 'user',
+                    'parts' => [['text' => $message]]
                 ]
-            ],
-            'generationConfig' => [
-                'temperature' => 0.7,
-                'maxOutputTokens' => 800,
             ]
         ];
-        
+
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Content-Type: application/json'
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST           => true,
+            CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+            CURLOPT_POSTFIELDS     => json_encode($payload),
+            CURLOPT_TIMEOUT        => 30,
+            CURLOPT_SSL_VERIFYPEER => false, // Penting buat Localhost
+            CURLOPT_SSL_VERIFYHOST => false,
         ]);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        
-        if (curl_errno($ch)) {
-            throw new \Exception('CURL Error: ' . curl_error($ch));
-        }
-        
+        $curlError = curl_error($ch);
         curl_close($ch);
-        
-        if ($httpCode !== 200) {
-            throw new \Exception('API returned status code: ' . $httpCode);
-        }
-        
+
+        if ($curlError) throw new \Exception("Koneksi Gagal: " . $curlError);
+
         $result = json_decode($response, true);
-        
+
+        // Cek Error API
+        if ($httpCode !== 200) {
+            // Tangkap pesan error spesifik dari Google
+            $errMsg = $result['error']['message'] ?? 'Unknown Error';
+            
+            // Jika Error 429 (Kebanyakan Request), beri pesan user friendly
+            if ($httpCode == 429) {
+                throw new \Exception("Server sedang sibuk (Limit API Tercapai). Silakan tunggu 1 menit lagi.");
+            }
+            
+            throw new \Exception("Google API ({$httpCode}): {$errMsg}");
+        }
+
         if (isset($result['candidates'][0]['content']['parts'][0]['text'])) {
             return $result['candidates'][0]['content']['parts'][0]['text'];
         }
-        
-        throw new \Exception('Invalid API response format');
+
+        throw new \Exception("Format respon tidak sesuai. Raw: " . substr($response, 0, 100));
     }
 }

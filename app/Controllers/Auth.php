@@ -73,7 +73,7 @@ class Auth extends BaseController
 
         if ($user && password_verify($password, $user['password'])) {
             
-            // === SET SESSION DASAR ===
+
             $sessData = [
                 'id'         => $user['id'],
                 'user_id'    => $user['id'],
@@ -107,7 +107,6 @@ class Auth extends BaseController
                         // Update role di database juga (untuk konsistensi)
                         $userModel->update($user['id'], ['role' => 'merchant']);
                         
-                        $redirectUrl = base_url('merchant/dashboard');
                     }
                     elseif ($merchant['status'] === 'pending') {
                         $redirectUrl = base_url('merchant/waiting');

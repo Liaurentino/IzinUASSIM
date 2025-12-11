@@ -5,22 +5,16 @@
 
         <?= form_open(base_url('login/process'), ['class' => 'space-y-4']) ?>
         
-            <!-- Input Email -->
             <div>
                 <label for="email" class="block text-sm font-medium text-text-dark">Email</label>
                 <input type="email" id="email" name="email" value="<?= old('email') ?>" placeholder="Email Anda" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-inner focus:ring-primary-blue focus:border-primary-blue">
                 <?php if ($session->getFlashdata('error')): ?>
-                    <!-- Asumsi error login ditangani di controller dan ditampilkan di flashdata -->
                 <?php endif; ?>
             </div>
-
-            <!-- Input Password -->
             <div>
                 <label for="password" class="block text-sm font-medium text-text-dark">Password</label>
                 <input type="password" id="password" name="password" placeholder="Password Anda" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-inner focus:ring-primary-blue focus:border-primary-blue">
             </div>
-
-            <!-- Tombol Login -->
             <div class="pt-6">
                 <button type="submit" class="w-full bg-secondary-purple text-white py-3 rounded-xl font-bold text-lg shadow-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
                     Login

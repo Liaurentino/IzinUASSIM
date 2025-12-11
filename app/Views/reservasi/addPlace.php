@@ -5,7 +5,6 @@
         <?= form_open(base_url('reservation/create'), ['class' => 'space-y-6']) ?>
         
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Input Nama -->
                 <div>
                     <label for="name" class="block text-sm font-medium text-text-dark">Nama</label>
                     <input type="text" id="name" name="name" value="<?= old('name') ?>" placeholder="Nama Lengkap Anda" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-inner focus:ring-primary-blue focus:border-primary-blue">
@@ -14,7 +13,6 @@
                     <?php endif; ?>
                 </div>
 
-                <!-- Input No. Telp -->
                 <div>
                     <label for="phone" class="block text-sm font-medium text-text-dark">No. Telp</label>
                     <input type="text" id="phone" name="phone" value="<?= old('phone') ?>" placeholder="Nomor Telepon Aktif" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-inner focus:ring-primary-blue focus:border-primary-blue">
@@ -24,7 +22,6 @@
                 </div>
             </div>
 
-            <!-- Input Model Laptop -->
             <div>
                 <label for="laptop_model" class="block text-sm font-medium text-text-dark">Model Laptop</label>
                 <input type="text" id="laptop_model" name="laptop_model" value="<?= old('laptop_model') ?>" placeholder="Contoh: Asus VivoBook Pro 15" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-inner focus:ring-primary-blue focus:border-primary-blue">
@@ -42,7 +39,6 @@
                 <?php endif; ?>
             </div>
             
-            <!-- Input Tanggal Reservasi -->
             <div>
                 <label for="reservation_date" class="block text-sm font-medium text-text-dark">Tanggal Reservasi</label>
                 <input type="date" id="reservation_date" name="reservation_date" value="<?= old('reservation_date') ?>" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-inner focus:ring-primary-blue focus:border-primary-blue">
@@ -50,8 +46,6 @@
                     <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('reservation_date')) ?></p>
                 <?php endif; ?>
             </div>
-
-            <!-- Pilihan Tempat Service -->
             <div>
                 <label for="service_location" class="block text-sm font-medium text-text-dark">Pilih Tempat Service</label>
                 <select id="service_location" name="service_location" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-inner focus:ring-primary-blue focus:border-primary-blue">

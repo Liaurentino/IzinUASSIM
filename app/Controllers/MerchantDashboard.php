@@ -23,9 +23,9 @@ class MerchantDashboard extends BaseController
     protected function renderMerchantView($page, $data = [])
     {
         $data['session'] = $this->session;
-        echo view('merchant/layout/merchant_header', $data);
+        echo view('merchant/layout/header', $data);
         echo view($page, $data);
-        echo view('merchant/layout/merchant_footer', $data);
+        echo view('merchant/layout/footer', $data);
     }
 
     public function index()
@@ -67,7 +67,7 @@ class MerchantDashboard extends BaseController
             'products' => $this->productModel->where('merchant_id', $merchant['id'])->findAll()
         ];
         
-        return $this->renderMerchantView('merchant/products_content', $data);
+        return $this->renderMerchantView('merchant/add_products', $data);
     }
 
     public function reservations()
@@ -81,7 +81,7 @@ class MerchantDashboard extends BaseController
             'reservations' => $this->reservationModel->where('merchant_id', $merchant['id'])->findAll()
         ];
         
-        return $this->renderMerchantView('merchant/reservations_content', $data);
+        return $this->renderMerchantView('merchant/reservations', $data);
     }
 
     public function addProduct()

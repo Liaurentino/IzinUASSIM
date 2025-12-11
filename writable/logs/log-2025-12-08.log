@@ -442,3 +442,514 @@ DEBUG - 2025-12-08 10:08:13 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-12-08 10:08:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-08 10:08:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-08 10:08:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:22:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:22:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:23:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:35:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:37:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:37:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:38:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:38:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:38:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:38:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:38:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:38:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:39:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:39:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:39:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:39:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:39:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:39:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:39:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:40:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:40:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:41:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:41:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:41:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:42:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:43:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:44:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:45:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:46:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:47:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:47:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:47:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:48:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:48:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:48:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:48:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:48:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:48:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:51:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:58:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 10:58:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:03:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:03:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:03:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:06:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:06:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:06:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:06:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:08:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:08:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:08:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:08:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:09:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:10:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:10:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:10:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:11:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:11:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:11:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:11:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:11:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:11:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:11:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:11:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:11:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:12:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:18:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:18:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:18:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:20:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:21:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:21:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:21:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:23:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:23:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:23:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:24:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:24:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:24:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:24:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:24:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:25:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:25:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-08 11:25:03 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "merchant/layout/merchant_header.php"
+[Method: GET, Route: merchant/dashboard]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('merchant/layout/merchant_header.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('merchant/layout/merchant_header', [], true)
+ 3 APPPATH\Controllers\MerchantDashboard.php(26): view('merchant/layout/merchant_header', [...])
+ 4 APPPATH\Controllers\MerchantDashboard.php(49): App\Controllers\MerchantDashboard->renderMerchantView('merchant/dashboard_content', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\MerchantDashboard->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MerchantDashboard))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 11:26:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:26:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:26:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:26:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-08 11:26:53 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "merchant/reservations_content.php"
+[Method: GET, Route: merchant/reservations]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('merchant/reservations_content.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('merchant/reservations_content', [], true)
+ 3 APPPATH\Controllers\MerchantDashboard.php(27): view('merchant/reservations_content', [...])
+ 4 APPPATH\Controllers\MerchantDashboard.php(84): App\Controllers\MerchantDashboard->renderMerchantView('merchant/reservations_content', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\MerchantDashboard->reservations()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MerchantDashboard))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 11:26:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-08 11:26:59 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "merchant/products_content.php"
+[Method: GET, Route: merchant/products]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('merchant/products_content.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('merchant/products_content', [], true)
+ 3 APPPATH\Controllers\MerchantDashboard.php(27): view('merchant/products_content', [...])
+ 4 APPPATH\Controllers\MerchantDashboard.php(70): App\Controllers\MerchantDashboard->renderMerchantView('merchant/products_content', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\MerchantDashboard->products()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MerchantDashboard))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 11:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-08 11:27:03 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "merchant/reservations_content.php"
+[Method: GET, Route: merchant/reservations]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('merchant/reservations_content.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('merchant/reservations_content', [], true)
+ 3 APPPATH\Controllers\MerchantDashboard.php(27): view('merchant/reservations_content', [...])
+ 4 APPPATH\Controllers\MerchantDashboard.php(84): App\Controllers\MerchantDashboard->renderMerchantView('merchant/reservations_content', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\MerchantDashboard->reservations()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MerchantDashboard))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 11:27:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-08 11:27:17 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "merchant/reservations_content.php"
+[Method: GET, Route: merchant/reservations]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('merchant/reservations_content.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('merchant/reservations_content', [], true)
+ 3 APPPATH\Controllers\MerchantDashboard.php(27): view('merchant/reservations_content', [...])
+ 4 APPPATH\Controllers\MerchantDashboard.php(84): App\Controllers\MerchantDashboard->renderMerchantView('merchant/reservations_content', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\MerchantDashboard->reservations()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MerchantDashboard))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 11:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:28:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:28:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:28:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:28:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:28:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:28:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:29:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:29:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:30:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:30:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:30:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:30:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:30:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:31:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:33:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:34:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:35:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:35:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:35:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:35:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:35:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:35:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-08 11:35:35 --> Chatbot Error: API returned status code: 404
+DEBUG - 2025-12-08 11:35:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:35:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:35:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:37:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:37:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:37:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:37:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:37:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:38:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:38:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:38:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:38:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:39:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:39:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:39:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 11:49:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:00:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:01:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:02:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:02:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:03:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:03:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:03:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:03:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:03:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:03:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 13:04:43 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Home.php(12): App\Controllers\BaseController->renderView('pages/home', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 13:04:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 13:04:45 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Merchant.php(31): App\Controllers\BaseController->renderView('pages/merchant_register', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Merchant->register()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Merchant))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 13:04:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:04:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:05:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:05:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 13:05:04 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 13:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:05:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:05:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:05:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:05:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:05:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:06:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-08 13:06:11 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "merchant/add_products.php"
+[Method: GET, Route: merchant/products]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('merchant/add_products.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('merchant/add_products', [], true)
+ 3 APPPATH\Controllers\MerchantDashboard.php(27): view('merchant/add_products', [...])
+ 4 APPPATH\Controllers\MerchantDashboard.php(70): App\Controllers\MerchantDashboard->renderMerchantView('merchant/add_products', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\MerchantDashboard->products()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MerchantDashboard))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 13:06:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:06:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 13:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:23:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:23:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:24:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:24:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:24:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:26:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:26:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 14:26:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:26:23 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:27:33 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:28:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:28:00 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:30:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:30:55 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:33:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:33:55 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:37:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:37:39 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:38:59 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:40:01 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:45:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:45:34 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:48:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:48:48 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 14:50:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 14:50:01 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Admin.php(30): App\Controllers\BaseController->renderView('admin/dashboard', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 15:13:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-12-08 15:13:25 --> [DEPRECATED] strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 59.
+ 1 APPPATH\Views\layout\header.php(59): strtolower(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\UASSIM\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(57): view('layout/header', [...])
+ 6 APPPATH\Controllers\Home.php(32): App\Controllers\BaseController->renderView('pages/findus', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->findus()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-08 15:14:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 15:14:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 15:14:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 15:14:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 15:14:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-08 15:14:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

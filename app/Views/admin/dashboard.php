@@ -4,281 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Servify</title>
+    
+    <!-- Link ke CSS Admin -->
+    <link rel="stylesheet" href="<?= base_url('css/admin.css'); ?>">
+    
+    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #F8FAFC;
-            color: #333;
-        }
-
-        .admin-container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 280px;
-            background: linear-gradient(180deg, #687bdb 0%, #5568c3 100%);
-            padding: 30px 0;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        .sidebar-header {
-            padding: 0 30px 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-        }
-
-        .sidebar-header h2 {
-            color: white;
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-header p {
-            color: rgba(255,255,255,0.7);
-            font-size: 13px;
-        }
-
-        .sidebar-menu {
-            padding: 20px 0;
-        }
-
-        .menu-item {
-            padding: 15px 30px;
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .menu-item:hover, .menu-item.active {
-            background: rgba(255,255,255,0.1);
-            color: white;
-        }
-
-        .menu-item svg {
-            width: 20px;
-            height: 20px;
-            margin-right: 15px;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            margin-left: 280px;
-            padding: 40px;
-        }
-
-        .page-header {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .page-title {
-            font-size: 28px;
-            color: #687bdb;
-            font-weight: 600;
-        }
-
-        .logout-btn {
-            background: #e74c3c;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .logout-btn:hover {
-            background: #c0392b;
-        }
-
-        /* Stats Cards */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .stat-info h3 {
-            font-size: 14px;
-            color: #666;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-
-        .stat-info .value {
-            font-size: 32px;
-            font-weight: 700;
-            color: #687bdb;
-        }
-
-        .stat-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stat-icon.pending {
-            background: rgba(241, 196, 15, 0.1);
-        }
-
-        .stat-icon svg {
-            width: 30px;
-            height: 30px;
-        }
-
-        /* Table */
-        .table-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .table-header {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .table-header h2 {
-            color: #687bdb;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead {
-            background: #f8f9fa;
-        }
-
-        th {
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-            color: #666;
-            font-size: 13px;
-            text-transform: uppercase;
-        }
-
-        td {
-            padding: 18px 15px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        tbody tr:hover {
-            background: #f8f9fa;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .badge.pending {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            display: inline-block;
-            margin-right: 8px;
-            transition: all 0.3s;
-        }
-
-        .btn-approve {
-            background: #28a745;
-            color: white;
-        }
-
-        .btn-approve:hover {
-            background: #218838;
-        }
-
-        .btn-reject {
-            background: #dc3545;
-            color: white;
-        }
-
-        .btn-reject:hover {
-            background: #c82333;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
-        }
-
-        .alert {
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border-left: 4px solid #28a745;
-        }
-
-        .alert-error {
-            background: #f8d7da;
-            color: #721c24;
-            border-left: 4px solid #dc3545;
-        }
-    </style>
 </head>
 <body>
+
     <div class="admin-container">
-        <!-- Sidebar -->
+        
+        <!-- SIDEBAR -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h2>🛡️ Admin Panel</h2>
@@ -316,15 +53,16 @@
             </nav>
         </aside>
 
-        <!-- Main Content -->
+        <!-- MAIN CONTENT -->
         <main class="main-content">
+            
             <!-- Page Header -->
             <div class="page-header">
                 <h1 class="page-title">Verifikasi Merchant</h1>
                 <a href="<?= base_url('admin/logout') ?>" class="logout-btn">Logout</a>
             </div>
 
-            <!-- Alert Messages -->
+            <!-- Flash Messages -->
             <?php if (session()->getFlashdata('success')): ?>
                 <div class="alert alert-success">
                     ✓ <?= session()->getFlashdata('success') ?>
@@ -337,22 +75,24 @@
                 </div>
             <?php endif; ?>
 
-            <!-- Stats -->
+            <!-- Stats Cards -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-info">
                         <h3>Merchant Pending</h3>
+                        <!-- Menggunakan null coalescing operator agar aman jika variabel kosong -->
                         <div class="value"><?= count($pending_merchants ?? []) ?></div>
                     </div>
                     <div class="stat-icon pending">
-                        <svg fill="none" stroke="#f1c40f" viewBox="0 0 24 24">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
                 </div>
+                <!-- Tambahkan kartu statistik lain di sini jika perlu -->
             </div>
 
-            <!-- Table -->
+            <!-- Table Section -->
             <div class="table-card">
                 <div class="table-header">
                     <h2>Daftar Merchant Menunggu Verifikasi</h2>
@@ -384,12 +124,12 @@
                                         <a href="<?= base_url('admin/approve/' . $merchant['id']) ?>" 
                                            class="btn btn-approve"
                                            onclick="return confirm('Setujui merchant ini?')">
-                                            Setujui
+                                           Setujui
                                         </a>
                                         <a href="<?= base_url('admin/reject/' . $merchant['id']) ?>" 
                                            class="btn btn-reject"
                                            onclick="return confirm('Tolak merchant ini?')">
-                                            Tolak
+                                           Tolak
                                         </a>
                                     </td>
                                 </tr>
@@ -398,14 +138,16 @@
                     </table>
                 <?php else: ?>
                     <div class="empty-state">
-                        <svg width="80" height="80" fill="none" stroke="#ddd" viewBox="0 0 24 24" style="margin: 0 auto 20px;">
+                        <svg width="60" height="60" fill="none" stroke="#ddd" viewBox="0 0 24 24" style="margin: 0 auto 10px;">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
-                        <p>Tidak ada merchant yang menunggu verifikasi</p>
+                        <p>Tidak ada merchant yang menunggu verifikasi saat ini.</p>
                     </div>
                 <?php endif; ?>
             </div>
+
         </main>
     </div>
+
 </body>
 </html>

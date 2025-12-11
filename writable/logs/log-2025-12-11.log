@@ -1,0 +1,115 @@
+DEBUG - 2025-12-11 12:36:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 12:36:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 12:36:24 --> ErrorException: unlink(C:\xampp\htdocs\UASSIM\writable\debugbar/debugbar_1765360867.913311.json): No such file or directory
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar\Collectors\History.php on line 82.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp\\htdocs\\UASSIM\\writable\\debugbar/debugbar_1765360867.913311.json): No such file or directory', 'C:\\xampp\\htdocs\\UASSIM\\system\\Debug\\Toolbar\\Collectors\\History.php', 82)
+ 2 SYSTEMPATH\Debug\Toolbar\Collectors\History.php(82): unlink('C:\\xampp\\htdocs\\UASSIM\\writable\\debugbar/debugbar_1765360867.913311.json')
+ 3 SYSTEMPATH\Debug\Toolbar.php(517): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles('1765456581.895045', 20)
+ 4 SYSTEMPATH\Debug\Toolbar.php(496): CodeIgniter\Debug\Toolbar->format([...], 'html')
+ 5 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 6 SYSTEMPATH\Events\Events.php(152): CodeIgniter\Events\Events::Config\{closure}()
+ 7 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-11 12:36:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 12:36:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 12:36:28 --> Chatbot Error: API returned status code: 404
+DEBUG - 2025-12-11 13:00:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:00:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:00:40 --> Chatbot Error: API returned status code: 404
+DEBUG - 2025-12-11 13:01:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:01:20 --> Chatbot Error: API returned status code: 404
+DEBUG - 2025-12-11 13:11:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:12:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:14:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:14:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:14:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:14:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:15:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:15:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:15:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:15:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:16:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:16:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:17:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:18:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:18:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:18:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:18:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:18:35 --> [Chatbot Error] API Error (404): models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+DEBUG - 2025-12-11 13:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 13:19:10 --> ErrorException: Cannot declare class App\Controllers\Chatbot, because the name is already in use
+[Method: GET, Route: chatbot]
+in APPPATH\Views\pages\chatbot.php on line 5.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+DEBUG - 2025-12-11 13:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:22:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:22:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:22:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:22:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:22:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:22:13 --> [Chatbot Error] API Error (404): models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+DEBUG - 2025-12-11 13:24:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:25:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:25:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:25:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:26:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:27:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:27:38 --> [Chatbot Error] API Error (404): models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+DEBUG - 2025-12-11 13:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:28:07 --> [Chatbot Error] API Error (404): models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+DEBUG - 2025-12-11 13:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:32:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:32:40 --> [Chatbot] Google API (404): models/gemini-1.5-flash-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+DEBUG - 2025-12-11 13:33:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:33:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:33:05 --> [Chatbot] Google API (404): models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+DEBUG - 2025-12-11 13:35:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:35:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:35:26 --> [Chatbot] Google API (429): You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-3-pro
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-3-pro
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-3-pro
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-3-pro
+Please retry in 32.923021107s.
+DEBUG - 2025-12-11 13:37:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:37:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:37:07 --> [Chatbot] Google API (404): models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+DEBUG - 2025-12-11 13:37:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:37:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:37:59 --> [Chatbot] Google API (404): models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+CRITICAL - 2025-12-11 13:45:59 --> ParseError: Unclosed '{' on line 6
+[Method: GET, Route: chatbot]
+in APPPATH\Controllers\Chatbot.php on line 124.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\UASSIM\\app\\Controllers\\Chatbot.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Chatbot')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Chatbot')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Chatbot', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-11 13:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 13:47:24 --> ParseError: Unclosed '{' on line 6
+[Method: GET, Route: chatbot]
+in APPPATH\Controllers\Chatbot.php on line 124.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\UASSIM\\app\\Controllers\\Chatbot.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Chatbot')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Chatbot')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Chatbot', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-11 13:47:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:47:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:47:50 --> [Chatbot] Google API (404): models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+DEBUG - 2025-12-11 13:52:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 13:52:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 13:52:47 --> [Chatbot] Google API (404): models/gemini-embedding-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.

@@ -16,8 +16,6 @@
             font-family: 'Poppins', sans-serif;
             background: #F8FAFC;
         }
-
-        /* Top Navigation */
         .top-nav {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -276,9 +274,7 @@
             
             <div class="nav-menu">
                 <a href="<?= base_url('/') ?>" class="nav-link">Home</a>
-                <a href="<?= base_url('merchant/dashboard') ?>" class="nav-link active">Dashboard</a>
                 <a href="<?= base_url('marketplace') ?>" class="nav-link">Marketplace</a>
-                <a href="<?= base_url('findus') ?>" class="nav-link">Find Us</a>
             </div>
             
             <div class="nav-user">

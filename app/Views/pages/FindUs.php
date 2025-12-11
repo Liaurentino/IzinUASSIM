@@ -39,7 +39,6 @@
         isolation: isolate;
     }
     
-    /* Atur layer Leaflet agar tidak terlalu agresif */
     .leaflet-pane {
         z-index: 200 !important;
     }
@@ -59,7 +58,6 @@
         width: 280px !important;
     }
     
-    /* Scrollbar cantik untuk list */
     .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
     }
