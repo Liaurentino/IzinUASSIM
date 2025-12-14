@@ -26,7 +26,7 @@
 
         <div class="info-box">
             <h3>Detail Pendaftaran</h3>
-            <p><strong>Nama Usaha:</strong> <?= esc($merchant['merchant_name'] ?? $merchant['business_name']) ?></p>
+            <p><strong>Nama Usaha:</strong> <?= esc($merchants['merchant_name']) ?></p>
             <p><strong>Status:</strong> Menunggu Verifikasi</p>
         </div>
 

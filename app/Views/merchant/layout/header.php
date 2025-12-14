@@ -54,10 +54,11 @@
                     <i class="fas fa-box mr-2"></i>Produk
                 </a>
                 
-                <a href="<?= base_url('merchant/reservations') ?>" 
+                    <a href="<?= base_url('merchant/reservations') ?>" 
                    class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-soft-blue hover:text-primary-blue transition duration-200">
                     <i class="fas fa-calendar-check mr-2"></i>Reservasi
                 </a>
+                
                 
                 <a href="<?= base_url('marketplace') ?>" 
                    target="_blank"

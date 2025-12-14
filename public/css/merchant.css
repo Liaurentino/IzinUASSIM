@@ -305,7 +305,130 @@ tbody tr:hover {
     table {
         font-size: 12px;
     }
+
 }
+/* --- FORM ADD PRODUCT--- */
+.form-card {
+    max-width: 520px;
+    margin: 40px auto;
+    background: #f0f6ff;
+    padding: 32px 28px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #687bdb;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #687bdb;
+    margin-bottom: 24px;
+}
+
+/* --- FORM GROUP --- */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #3f426e;
+}
+
+.form-group span {
+    color: #e74c3c;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #d6ddf5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background: #ffffff;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #687bdb;
+}
+
+.form-group textarea {
+    resize: none;
+    min-height: 90px;
+}
+
+/* --- ROW 2 COLUMN --- */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+/* --- ERROR --- */
+.error-message {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #e74c3c;
+}
+
+/* --- BUTTON --- */
+.btn-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #687bdb;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #5568c3;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #687bdb;
+    border: 1px solid #687bdb;
+}
+
+.btn-secondary:hover {
+    background: #eef2ff;
+}
+
 /* --- FOOTER --- */
 .footer {
     width: 100%;
@@ -345,6 +468,105 @@ tbody tr:hover {
     text-decoration: underline;
 }
 
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card {
+        padding: 24px 20px;
+    }
+}
+/* Waiting */
+waiting-card {
+    max-width: 520px;
+    margin: 80px auto;
+    padding: 40px 32px;
+    background: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.icon-pending {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 20px;
+    background: rgba(104,123,219,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-pending svg {
+    width: 48px;
+    height: 48px;
+    color: #687bdb;
+}
+
+.status-badge {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 6px 16px;
+    background: rgba(245,158,11,0.15);
+    color: #f59e0b;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.waiting-card h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #687bdb;
+    margin-bottom: 12px;
+}
+
+.waiting-card .message {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.info-box {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.info-box h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #687bdb;
+}
+
+.info-box p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+.btn-home {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 28px;
+    background: #687bdb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-home:hover {
+    background: #5568c3;
+}
 /* responsive footer */
 @media (max-width: 768px) {
     .footer-container {
@@ -353,3 +575,4 @@ tbody tr:hover {
         text-align: center;
     }
 }
+

@@ -1,4 +1,5 @@
 <?php $session = session(); ?>
+
 <link href="/css/pages.css" rel="stylesheet">
 
 <nav class="navbar">

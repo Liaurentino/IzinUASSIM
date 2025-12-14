@@ -1,3 +1,29 @@
+<?php
+$session = session();
+
+$isLoggedIn = $session->get('isLoggedIn');
+$userRole  = $session->get('role');
+
+$isMerchantApproved = false;
+$isMerchantPending  = false;
+
+$merchant = null;
+
+if ($isLoggedIn) {
+    $merchantModel = new \App\Models\MerchantModel();
+
+    $merchant = $merchantModel
+        ->where('user_id', $session->get('user_id'))
+        ->first();
+
+    if ($merchant) {
+        $status = strtolower($merchant['status']);
+
+        $isMerchantApproved = ($status === 'approved');
+        $isMerchantPending  = ($status === 'pending');
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -31,6 +57,7 @@
 <nav class="w-full bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
+
             <!-- Logo -->
             <div class="flex-shrink-0">
                 <a href="<?= base_url('/') ?>" class="text-2xl font-bold text-primary-blue">
@@ -40,47 +67,74 @@
 
             <!-- Menu Desktop -->
             <div class="hidden md:flex space-x-8 text-text-dark font-medium items-center">
-                <a href="<?= base_url('/') ?>" class="hover:text-primary-blue transition duration-200">Home</a>
-                <a href="<?= base_url('marketplace') ?>" class="hover:text-primary-blue transition duration-200">Marketplace</a>
-                <a href="<?= base_url('reservation') ?>" class="hover:text-primary-blue transition duration-200">Reservation</a>
-                <a href="<?= base_url('chatbot') ?>" class="hover:text-primary-blue transition duration-200">Chatbot</a>
-                <a href="<?= base_url('findus') ?>" class="hover:text-primary-blue transition duration-200">Find Us</a>
-                
-                <?php if ($session->get('isLoggedIn')): ?>
-                    <?php if ($session->get('role') === 'merchant' && strtolower($session->get('merchant_status')) === 'approved'): ?>
+                <a href="<?= base_url('/') ?>" class="hover:text-primary-blue">Home</a>
+                <a href="<?= base_url('marketplace') ?>" class="hover:text-primary-blue">Marketplace</a>
+
+                <?php if (!$isMerchantApproved): ?>
+                    <a href="<?= base_url('reservation') ?>" class="hover:text-primary-blue">
+                        Reservation
+                    </a>
+                <?php endif; ?>
+
+                <a href="<?= base_url('chatbot') ?>" class="hover:text-primary-blue">Chatbot</a>
+                <a href="<?= base_url('findus') ?>" class="hover:text-primary-blue">Find Us</a>
+
+                <?php if ($isLoggedIn): ?>
+
+                    <?php if ($userRole === 'admin'): ?>
+
+                        <a href="<?= base_url('admin') ?>" class="text-orange-600 font-bold">
+                            <i class="fas fa-tools mr-1"></i> Admin
+                        </a>
+
+                    <?php elseif ($isMerchantApproved): ?>
+
                         <a href="<?= base_url('merchant/dashboard') ?>" class="text-purple-600 font-bold">
                             <i class="fas fa-tachometer-alt mr-1"></i> Dashboard
                         </a>
-                    <?php elseif (strtolower($session->get('merchant_status')) === 'pending'): ?>
+
+                    <?php elseif ($isMerchantPending): ?>
+
                         <a href="<?= base_url('merchant/waiting') ?>" class="text-yellow-600 font-bold">
                             <i class="fas fa-clock mr-1"></i> Status
                         </a>
+
                     <?php else: ?>
-                        <a href="<?= base_url('merchant/register') ?>" class="hover:text-primary-blue transition duration-200">Jadi Mitra</a>
+
+                        <a href="<?= base_url('merchant/register') ?>" class="hover:text-primary-blue">
+                            Jadi Mitra
+                        </a>
+
                     <?php endif; ?>
-                    
-                    <a href="<?= base_url('logout') ?>" class="text-red-500 font-semibold hover:text-red-700 ml-4">
-                        Logout (<?= esc($session->get('user_name')) ?>)
+
+                    <a href="<?= base_url('logout') ?>"
+                       class="text-red-500 font-semibold ml-4">
+                        Logout (<?= esc($userData['name'] ?? 'User') ?>)
                     </a>
+
                 <?php else: ?>
-                    <a href="<?= base_url('merchant') ?>" class="hover:text-primary-blue transition duration-200">Merchant</a>
-                    <a href="<?= base_url('login') ?>" class="ml-4 px-4 py-2 bg-primary-blue text-white rounded-lg hover:bg-opacity-90 font-semibold">
+
+                    <a href="<?= base_url('merchant') ?>" class="hover:text-primary-blue">Merchant</a>
+                    <a href="<?= base_url('login') ?>"
+                       class="ml-4 px-4 py-2 bg-primary-blue text-white rounded-lg font-semibold">
                         Login
                     </a>
+
                 <?php endif; ?>
             </div>
 
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Button -->
             <div class="md:hidden">
-                <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary-blue">
+                <button id="mobile-menu-btn" class="text-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
+
         </div>
     </div>
 </nav>
-
 <main class="min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

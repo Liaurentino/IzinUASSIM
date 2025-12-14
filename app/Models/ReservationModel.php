@@ -6,37 +6,103 @@ use CodeIgniter\Model;
 
 class ReservationModel extends Model
 {
-    protected $table      = 'reservations';
-    protected $primaryKey = 'id';
-
+    protected $table            = 'reservations';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    protected $returnType       = 'array';
+    protected $useSoftDeletes   = false;
 
     protected $allowedFields = [
-        'user_id', 
+        'user_id',
         'merchant_id',
-        'name', 
-        'phone', 
-        'laptop_model', 
-        'complaint', 
+        'merchant_name',
+        'name',
+        'phone',
+        'laptop_model',
+        'complaint',
         'reservation_date',
         'service_location',
-        'status'
+        'status',
+        'notes'
     ];
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    
-    protected $validationRules = [
-        'name'             => 'required|min_length[3]',
-        'phone'            => 'required|min_length[10]|max_length[15]',
-        'laptop_model'     => 'required|max_length[255]',
-        'complaint'        => 'required',
-        'reservation_date' => 'required|valid_date',
-    ];
 
-    protected $validationMessages = [];
-    protected $skipValidation     = false;
+    /* =========================
+       QUERY UTAMA
+    ========================== */
+
+    /**
+     * Ambil reservasi merchant
+     */
+    public function getByMerchant(
+        int $merchantId,
+        ?string $status = null,
+        ?int $limit = null
+    ): array {
+        $builder = $this->where('merchant_id', $merchantId);
+
+        if ($status !== null) {
+            $builder->where('status', $status);
+        }
+
+        $builder->orderBy('created_at', 'DESC');
+
+        if ($limit !== null) {
+            $builder->limit($limit);
+        }
+
+        return $builder->findAll();
+    }
+
+    /**
+     * Ambil reservasi user
+     */
+    public function getByUser(int $userId): array
+    {
+        return $this->where('user_id', $userId)
+                    ->orderBy('created_at', 'DESC')
+                    ->findAll();
+    }
+
+    /**
+     * Hitung reservasi merchant berdasarkan status
+     */
+    public function countByMerchant(int $merchantId, ?string $status = null): int
+    {
+        $builder = $this->where('merchant_id', $merchantId);
+
+        if ($status !== null) {
+            $builder->where('status', $status);
+        }
+
+        return $builder->countAllResults();
+    }
+
+    /**
+     * Update status reservasi
+     */
+    public function updateStatus(int $id, string $status, ?string $notes = null): bool
+    {
+        $data = ['status' => $status];
+
+        if ($notes !== null) {
+            $data['notes'] = $notes;
+        }
+
+        return $this->update($id, $data);
+    }
+
+    /**
+     * Detail reservasi dengan merchant
+     */
+    public function getWithMerchant(int $reservationId): ?array
+    {
+        return $this->select('reservations.*, merchants.business_name, merchants.address')
+                    ->join('merchants', 'merchants.id = reservations.merchant_id', 'left')
+                    ->where('reservations.id', $reservationId)
+                    ->first();
+    }
 }

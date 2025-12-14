@@ -4,6 +4,37 @@ use App\Models\MerchantModel;
 
 class Merchant extends BaseController
 {
+    private function geocodeAddress(string $address): ?array
+{
+    $url = 'https://nominatim.openstreetmap.org/search?' . http_build_query([
+        'q'      => $address,
+        'format' => 'json',
+        'limit'  => 1
+    ]);
+
+    $context = stream_context_create([
+        'http' => [
+            'header' => "User-Agent: ServifyApp/1.0\r\n"
+        ]
+    ]);
+
+    $response = @file_get_contents($url, false, $context);
+
+    if ($response === false) {
+        return null;
+    }
+
+    $result = json_decode($response, true);
+
+    if (empty($result)) {
+        return null;
+    }
+
+    return [
+        'latitude'  => $result[0]['lat'],
+        'longitude' => $result[0]['lon']
+    ];
+}
     // Halaman Info Merchant (Public User View)
     public function index()
     {
@@ -38,17 +69,14 @@ class Merchant extends BaseController
         }
 
         $merchantModel = new MerchantModel();
-        
-        // Ambil ID user dari session
+    
         $userId = session()->get('id') ?? session()->get('user_id');
 
-        // Cek apakah user ini SUDAH pernah daftar (untuk mencegah duplikasi)
         $existingMerchant = $merchantModel->where('user_id', $userId)->first();
         if ($existingMerchant) {
             return redirect()->back()->with('error', 'Anda sudah terdaftar atau sedang dalam proses verifikasi.');
         }
 
-        // Validasi Input
         if (! $this->validate([
             'business_name'  => 'required|min_length[3]',
             'address'        => 'required',
@@ -60,26 +88,54 @@ class Merchant extends BaseController
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
+        $address = $this->request->getPost('address');
+        $coords  = $this->geocodeAddress($address);
+
         $data = [
             'user_id'        => $userId,
             'business_name'  => $this->request->getPost('business_name'),
-            'merchant_name'  => $this->request->getPost('business_name'), // Backup kolom
-            'address'        => $this->request->getPost('address'),
+            'merchant_name'  => $this->request->getPost('business_name'),
+            'address'        => $address,
             'phone'          => $this->request->getPost('phone'),
-            'phone_number'   => $this->request->getPost('phone'), // Backup kolom
+            'phone_number'   => $this->request->getPost('phone'),
             'email'          => $this->request->getPost('email'),
             'business_type'  => $this->request->getPost('business_type'),
             'license_number' => $this->request->getPost('license_number'),
-            'status'         => 'pending', // Status awal selalu pending
+            'latitude'       => $coords['latitude'] ?? null,
+            'longitude'      => $coords['longitude'] ?? null,
+            'status'         => 'pending',
         ];
 
         if($merchantModel->save($data)) {
             session()->setFlashdata('success', 'Pendaftaran Mitra berhasil! Mohon tunggu verifikasi Admin.');
-            // Arahkan ke halaman waiting agar user tahu statusnya
             return redirect()->to(base_url('merchant/waiting')); 
         } else {
             session()->setFlashdata('error', 'Gagal menyimpan data. Silakan coba lagi.');
             return redirect()->back()->withInput();
         }
     }
+    public function waiting()
+{
+    if (! session()->get('isLoggedIn')) {
+        return redirect()->to(base_url('login'));
+    }
+
+    $merchantModel = new MerchantModel();
+    $userId = session()->get('id') ?? session()->get('user_id');
+
+    $merchant = $merchantModel
+        ->where('user_id', $userId)
+        ->first();
+
+    if (! $merchant) {
+        return redirect()->to(base_url('merchant/register'));
+    }
+
+    $data = [
+        'title'     => 'Menunggu Persetujuan Merchant',
+        'merchants' => $merchant
+    ];
+
+    return $this->renderView('merchant/waiting', $data);
+}
 }
