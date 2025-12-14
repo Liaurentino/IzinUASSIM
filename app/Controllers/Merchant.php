@@ -11,7 +11,6 @@ class Merchant extends BaseController
             'title' => 'Servify - Gabung Merchant',
         ];
 
-        // PERBAIKAN: Gunakan renderView() agar variabel $session otomatis dikirim ke header
         return $this->renderView('pages/merchant_info', $data);
     }
 

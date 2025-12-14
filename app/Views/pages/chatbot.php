@@ -260,9 +260,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if(el) el.remove();
 
     }
-
-
-
     function setLoading(isLoading) {
 
         sendButton.disabled = isLoading;

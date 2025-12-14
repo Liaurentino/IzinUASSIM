@@ -1,0 +1,332 @@
+root {
+    --primary-blue: #687bdb;
+    --secondary-purple: #8b5cf6;
+    --soft-blue: #eff4ff;
+    --text-dark: #DDEAFC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
+}
+
+.container {
+    max-width: 1200px; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.main-card {
+    background: #DDEAFC;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+ .card-section {
+            border-radius: 1.5rem;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-bg-blue {
+            background-color: #DDEAFC;
+        }
+
+        .card-bg-gray {
+            background-color: #F7F7F7;
+        }
+
+
+/* --- NAVBAR STYLES --- */
+.navbar {
+    background-color: #ffffff; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08); 
+    padding: 15px 0;
+    width: 100%;
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-brand a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #697CDC; 
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 20px; 
+    align-items: center;
+}
+.navbar-menu a {
+    text-decoration: none;
+    color: #697CDC; 
+    font-weight: 500;
+    transition: color 0.3s ease; 
+}
+
+/* Efek saat kursor diarahkan ke menu */
+.navbar-menu a:hover {
+    color: #4a5db5; 
+}
+
+/* --- ACTION BUTTONS (Login/Register) --- */
+.nav-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-login {
+    text-decoration: none;
+    padding: 8px 20px;
+    border: 1px solid #3498db;
+    border-radius: 20px;
+    color: #3498db;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-register {
+    text-decoration: none;
+    padding: 8px 20px;
+    background-color: #3498db;
+    border: 1px solid #3498db;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #2980b9;
+}
+
+/* --- HAMBURGER MENU (MOBILE) --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* --- HOME PAGE STYLES (NEW) --- */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 5%;
+}
+
+.space-y-8 > * + * {
+    margin-top: 2rem;
+}
+
+.card-section {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.content-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.content-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-title {
+    font-size: 2.5rem; /* text-5xl equivalent */
+    font-weight: 800;
+    line-height: 1.2;
+    color: #2c3e50; /* Fallback for secondary-purple */
+}
+
+.text-primary {
+    color: #3498db;
+}
+
+
+.home-desc {
+    font-size: 1.125rem; /* text-lg */
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Tombol CTA di Home */
+.cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 12px; /* rounded-xl */
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+    border: 2px solid #3498db;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    background-color: white;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.btn-outline:hover {
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    transform: scale(1.05);
+}
+
+/* Fitur List */
+.feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.check-icon {
+    color: #27ae60; /* green-500 */
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.feature-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.feature-subtext {
+    color: #7f8c8d;
+    font-weight: 400;
+    display: block;
+}
+
+/* Gambar Home */
+.home-img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    object-fit: cover;
+}
+
+/* --- RESPONSIVE --- */
+@media (min-width: 768px) {
+    .card-section {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .content-right {
+        margin-top: 0;
+    }
+    
+    .nav-links {
+        display: flex; /* Kembalikan menu di desktop */
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-actions {
+        display: none;
+    }
+    
+    .home-title {
+        font-size: 2rem;
+    }
+    
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-action {
+        width: 100%;
+    }
+}

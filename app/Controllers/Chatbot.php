@@ -67,9 +67,6 @@ private function callGoogleAI($message)
     {
         if (!$this->apiKey) throw new \Exception("API Key belum disetting di .env");
 
-        // --- SOLUSI ERROR 404 & 429 ---
-        // Gunakan 'gemini-1.5-flash' (Model paling ringan, cepat, dan kuota gratisnya paling banyak)
-        // Jangan pakai 'gemini-pro' (versi lama) atau 'gemini-3' (belum rilis/tidak ada akses)
         $model = 'gemini-embedding-001'; 
         
         $url = "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$this->apiKey}";

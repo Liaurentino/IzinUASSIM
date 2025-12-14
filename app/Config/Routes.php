@@ -13,8 +13,8 @@ $routes->get('findus', 'Home::findus');
 // Authentication (User Biasa)
 $routes->get('login', 'Auth::login');
 $routes->post('login/process', 'Auth::processLogin');
-$routes->get('register', 'Auth::register');       // Menampilkan form register user
-$routes->post('register/create', 'Auth::processRegister'); // Proses simpan data user
+$routes->get('register', 'Auth::register');       
+$routes->post('register/create', 'Auth::processRegister'); 
 $routes->get('logout', 'Auth::logout');
 
 // Marketplace & Reservasi (Sisi Pembeli/Publik)
@@ -28,9 +28,9 @@ $routes->get('chatbot', 'Chatbot::index');
 $routes->post('chatbot/sendMessage', 'Chatbot::sendMessage');
 
 
-$routes->get('merchant', 'Merchant::index');           // Halaman Info / Landing Page Merchant
-$routes->get('merchant/register', 'Merchant::register'); // Form Pendaftaran Merchant
-$routes->post('merchant/create', 'Merchant::create');    // Proses Submit Data Merchant
+$routes->get('merchant', 'Merchant::index');          
+$routes->get('merchant/register', 'Merchant::register'); 
+$routes->post('merchant/create', 'Merchant::create');    
 $routes->get('merchant/waiting', 'MerchantDashboard::waiting');
 
 
@@ -48,6 +48,7 @@ $routes->group('admin', ['filter' => 'adminAuth'], function ($routes) {
 
 
 $routes->group('merchant', ['filter' => 'merchantAuth'], function($routes) {
+    $routes->get('/', 'MerchantDashboard::index');
     $routes->get('dashboard', 'MerchantDashboard::index');
     $routes->get('products', 'MerchantDashboard::products');
     $routes->get('products/add', 'MerchantDashboard::addProduct');

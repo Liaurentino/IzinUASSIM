@@ -25,50 +25,11 @@
     </div>
 </div>
 
+    <link rel="stylesheet" href="<?= base_url('css/style.css'); ?>">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<style>
-    nav, .navbar, .servify-navbar {
-        position: relative; 
-        z-index: 9999 !important; 
-    }
 
-    #map {
-        z-index: 1;
-        isolation: isolate;
-    }
-    
-    .leaflet-pane {
-        z-index: 200 !important;
-    }
-    .leaflet-top, .leaflet-bottom {
-        z-index: 300 !important; /* Kontrol zoom dll */
-    }
-
-    /* Styling Popup Peta */
-    .leaflet-popup-content-wrapper {
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        padding: 0;
-        overflow: hidden;
-    }
-    .leaflet-popup-content {
-        margin: 0;
-        width: 280px !important;
-    }
-    
-    .custom-scrollbar::-webkit-scrollbar {
-        width: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-        background: #f1f1f1; 
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #cbd5e1; 
-        border-radius: 10px;
-    }
-</style>
 
 <script>
 // Data Lokasi

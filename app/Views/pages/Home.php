@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="<?= base_url('css/style.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('css/pages.css'); ?>">
 
     <style>
         .page-container {
@@ -19,7 +19,6 @@
 
     <div class="page-container">
 
-        <!-- KODE DARI ANDA MULAI DI SINI -->
         <div class="main-content space-y-8">
             
             <!-- CARD 1: HERO SECTION -->
@@ -84,7 +83,7 @@
                     </div>
                 </div>
                 
-                <!-- Kanan: Gambar & CTA -->
+
                 <div class="content-right">
                     <img src="https://img.freepik.com/free-vector/organic-flat-customer-support-illustration_23-2148899174.jpg" alt="Merchant Join" class="home-img" style="max-height: 300px; width: auto;">
                     
@@ -95,8 +94,6 @@
             </section>
 
         </div>
-        <!-- KODE DARI ANDA BERAKHIR DI SINI -->
-
     </div>
 
 </body>

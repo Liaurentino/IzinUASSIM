@@ -1,6 +1,5 @@
 <?php $session = session(); ?>
-<link rel="stylesheet" href="css/style.css">
-<link href="/css/style.css" rel="stylesheet">
+<link href="/css/pages.css" rel="stylesheet">
 
 <nav class="navbar">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center;">

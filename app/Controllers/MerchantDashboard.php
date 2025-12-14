@@ -52,7 +52,6 @@ class MerchantDashboard extends BaseController
     public function waiting()
     {
         $data = ['title' => 'Menunggu Verifikasi'];
-        // Halaman waiting tetap pakai layout biasa
         return $this->renderView('merchant/waiting', $data);
     }
 
