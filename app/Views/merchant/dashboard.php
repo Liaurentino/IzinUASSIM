@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="<?= base_url('css/merchant.css') ?>">
 </head>
 <body>
-    <!-- Top Navigation -->
     <nav class="top-nav">
         <div class="nav-container">
             <div class="nav-logo">
@@ -28,7 +27,6 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="container">
         <h1 class="page-title">Dashboard Merchant</h1>
 
@@ -38,7 +36,6 @@
             </div>
         <?php endif; ?>
 
-        <!-- Stats -->
         <div class="stats-grid">
             <div class="stat-card">
                 <h3>Total Produk</h3>
@@ -54,7 +51,6 @@
             </div>
         </div>
 
-        <!-- Action Cards -->
         <div class="action-grid">
             <div class="action-card" onclick="window.location.href='<?= base_url('merchant/products/add') ?>'">
                 <div class="action-icon">
@@ -79,7 +75,6 @@
             </div>
         </div>
 
-        <!-- Recent Products -->
         <div class="recent-section">
             <div class="section-header">
                 <h2 class="section-title">Produk Terbaru</h2>

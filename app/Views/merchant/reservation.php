@@ -1,4 +1,3 @@
-<!-- Merchant Reservations Management -->
 <div class="bg-white rounded-2xl shadow-lg p-6">
     <h3 class="text-2xl font-bold text-text-dark mb-6">Daftar Reservasi Service</h3>
 
@@ -119,11 +118,11 @@ function closeStatusModal() {
 }
 
 function showDetails(id) {
-    // Implementasi detail view jika diperlukan
+    /
     alert('Detail reservasi #' + id);
 }
 
-// Close modal when clicking outside
+
 document.getElementById('statusModal')?.addEventListener('click', function(e) {
     if (e.target === this) {
         closeStatusModal();

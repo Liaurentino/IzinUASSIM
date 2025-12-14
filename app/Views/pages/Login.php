@@ -1,4 +1,3 @@
-<!-- Halaman Login Akun -->
 <div class="flex justify-center items-center h-full">
     <div class="main-card p-8 rounded-2xl shadow-xl w-full max-w-md transition duration-300 space-y-6">
         <h2 class="text-3xl font-bold text-center text-primary-blue mb-6">Login Akun</h2>

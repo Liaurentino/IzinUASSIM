@@ -1,4 +1,6 @@
-/* --- RESET & BASE --- */
+/* ============================================
+   GLOBAL
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -18,14 +20,18 @@ nav, .navbar, .servify-navbar {
         z-index: 9999 !important; 
     }
 
-/* --- LAYOUT UTAMA --- */
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
 .admin-container {
     display: flex;
     min-height: 100vh;
     position: relative; 
 }
 
-/* --- SIDEBAR --- */
+/* ============================================
+   SIDEBAR
+   ============================================ */
 .sidebar {
     width: 280px;
     
@@ -46,7 +52,7 @@ nav, .navbar, .servify-navbar {
     box-shadow: 4px 0 10px rgba(0,0,0,0.05);
 }
 
-/* Header Sidebar */
+
 .sidebar-header {
     padding: 0 30px 30px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -65,7 +71,7 @@ nav, .navbar, .servify-navbar {
     font-size: 13px;
 }
 
-/* Menu Sidebar */
+
 .sidebar-menu {
     padding: 20px 0;
 }
@@ -92,7 +98,9 @@ nav, .navbar, .servify-navbar {
     margin-right: 15px;
 }
 
-/* --- MAIN CONTENT --- */
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
 .main-content {
     flex: 1; 
     padding: 40px;
@@ -100,7 +108,9 @@ nav, .navbar, .servify-navbar {
     overflow-x: hidden; 
 }
 
-/* Page Header */
+/* ============================================
+   PAGE HEADER
+   ============================================ */
 .page-header {
     background: white;
     padding: 25px 30px;
@@ -134,7 +144,9 @@ nav, .navbar, .servify-navbar {
     box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
 }
 
-/* --- CARDS & STATS --- */
+/* ============================================
+   CARDS & STAT
+   ============================================ */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -177,8 +189,9 @@ nav, .navbar, .servify-navbar {
     background: #FFF8E1;
     color: #F1C40F;
 }
-
-/* --- TABLE STYLES --- */
+/* ============================================
+    TABLE STYLES
+   ============================================ */
 .table-card {
     background: white;
     padding: 30px;
@@ -222,7 +235,9 @@ tbody tr:hover {
     background: #fcfcfc;
 }
 
-/* Badges & Buttons */
+/* ============================================
+    BADGE & BUTTONS 
+   ============================================ */
 .badge {
     padding: 5px 10px;
     border-radius: 15px;

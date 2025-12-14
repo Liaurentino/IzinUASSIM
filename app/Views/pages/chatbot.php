@@ -211,9 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 
-   
 
-    // ... (Fungsi helper addMessage, addTypingIndicator, dll sama seperti sebelumnya)
 
     function addMessage(text, sender, isError = false) {
 

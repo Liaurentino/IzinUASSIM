@@ -120,7 +120,6 @@
 </div>
 
 <script>
-// Update merchant name ketika select berubah
 function updateMerchantName() {
     const select = document.getElementById('merchant_id');
     const selectedOption = select.options[select.selectedIndex];
@@ -130,7 +129,6 @@ function updateMerchantName() {
     
     document.getElementById('merchant_name').value = merchantName || '';
     
-    // Tampilkan informasi merchant
     if (merchantName) {
         document.getElementById('merchantInfo').classList.remove('hidden');
         document.getElementById('infoTitle').textContent = merchantName;
@@ -178,7 +176,6 @@ function searchMerchants() {
     .catch(error => console.error('Error:', error));
 }
 
-// Clear search
 function clearSearch() {
     document.getElementById('merchantSearch').value = '';
     location.reload();

@@ -1,17 +1,15 @@
-<!-- Halaman Detail Produk (Mengambil dari mockup 140449) -->
 <div class="space-y-8">
     <div class="main-card p-8 rounded-2xl shadow-xl transition duration-300 space-y-6">
         <h2 class="text-3xl font-bold text-text-dark border-b pb-4 mb-4">Detail Produk</h2>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Kolom Kiri: Gambar Produk -->
+        
             <div class="lg:col-span-1">
                 <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-200">
                     <img src="<?= esc($product['image_url']) ?>" alt="<?= esc($product['name']) ?>" class="w-full rounded-lg object-cover">
                 </div>
             </div>
 
-            <!-- Kolom Tengah: Info Produk & Aksi -->
             <div class="lg:col-span-2 space-y-6">
                 <!-- Info Produk -->
                 <div class="space-y-3">

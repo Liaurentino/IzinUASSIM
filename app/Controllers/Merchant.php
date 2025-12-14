@@ -35,7 +35,6 @@ class Merchant extends BaseController
         'longitude' => $result[0]['lon']
     ];
 }
-    // Halaman Info Merchant (Public User View)
     public function index()
     {
         $data = [
@@ -45,7 +44,6 @@ class Merchant extends BaseController
         return $this->renderView('pages/merchant_info', $data);
     }
 
-    // Halaman Form Register (Public User View)
     public function register()
     {
         if (! session()->get('isLoggedIn')) {
@@ -61,7 +59,6 @@ class Merchant extends BaseController
         return $this->renderView('pages/merchant_register', $data);
     }
 
-    // Proses Submit Data
     public function create()
     {
         if (! session()->get('isLoggedIn')) {

@@ -1,4 +1,3 @@
-<!-- Halaman Pendaftaran Merchant (Mengambil dari mockup 140455 & 140516) -->
 <div class="flex justify-center items-center h-full">
     <div class="main-card p-8 rounded-2xl shadow-xl w-full max-w-lg transition duration-300 space-y-6">
         <h2 class="text-3xl font-bold text-center text-secondary-purple mb-6">Mendaftar Sebagai Mitra</h2>

@@ -1,4 +1,3 @@
-<!-- Halaman Marketplace (Mengambil dari mockup 140443) -->
 <div class="space-y-8">
     <div class="main-card p-8 rounded-2xl shadow-xl transition duration-300 space-y-6">
         <h2 class="text-3xl font-bold text-text-dark">Marketplace</h2>

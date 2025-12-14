@@ -8,7 +8,7 @@ class Marketplace extends BaseController
     public function index()
     {
         $productModel = new ProductModel();
-        $products = $productModel->findAll(10); // Ambil 10 produk sebagai contoh
+        $products = $productModel->findAll(10); 
 
         $data = [
             'title' => 'Servify - Marketplace',
@@ -33,7 +33,6 @@ class Marketplace extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Produk tidak ditemukan: ' . $id);
         }
 
-        // Ambil data merchant
         $merchant = $merchantModel->find($product['merchant_id']);
 
         $data = [

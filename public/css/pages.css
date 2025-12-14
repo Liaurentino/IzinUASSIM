@@ -1,3 +1,6 @@
+/* ============================================
+    GLOBAL
+   ============================================ */
 root {
     --primary-blue: #687bdb;
     --secondary-purple: #8b5cf6;
@@ -56,8 +59,9 @@ body {
             background-color: #F7F7F7;
         }
 
-
-/* --- NAVBAR STYLES --- */
+/* ============================================
+   NAVBAR
+   ============================================ */
 .navbar {
     background-color: #ffffff; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.08); 
@@ -97,12 +101,14 @@ body {
     transition: color 0.3s ease; 
 }
 
-/* Efek saat kursor diarahkan ke menu */
+
 .navbar-menu a:hover {
     color: #4a5db5; 
 }
 
-/* --- ACTION BUTTONS (Login/Register) --- */
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
 .nav-actions {
     display: flex;
     gap: 15px;
@@ -138,14 +144,18 @@ body {
     background-color: #2980b9;
 }
 
-/* --- HAMBURGER MENU (MOBILE) --- */
+/* ============================================
+   HAMBURGER
+   ============================================ */
 .hamburger {
     display: none;
     cursor: pointer;
     font-size: 24px;
 }
 
-/* --- HOME PAGE STYLES (NEW) --- */
+/* ============================================
+   HOMEPAGE 
+   ============================================ */
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -188,10 +198,10 @@ body {
 }
 
 .home-title {
-    font-size: 2.5rem; /* text-5xl equivalent */
+    font-size: 2.5rem;
     font-weight: 800;
     line-height: 1.2;
-    color: #2c3e50; /* Fallback for secondary-purple */
+    color: #2c3e50; 
 }
 
 .text-primary {
@@ -200,12 +210,11 @@ body {
 
 
 .home-desc {
-    font-size: 1.125rem; /* text-lg */
+    font-size: 1.125rem; 
     color: #555;
     line-height: 1.6;
 }
 
-/* Tombol CTA di Home */
 .cta-group {
     display: flex;
     gap: 1rem;
@@ -215,7 +224,7 @@ body {
 .btn-action {
     display: inline-block;
     padding: 12px 30px;
-    border-radius: 12px; /* rounded-xl */
+    border-radius: 12px; 
     font-weight: 700;
     text-decoration: none;
     text-align: center;
@@ -246,7 +255,9 @@ body {
     transform: scale(1.05);
 }
 
-/* Fitur List */
+/* ============================================
+   LIST FEATURES
+   ============================================ */
 .feature-list {
     display: flex;
     flex-wrap: wrap;
@@ -261,7 +272,7 @@ body {
 }
 
 .check-icon {
-    color: #27ae60; /* green-500 */
+    color: #27ae60; 
     font-weight: bold;
     font-size: 1.25rem;
 }
@@ -278,7 +289,7 @@ body {
     display: block;
 }
 
-/* Gambar Home */
+
 .home-img {
     width: 100%;
     max-width: 450px;
@@ -286,8 +297,9 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     object-fit: cover;
 }
-
-/* --- RESPONSIVE --- */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (min-width: 768px) {
     .card-section {
         flex-direction: row;
@@ -300,7 +312,7 @@ body {
     }
     
     .nav-links {
-        display: flex; /* Kembalikan menu di desktop */
+        display: flex; 
     }
 }
 

@@ -37,10 +37,10 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-// Data dari database (dikirim dari controller)
+
 let allMerchants = <?= isset($merchants) ? json_encode($merchants) : '[]' ?>;
 
-// Konversi merchant data ke format yang dibutuhkan untuk peta
+
 const serviceLocations = allMerchants.map(merchant => ({
     id: merchant.id,
     name: merchant.business_name || merchant.merchant_name,
@@ -50,7 +50,7 @@ const serviceLocations = allMerchants.map(merchant => ({
     business_type: merchant.business_type,
     lat: merchant.latitude ? parseFloat(merchant.latitude) : -6.2088,
     lng: merchant.longitude ? parseFloat(merchant.longitude) : 106.8456,
-    hours: "09:00 - 18:00" // Default, bisa di-extend di database nanti
+    hours: "09:00 - 18:00" 
 }));
 
 let map;
@@ -58,7 +58,7 @@ let markers = {};
 let filteredLocations = [...serviceLocations];
 
 function initMap() {
-    // Inisialisasi Peta - dengan default center
+   
     const centerLat = serviceLocations.length > 0 ? serviceLocations[0].lat : -6.2088;
     const centerLng = serviceLocations.length > 0 ? serviceLocations[0].lng : 106.8456;
     
@@ -80,7 +80,7 @@ function initMap() {
 }
 
 function addServiceMarkers() {
-    // Hapus marker lama
+
     Object.values(markers).forEach(marker => map.removeLayer(marker));
     markers = {};
 
@@ -201,7 +201,6 @@ function filterMerchants() {
     populateLocationList();
 }
 
-// Helper function to escape HTML
 function escapeHtml(text) {
     const map = {
         '&': '&amp;',
@@ -213,6 +212,5 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
-// Initialize map when document is ready
 document.addEventListener('DOMContentLoaded', initMap);
 </script>

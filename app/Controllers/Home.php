@@ -4,7 +4,6 @@ class Home extends BaseController
 {
     public function index()
     {
-        // Data untuk contoh di halaman utama
         $data = [
             'title' => 'Servify - Solusi Reparasi Laptop Anda',
         ];
@@ -17,11 +16,9 @@ class Home extends BaseController
         $data = [
             'title' => 'Servify - Chatbot',
         ];
-        // Logika sederhana untuk chatbot (tanpa AI/API eksternal)
         return $this->renderView('pages/chatbot', $data);
     }
     
-    // Halaman Find Us
      public function findus()
     {
         $data = [

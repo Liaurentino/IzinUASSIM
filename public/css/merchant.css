@@ -337,7 +337,9 @@ tbody tr:hover {
     margin-bottom: 24px;
 }
 
-/* --- FORM GROUP --- */
+/* =================================================
+   FORM GROUP
+   ================================================= */
 .form-group {
     margin-bottom: 16px;
 }
@@ -377,21 +379,30 @@ tbody tr:hover {
     min-height: 90px;
 }
 
-/* --- ROW 2 COLUMN --- */
+
+/* =================================================
+   ROW 2 COLUMN
+   ================================================= */
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
 }
 
-/* --- ERROR --- */
+
+/* =================================================
+   ERROR
+   ================================================= */
 .error-message {
     margin-top: 4px;
     font-size: 12px;
     color: #e74c3c;
 }
 
-/* --- BUTTON --- */
+
+/* =================================================
+   BUTTON
+   ================================================= */
 .btn-group {
     display: flex;
     gap: 12px;
@@ -428,8 +439,9 @@ tbody tr:hover {
 .btn-secondary:hover {
     background: #eef2ff;
 }
-
-/* --- FOOTER --- */
+/* =================================================
+   FOOTER
+   ================================================= */
 .footer {
     width: 100%;
     background: #ffffff;
@@ -468,17 +480,10 @@ tbody tr:hover {
     text-decoration: underline;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 480px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
 
-    .form-card {
-        padding: 24px 20px;
-    }
-}
-/* Waiting */
+/* =================================================
+   WAITING
+   ================================================= */
 waiting-card {
     max-width: 520px;
     margin: 80px auto;
@@ -567,7 +572,18 @@ waiting-card {
 .btn-home:hover {
     background: #5568c3;
 }
-/* responsive footer */
+/* =================================================
+   RESPONSIVE
+   ================================================= */
+@media (max-width: 480px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card {
+        padding: 24px 20px;
+    }
+}
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;

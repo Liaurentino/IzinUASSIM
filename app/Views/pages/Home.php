@@ -21,9 +21,7 @@
 
         <div class="main-content space-y-8">
             
-            <!-- CARD 1: HERO SECTION -->
             <section class="card-section">
-                <!-- Kiri: Teks -->
                 <div class="content-left">
                     <h1 class="home-title text-primary">
                         Laptop Rusak? <br> 
@@ -33,7 +31,6 @@
                         Temukan solusi untuk laptop kamu di toko yang menyediakan layanan service laptop di sekitarmu.
                     </p>
                     
-                    <!-- Tombol CTA -->
                     <div class="cta-group">
                         <a href="<?= base_url('reservation') ?>" class="btn-action btn-primary">
                             Reservasi
@@ -43,7 +40,6 @@
                         </a>
                     </div>
 
-                    <!-- Fitur Utama -->
                     <div class="feature-list">
                         <div class="feature-item">
                             <span class="check-icon">✓</span>
