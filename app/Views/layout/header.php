@@ -34,8 +34,6 @@ if ($isLoggedIn) {
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url('css/pages.css') ?>">
-    
-    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -52,20 +50,14 @@ if ($isLoggedIn) {
     </script>
 </head>
 <body class="bg-gray-50">
-
-<!-- Navbar -->
 <nav class="w-full bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-
-            <!-- Logo -->
             <div class="flex-shrink-0">
                 <a href="<?= base_url('/') ?>" class="text-2xl font-bold text-primary-blue">
                     Servify
                 </a>
             </div>
-
-            <!-- Menu Desktop -->
             <div class="hidden md:flex space-x-8 text-text-dark font-medium items-center">
                 <a href="<?= base_url('/') ?>" class="hover:text-primary-blue">Home</a>
                 <a href="<?= base_url('marketplace') ?>" class="hover:text-primary-blue">Marketplace</a>
@@ -123,7 +115,7 @@ if ($isLoggedIn) {
                 <?php endif; ?>
             </div>
 
-            <!-- Mobile Button -->
+        
             <div class="md:hidden">
                 <button id="mobile-menu-btn" class="text-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

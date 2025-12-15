@@ -1,6 +1,4 @@
-<!-- Statistics Cards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-    <!-- Total Products -->
     <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-primary-blue hover:shadow-xl transition duration-300">
         <div class="flex items-center justify-between">
             <div>
@@ -13,7 +11,6 @@
         </div>
     </div>
 
-    <!-- Pending Reservations -->
     <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-500 hover:shadow-xl transition duration-300">
         <div class="flex items-center justify-between">
             <div>
@@ -26,7 +23,6 @@
         </div>
     </div>
 
-    <!-- Total Revenue (Example) -->
     <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-green-500 hover:shadow-xl transition duration-300">
         <div class="flex items-center justify-between">
             <div>
@@ -40,7 +36,6 @@
     </div>
 </div>
 
-<!-- Quick Actions -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
     <div class="bg-gradient-to-br from-primary-blue to-secondary-purple rounded-2xl shadow-xl p-8 text-white hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
         <div class="flex items-center justify-between">
@@ -71,7 +66,6 @@
     </div>
 </div>
 
-<!-- Recent Products -->
 <?php if (!empty($recent_products)): ?>
 <div class="bg-white rounded-2xl shadow-lg p-6">
     <div class="flex items-center justify-between mb-6">

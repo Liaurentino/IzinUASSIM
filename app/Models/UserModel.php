@@ -38,7 +38,6 @@ class UserModel extends Model
         return $data;
     }
 
-    // Fungsi bantu untuk mendapatkan role pengguna
     public function getRole($userId)
     {
         $user = $this->find($userId);

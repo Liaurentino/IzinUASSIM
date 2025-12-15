@@ -39,10 +39,7 @@ class Admin extends BaseController
         $merchant = $this->merchantModel->find($id);
 
         if ($merchant) {
-            // 1. Update Status di Tabel Merchants (GUNAKAN 'approved' bukan 'Verified')
             $this->merchantModel->update($id, ['status' => 'approved']);
-
-            // 2. Update Role di Tabel Users
             $this->userModel->update($merchant['user_id'], ['role' => 'merchant']);
 
             session()->setFlashdata('success', 'Merchant disetujui. User telah menjadi Merchant.');

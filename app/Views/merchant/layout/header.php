@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= esc($title ?? 'Dashboard Merchant') ?></title>
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="stylesheet" href="<?= base_url('css/merchant.css') ?>">
@@ -26,13 +24,10 @@
     </script>
 </head>
 <body class="min-h-screen bg-gray-50">
-
-<!-- Navbar Merchant -->
 <nav class="w-full bg-white shadow-md sticky top-0 z-50 border-b-4 border-secondary-purple">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-            
-            <!-- Logo & Brand -->
+        
             <div class="flex items-center space-x-4">
                 <a href="<?= base_url('merchant/dashboard') ?>" class="flex items-center space-x-2">
                     <div>
@@ -41,8 +36,6 @@
                     </div>
                 </a>
             </div>
-
-            <!-- Menu Navigasi Merchant -->
             <div class="hidden md:flex items-center space-x-1">
                 <a href="<?= base_url('merchant/dashboard') ?>" 
                    class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-soft-blue hover:text-primary-blue transition duration-200">
@@ -67,9 +60,7 @@
                 </a>
             </div>
 
-            <!-- User Profile & Logout -->
             <div class="flex items-center space-x-4">
-                <!-- Merchant Info -->
                 <div class="hidden sm:flex items-center space-x-3 px-4 py-2 bg-soft-blue rounded-lg">
                     <div class="text-right">
                         <p class="text-sm font-semibold text-text-dark"><?= esc($session->get('merchant_name')) ?></p>
@@ -81,8 +72,6 @@
                         <?= strtoupper(substr($session->get('user_name'), 0, 1)) ?>
                     </div>
                 </div>
-
-                <!-- Logout Button -->
                 <a href="<?= base_url('logout') ?>" 
                    class="px-4 py-2 bg-red-500 text-white rounded-lg text-sm font-semibold hover:bg-red-600 transition duration-200 flex items-center space-x-2">
                     <i class="fas fa-sign-out-alt"></i>
@@ -93,11 +82,8 @@
     </div>
 </nav>
 
-<!-- Main Content -->
 <main class="flex-grow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        <!-- Flash Messages -->
         <?php if ($session->getFlashdata('success')): ?>
             <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-lg shadow-sm" role="alert">
                 <div class="flex items-center">

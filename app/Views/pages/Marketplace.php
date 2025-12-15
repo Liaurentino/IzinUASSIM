@@ -2,7 +2,6 @@
     <div class="main-card p-8 rounded-2xl shadow-xl transition duration-300 space-y-6">
         <h2 class="text-3xl font-bold text-text-dark">Marketplace</h2>
         
-        <!-- Search and Filter Bar -->
         <div class="flex items-center space-x-4">
             <div class="flex-grow flex items-center bg-white border border-gray-300 rounded-xl shadow-inner overflow-hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -16,8 +15,6 @@
                 </svg>
             </button>
         </div>
-
-        <!-- Product Grid -->
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 pt-4">
             <?php if (!empty($products)): ?>
                 <?php foreach ($products as $product): ?>

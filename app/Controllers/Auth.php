@@ -85,26 +85,22 @@ class Auth extends BaseController
 
             $redirectUrl = base_url('/');
 
-            // === CEK ROLE ADMIN ===
             if ($user['role'] === 'admin') {
                 $redirectUrl = base_url('admin/dashboard');
             } 
-            // === CEK MERCHANT ===
             else {
                 $merchant = $merchantModel->where('user_id', $user['id'])->first();
                 
                 if ($merchant) {
-                    // Simpan data merchant ke session
                     $sessData['merchant_id']     = $merchant['id'];
                     $sessData['merchant_status'] = $merchant['status'];
                     $sessData['merchant_name']   = $merchant['business_name'] ?? $merchant['merchant_name'];
 
-                    // PERBAIKAN: Gunakan 'approved' bukan 'Verified'
+                   
                     if ($merchant['status'] === 'approved') {
-                        // Update role ke merchant di session
+                    
                         $sessData['role'] = 'merchant';
-                        
-                        // Update role di database juga (untuk konsistensi)
+                
                         $userModel->update($user['id'], ['role' => 'merchant']);
                         
                     }
@@ -118,7 +114,6 @@ class Auth extends BaseController
                 }
             }
 
-            // Set Session Final
             $this->session->set($sessData);
             
             $this->session->setFlashdata('success', 'Login Berhasil! Selamat datang ' . $user['name']);

@@ -22,10 +22,7 @@ class AdminAuthFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $session = session();
-        
-        // Cek apakah user sudah login dan apakah rolenya admin
         if (! $session->get('isLoggedIn') || $session->get('role') !== 'admin') {
-            // Jika belum login atau bukan admin, redirect ke halaman login admin
             return redirect()->to(base_url('admin/login'))->with('error', 'Akses Admin Ditolak. Silahkan login sebagai Admin.');
         }
     }
@@ -39,6 +36,5 @@ class AdminAuthFilter implements FilterInterface
      */
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        // ...
     }
 }

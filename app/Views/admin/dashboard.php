@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Servify</title>
-    
-    <!-- Link ke CSS Admin -->
     <link rel="stylesheet" href="<?= base_url('css/admin.css'); ?>">
-    
-    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -80,7 +76,6 @@
                 <div class="stat-card">
                     <div class="stat-info">
                         <h3>Merchant Pending</h3>
-                        <!-- Menggunakan null coalescing operator agar aman jika variabel kosong -->
                         <div class="value"><?= count($pending_merchants ?? []) ?></div>
                     </div>
                     <div class="stat-icon pending">
@@ -89,7 +84,6 @@
                         </svg>
                     </div>
                 </div>
-                <!-- Tambahkan kartu statistik lain di sini jika perlu -->
             </div>
 
             <!-- Table Section -->

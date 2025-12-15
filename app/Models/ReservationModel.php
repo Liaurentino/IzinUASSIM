@@ -30,13 +30,6 @@ class ReservationModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    /* =========================
-       QUERY UTAMA
-    ========================== */
-
-    /**
-     * Ambil reservasi merchant
-     */
     public function getByMerchant(
         int $merchantId,
         ?string $status = null,
@@ -57,9 +50,6 @@ class ReservationModel extends Model
         return $builder->findAll();
     }
 
-    /**
-     * Ambil reservasi user
-     */
     public function getByUser(int $userId): array
     {
         return $this->where('user_id', $userId)
@@ -67,9 +57,6 @@ class ReservationModel extends Model
                     ->findAll();
     }
 
-    /**
-     * Hitung reservasi merchant berdasarkan status
-     */
     public function countByMerchant(int $merchantId, ?string $status = null): int
     {
         $builder = $this->where('merchant_id', $merchantId);
@@ -80,10 +67,6 @@ class ReservationModel extends Model
 
         return $builder->countAllResults();
     }
-
-    /**
-     * Update status reservasi
-     */
     public function updateStatus(int $id, string $status, ?string $notes = null): bool
     {
         $data = ['status' => $status];
@@ -95,9 +78,6 @@ class ReservationModel extends Model
         return $this->update($id, $data);
     }
 
-    /**
-     * Detail reservasi dengan merchant
-     */
     public function getWithMerchant(int $reservationId): ?array
     {
         return $this->select('reservations.*, merchants.business_name, merchants.address')

@@ -11,7 +11,6 @@
             </div>
 
             <div class="lg:col-span-2 space-y-6">
-                <!-- Info Produk -->
                 <div class="space-y-3">
                     <h1 class="text-4xl font-extrabold text-secondary-purple"><?= esc($product['name']) ?></h1>
                     <p class="text-sm text-gray-500"><?= esc($product['sold_count']) ?>+ Terjual • Rating <span class="text-yellow-500 font-bold">★ <?= esc($product['rating']) ?></span></p>
@@ -19,7 +18,6 @@
                     <p class="text-sm font-medium text-gray-700">Stock: <span class="font-semibold text-green-600"><?= esc($product['stock']) ?></span></p>
                 </div>
                 
-                <!-- Varian & Lokasi -->
                 <div class="flex items-center space-x-4">
                     <span class="inline-block bg-primary-blue text-white text-xs font-semibold px-3 py-1 rounded-full"><?= esc($product['variant'] ?? 'Varian') ?></span>
                     <div class="flex items-center text-gray-600 text-sm">
@@ -30,8 +28,6 @@
                         <span><?= esc($product['location'] ?? 'Lokasi') ?></span>
                     </div>
                 </div>
-
-                <!-- Aksi Beli -->
                 <div class="flex space-x-4 items-center">
                     <a href="#" class="bg-secondary-purple text-white py-3 px-8 rounded-xl font-bold text-lg shadow-lg hover:bg-opacity-90 transition duration-300">
                         Beli Langsung
@@ -48,15 +44,12 @@
                 </div>
             </div>
             
-            <!-- Deskripsi & Merchant -->
             <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-                <!-- Deskripsi Produk -->
                 <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 space-y-3">
                     <h3 class="text-xl font-bold text-text-dark">Deskripsi</h3>
                     <p class="text-gray-700"><?= nl2br(esc($product['description'])) ?></p>
                 </div>
                 
-                <!-- Info Merchant -->
                 <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 space-y-3">
                     <h3 class="text-xl font-bold text-text-dark">Toko / Merchant</h3>
                     <div class="flex items-start space-x-3">

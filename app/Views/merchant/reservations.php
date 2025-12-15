@@ -1,8 +1,4 @@
-<!-- File: app/Views/merchant/reservations_enhanced.php -->
-<!-- Ganti file app/Views/merchant/reservations.php dengan ini -->
-
 <div class="space-y-6">
-    <!-- PAGE HEADER -->
     <div class="flex items-center justify-between">
         <h1 class="text-3xl font-bold text-text-dark">Manajemen Reservasi Service</h1>
         <div class="flex gap-2">
@@ -13,7 +9,7 @@
         </div>
     </div>
 
-    <!-- STATS CARDS -->
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg">
             <p class="text-gray-600 text-sm">Menunggu Dikerjakan</p>
@@ -29,7 +25,6 @@
         </div>
     </div>
 
-    <!-- RESERVATIONS TABLE -->
     <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
         <?php if (!empty($reservations)): ?>
             <div class="overflow-x-auto">
@@ -153,7 +148,7 @@ function openDetailModal(id) {
     window.location.href = '<?= base_url('merchant/dashboard/reservations/detail/') ?>' + id;
 }
 
-// Handle form submission
+
 document.getElementById('updateStatusForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
@@ -185,7 +180,6 @@ document.getElementById('updateStatusForm').addEventListener('submit', async fun
     }
 });
 
-// Close modal when clicking outside
 document.getElementById('updateModal')?.addEventListener('click', function(e) {
     if (e.target === this) {
         closeUpdateModal();

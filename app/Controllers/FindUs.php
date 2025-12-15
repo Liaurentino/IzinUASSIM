@@ -10,8 +10,6 @@ class FindUs extends BaseController
     public function index()
     {
         $merchantModel = new MerchantModel();
-
-        // Ambil merchant yang sudah approved dan punya koordinat
         $merchants = $merchantModel
             ->select('
                 merchants.id,

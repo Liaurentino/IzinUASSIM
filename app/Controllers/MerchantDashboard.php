@@ -59,9 +59,7 @@ class MerchantDashboard extends BaseController
         return $this->renderMerchantView('merchant/dashboard_content', $data);
     }
 
-    /* =========================
-       KELOLA PRODUK
-    ========================== */
+
       public function products()
     {
         $userId = session()->get('user_id');
@@ -123,10 +121,6 @@ class MerchantDashboard extends BaseController
         return redirect()->to(base_url('merchant/dashboard'))->with('success', 'Produk berhasil ditambahkan!');
     }
 
-    /* =========================
-       KELOLA RESERVASI
-    ========================== */
-
    public function reservations()
 {
     $userId = session()->get('user_id');
@@ -134,10 +128,7 @@ class MerchantDashboard extends BaseController
         ->where('user_id', $userId)
         ->first();
 
-    // Ambil filter status dari URL
     $currentFilter = $this->request->getGet('status') ?? 'all';
-
-    // Query dasar
     $builder = $this->reservationModel
         ->where('merchant_id', $merchant['id']);
 
@@ -149,7 +140,6 @@ class MerchantDashboard extends BaseController
         ->orderBy('reservation_date', 'DESC')
         ->findAll();
 
-    // Statistik
     $stats = [
         'pending'     => $this->reservationModel->where([
             'merchant_id' => $merchant['id'],
@@ -175,9 +165,7 @@ class MerchantDashboard extends BaseController
         'currentFilter' => $currentFilter
     ]);
 }
-    /* =========================
-       DETAIL RESERVASI
-    ========================== */
+    
 
     public function reservationDetail(int $id)
     {
@@ -199,9 +187,6 @@ class MerchantDashboard extends BaseController
         return $this->renderMerchantView('merchant/reservation_detail', $data);
     }
 
-    /* =========================
-       UPDATE STATUS
-    ========================== */
 
     public function updateReservationStatus(int $id)
     {

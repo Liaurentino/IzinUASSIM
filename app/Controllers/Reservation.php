@@ -14,12 +14,9 @@ class Reservation extends BaseController
         $this->merchantModel = new MerchantModel();
     }
 
-    /**
-     * Tampilkan halaman reservasi dengan list merchant yang approved
-     */
     public function index()
     {
-        // Ambil semua merchant yang sudah di-approve
+    
         $approvedMerchants = $this->merchantModel->getApprovedMerchants();
 
         $data = [
@@ -30,10 +27,6 @@ class Reservation extends BaseController
         
         return $this->renderView('pages/reservation', $data);
     }
-
-    /**
-     * API untuk mendapatkan merchant berdasarkan pencarian
-     */
     public function getMerchants()
     {
         if (!$this->request->isAJAX()) {
@@ -52,12 +45,9 @@ class Reservation extends BaseController
         ]);
     }
 
-    /**
-     * Proses pembuatan reservasi
-     */
+
     public function create()
     {
-        // Validasi input
         if (! $this->validate([
             'name'             => 'required|min_length[3]',
             'phone'            => 'required|min_length[10]|max_length[15]',
@@ -71,14 +61,12 @@ class Reservation extends BaseController
         }
 
         $merchantId = (int) $this->request->getPost('merchant_id');
-        
-        // Verifikasi merchant ada dan status approved
+    
         $merchant = $this->merchantModel->find($merchantId);
         if (!$merchant || $merchant['status'] !== 'approved') {
             return redirect()->back()->with('error', 'Merchant tidak valid atau belum di-approve.');
         }
 
-        // Simpan reservasi
         $data = [
             'user_id'           => $this->session->get('user_id') ?? null,
             'merchant_id'       => $merchantId,
@@ -88,7 +76,7 @@ class Reservation extends BaseController
             'laptop_model'      => $this->request->getPost('laptop_model'),
             'complaint'         => $this->request->getPost('complaint'),
             'reservation_date'  => $this->request->getPost('reservation_date'),
-            'service_location'  => $this->request->getPost('merchant_name'), // Nama merchant sebagai lokasi
+            'service_location'  => $this->request->getPost('merchant_name'), 
             'status'            => 'Pending',
         ];
 
@@ -121,9 +109,7 @@ class Reservation extends BaseController
         return $this->renderView('pages/my_reservations', $data);
     }
 
-    /**
-     * Halaman detail reservasi
-     */
+
     public function detail($id)
     {
         $reservation = $this->reservationModel->getWithMerchantDetails($id);

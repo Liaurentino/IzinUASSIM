@@ -48,8 +48,8 @@ class BaseController extends Controller
 
     /**
      * Fungsi helper untuk rendering view dengan layout
-     * @param string $page Path view yang akan di-load (misal: 'pages/home')
-     * @param array $data Data yang akan dikirim ke view
+     * @param string $page 
+     * @param array $data 
      */
     protected function renderView($page, $data = [])
     {

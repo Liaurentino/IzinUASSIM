@@ -54,7 +54,7 @@
                                     data-address="<?= esc($merchant['address']) ?>"
                                     data-phone="<?= esc($merchant['phone']) ?>"
                                     <?= old('merchant_id') == $merchant['id'] ? 'selected' : '' ?>>
-                                📍 <?= esc($merchant['business_name']) ?> - <?= esc($merchant['address']) ?>
+                                 <?= esc($merchant['business_name']) ?> - <?= esc($merchant['address']) ?>
                             </option>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -64,7 +64,7 @@
                     <p class="text-red-500 text-xs mt-1"><?= esc($validation->getError('merchant_id')) ?></p>
                 <?php endif; ?>
 
-                <!-- Merchant Info Display -->
+
                 <div id="merchantInfo" class="mt-3 p-4 bg-blue-50 rounded-xl hidden">
                     <p class="text-sm font-semibold text-primary-blue mb-2" id="infoTitle"></p>
                     <p class="text-sm text-gray-600 mb-1"><strong>Alamat:</strong> <span id="infoAddress"></span></p>
@@ -72,7 +72,6 @@
                 </div>
             </div>
 
-            <!-- Hidden input untuk merchant name -->
             <input type="hidden" id="merchant_name" name="merchant_name" value="<?= old('merchant_name') ?>">
 
             <div>
@@ -139,7 +138,6 @@ function updateMerchantName() {
     }
 }
 
-// Search merchant dengan AJAX
 function searchMerchants() {
     const search = document.getElementById('merchantSearch').value;
     
@@ -181,7 +179,6 @@ function clearSearch() {
     location.reload();
 }
 
-// Validasi form sebelum submit
 document.getElementById('reservationForm').addEventListener('submit', function(e) {
     const merchantId = document.getElementById('merchant_id').value;
     

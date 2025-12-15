@@ -18,8 +18,7 @@ class ProductModel extends Model
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    
-    // Relasi ke tabel merchants
+
     public function merchant()
     {
         return $this->belongsTo(MerchantModel::class, 'merchant_id');
